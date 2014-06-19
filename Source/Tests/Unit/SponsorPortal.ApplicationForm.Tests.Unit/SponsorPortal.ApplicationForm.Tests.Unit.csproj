@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</ProjectGuid>
+    <ProjectGuid>{9878EC5D-B5B5-42C0-BE8B-922A0FFB0591}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SponsorPortal.Infrastructure</RootNamespace>
-    <AssemblyName>SponsorPortal.Infrastructure</AssemblyName>
+    <RootNamespace>SponsorPortal.ApplicationForm.Tests.Unit</RootNamespace>
+    <AssemblyName>SponsorPortal.ApplicationForm.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    <Reference Include="Moq">
+      <HintPath>..\..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
-      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,21 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateRoot.cs" />
-    <Compile Include="CommandDispatcher.cs" />
-    <Compile Include="EventBase.cs" />
-    <Compile Include="IAggregateRoot.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="ICommandDispatcher.cs" />
-    <Compile Include="ICommandHandler.cs" />
-    <Compile Include="IEvent.cs" />
-    <Compile Include="IEventStore.cs" />
-    <Compile Include="IoC.cs" />
-    <Compile Include="Projection.cs" />
+    <Compile Include="ApplicationFormServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
+      <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
+      <Name>SponsorPortal.ApplicationForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
+      <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
+      <Name>SponsorPortal.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

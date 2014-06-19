@@ -112,9 +112,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceptionController.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
+      <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
+      <Name>SponsorPortal.ApplicationForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
       <Project>{c862cff4-b99e-43d0-8803-e4200824dc2c}</Project>
       <Name>SponsorPortal.EventStore</Name>

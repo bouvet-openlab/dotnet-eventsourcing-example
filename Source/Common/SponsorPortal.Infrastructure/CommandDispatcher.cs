@@ -1,8 +1,8 @@
 ﻿namespace SponsorPortal.Infrastructure
 {
-    public static class CommandDispatcher
+    public class CommandDispatcher : ICommandDispatcher
     {
-        public static void Execute<TCommand>(this TCommand command) where TCommand : ICommand
+        public void Execute<TCommand>(TCommand command) where TCommand : ICommand
         {
             var commandHandlers = IoC.ResolveAll<ICommandHandler<TCommand>>();
 
