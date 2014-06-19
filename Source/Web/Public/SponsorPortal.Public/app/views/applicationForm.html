@@ -1,0 +1,41 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                <h1>Sponsor Portal</h1>
+                <h2>Public application form</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" class="form-control" ng-model="applicationForm.organization" id="organization" placeholder="Enter name of organization or company" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" class="form-control" ng-model="applicationForm.email" id="email" placeholder="Enter email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="moneyAmount">Amount</label>
+                            <input type="number" class="form-control" ng-model="applicationForm.amount" id="moneyAmount" placeholder="Enter the amount of money you're applying for" />
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" ng-model="applicationForm.title" id="title" placeholder="Enter a title" />
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Application</label>
+                            <textarea rows="7" class="form-control" ng-model="applicationForm.text" id="text" placeholder="Enter application text"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="submitApplication()">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+            <br/><br/>
+            <pre>{{applicationForm}}</pre>
+        </div>
+    </div>
+</div>
