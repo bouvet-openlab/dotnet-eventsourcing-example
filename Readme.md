@@ -1,0 +1,1 @@
+known issues: Helios (Owin-iis) on iis express may return http 500 internal server error saying the configuration is invalid. To fix, run the ClearIISExpressCache script. This is an alpha-release related issue.
