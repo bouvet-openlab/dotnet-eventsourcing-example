@@ -1,14 +1,16 @@
-﻿namespace SponsorPortal.Infrastructure
+﻿using System.Threading.Tasks;
+
+namespace SponsorPortal.Infrastructure
 {
     public class CommandDispatcher : ICommandDispatcher
     {
-        public void Execute<TCommand>(TCommand command) where TCommand : ICommand
+        public async Task Execute<TCommand>(TCommand command) where TCommand : ICommand
         {
             var commandHandlers = IoC.ResolveAll<ICommandHandler<TCommand>>();
 
             foreach (var handler in commandHandlers)
             {
-                handler.Handle(command);
+                await handler.Handle(command);
             }
         }
     }

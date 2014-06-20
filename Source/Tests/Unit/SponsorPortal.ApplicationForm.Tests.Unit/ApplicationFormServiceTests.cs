@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
+using SponsorPortal.TestDataBuilders;
 
 namespace SponsorPortal.ApplicationForm.Tests.Unit
 {
@@ -20,13 +16,13 @@ namespace SponsorPortal.ApplicationForm.Tests.Unit
         }
 
         [Test]
-        public void HandlesCreateNewApplicationFormCommand_CreatesEventForNewApplicationForm()
+        public async void HandlesCreateNewApplicationFormCommand_CreatesEventForNewApplicationForm()
         {
             var service = new ApplicationFormService(_applicationFormRepository.Object);
-            var applicationForm = new ApplicationFormDTO("organization", "mail@mail.com", 123, "title", "text");
+            var applicationForm = new ApplicationFormDTOBuilder().Build();
             var command = new CreateNewApplicationFormCommand(applicationForm);
             
-            service.Handle(command);
+            await service.Handle(command);
             
             _applicationFormRepository.Verify(repo => repo.Store(It.Is<CreatedNewApplicationFormEvent>(evnt => HasSameContent(applicationForm, evnt))));
         }

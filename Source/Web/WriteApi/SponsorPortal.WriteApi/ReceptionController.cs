@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using SponsorPortal.ApplicationForm;
 using SponsorPortal.Infrastructure;
@@ -17,13 +18,13 @@ namespace SponsorPortal.WriteApi
 
         [HttpPost]
         [Route("applicationform")]
-        public IHttpActionResult SaveNew([FromBody] ApplicationFormDTO applicationForm)
+        public async Task<IHttpActionResult> SaveNew([FromBody] ApplicationFormDTO applicationForm)
         {
             if (applicationForm == null)
                 return BadRequest("The application form is invalid");
 
             var command = new CreateNewApplicationFormCommand(applicationForm);
-            _commandDispatcher.Execute(command);
+            await _commandDispatcher.Execute(command);
 
             return Ok("Application form received");
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
@@ -13,10 +14,10 @@ namespace SponsorPortal.ApplicationForm
             _applicationFormRespository = applicationFormRespository;
         }
 
-        public void Handle(CreateNewApplicationFormCommand command)
+        public async Task Handle(CreateNewApplicationFormCommand command)
         {
             var createdNewApplicationFormEvent = ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
-            _applicationFormRespository.Store(createdNewApplicationFormEvent);
+            await _applicationFormRespository.Store(createdNewApplicationFormEvent);
         }
     }
 }

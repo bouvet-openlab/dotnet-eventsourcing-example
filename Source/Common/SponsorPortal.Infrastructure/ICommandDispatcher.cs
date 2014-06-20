@@ -1,7 +1,9 @@
-﻿namespace SponsorPortal.Infrastructure
+﻿using System.Threading.Tasks;
+
+namespace SponsorPortal.Infrastructure
 {
     public interface ICommandDispatcher
     {
-        void Execute<TCommand>(TCommand command) where TCommand : ICommand;
+        Task Execute<TCommand>(TCommand command) where TCommand : ICommand;
     }
 }

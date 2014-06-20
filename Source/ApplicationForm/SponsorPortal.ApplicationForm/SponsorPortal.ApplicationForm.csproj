@@ -31,6 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>..\..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationForm.cs" />
+    <Compile Include="ApplicationFormProjection.cs" />
+    <Compile Include="ApplicationFormRepository.cs" />
     <Compile Include="ApplicationFormService.cs" />
     <Compile Include="CreatedNewApplicationFormEvent.cs" />
     <Compile Include="CreateNewApplicationFormCommand.cs" />
@@ -52,6 +57,9 @@
       <Project>{b96d8492-4472-41f3-9cc0-c136edb03d6b}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

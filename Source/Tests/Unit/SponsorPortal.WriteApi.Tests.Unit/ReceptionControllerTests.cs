@@ -24,33 +24,33 @@ namespace SponsorPortal.WriteApi.Tests.Unit
         }
 
         [Test]
-        public void WhenSavingNewApplicationForm_ApplicationFormIsNull_ReturnsStatusCode400BadRequest()
+        public async void WhenSavingNewApplicationForm_ApplicationFormIsNull_ReturnsStatusCode400BadRequest()
         {
             var controller = new ReceptionController(_commandDispatcher.Object);
 
-            var response = controller.SaveNew(null) as BadRequestErrorMessageResult;
+            var response = await controller.SaveNew(null) as BadRequestErrorMessageResult;
 
             Assert.NotNull(response);
         }
 
         [Test]
-        public void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_SendsCreateNewApplicationCommand()
+        public async void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_SendsCreateNewApplicationCommand()
         {
             var applicationForm = new ApplicationFormDTO("organization", "mail@mail.com", 123, "title", "text");
             var controller = new ReceptionController(_commandDispatcher.Object);
 
-            controller.SaveNew(applicationForm);
+            await controller.SaveNew(applicationForm);
 
             _commandDispatcher.Verify(cmdDisp => cmdDisp.Execute(It.IsAny<CreateNewApplicationFormCommand>()));
         }
 
         [Test]
-        public void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_ReturnsStatusCode200Ok()
+        public async void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_ReturnsStatusCode200Ok()
         {
             var applicationForm = new ApplicationFormDTO("organization", "mail@mail.com", 123, "title", "text");
             var controller = new ReceptionController(_commandDispatcher.Object);
 
-            var response = controller.SaveNew(applicationForm) as OkNegotiatedContentResult<string>;
+            var response = await controller.SaveNew(applicationForm) as OkNegotiatedContentResult<string>;
 
             Assert.NotNull(response);
         }

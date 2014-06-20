@@ -1,4 +1,6 @@
-﻿namespace SponsorPortal.Infrastructure
+﻿using System.Threading.Tasks;
+
+namespace SponsorPortal.Infrastructure
 {
     public interface ICommandHandler
     {
@@ -7,6 +9,6 @@
 
     public interface ICommandHandler<in TCommand>
     {
-        void Handle(TCommand command);
+        Task Handle(TCommand command);
     }
 }
