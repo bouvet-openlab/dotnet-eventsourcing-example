@@ -51,6 +51,8 @@
     <Compile Include="ApplicationFormDTOTests.cs" />
     <Compile Include="ApplicationFormProjectionTests.cs" />
     <Compile Include="ApplicationFormServiceTests.cs" />
+    <Compile Include="AssignClerkCommandTests.cs" />
+    <Compile Include="ClerkAssignedToApplicationFormEventTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

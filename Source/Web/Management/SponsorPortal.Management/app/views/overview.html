@@ -1,0 +1,36 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>Title</th>
+                    <th>Created date</th>
+                    <th>Last updated</th>
+                    <th>Clerk</th>
+                    <th>Status</th>
+                    <th>View</th>
+                </tr>
+                <tr ng-repeat="applicationForm in applicationForms">
+                    <td>
+                        {{applicationForm.title}}
+                    </td>
+                    <td>
+                        {{applicationForm.createdTimestamp}}
+                    </td>
+                    <td>
+                        {{applicationForm.updatedTimestamp}}
+                    </td>
+                    <td>
+                        {{applicationForm.clerk.name}}
+                    </td>
+                    <td>
+                        <span ng-class="getLabelForStatus(applicationForm.status)">{{applicationForm.status}}</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary">View</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

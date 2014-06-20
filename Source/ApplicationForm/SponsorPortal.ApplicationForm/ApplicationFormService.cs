@@ -4,7 +4,7 @@ using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
 {
-    public class ApplicationFormService : ICommandHandler<CreateNewApplicationFormCommand>
+    public class ApplicationFormService : ICommandHandler<CreateNewApplicationFormCommand>, ICommandHandler<AssignClerkCommand>
     {
         private readonly IApplicationFormRespository _applicationFormRespository;
 
@@ -18,6 +18,13 @@ namespace SponsorPortal.ApplicationForm
         {
             var createdNewApplicationFormEvent = ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
             await _applicationFormRespository.Store(createdNewApplicationFormEvent);
+        }
+
+        public async Task Handle(AssignClerkCommand command)
+        {
+            var applicationForm = _applicationFormRespository.GetApplicationForm(command.ApplicationFormId);
+            var clerkAssignedToApplicationFormEvent = applicationForm.AssignClerk(command.ClerkId);
+            await _applicationFormRespository.Store(clerkAssignedToApplicationFormEvent);
         }
     }
 }

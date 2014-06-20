@@ -46,6 +46,8 @@
     <Compile Include="ApplicationFormProjection.cs" />
     <Compile Include="ApplicationFormRepository.cs" />
     <Compile Include="ApplicationFormService.cs" />
+    <Compile Include="AssignClerkCommand.cs" />
+    <Compile Include="ClerkAssignedToApplicationFormEvent.cs" />
     <Compile Include="CreatedNewApplicationFormEvent.cs" />
     <Compile Include="CreateNewApplicationFormCommand.cs" />
     <Compile Include="ApplicationFormDTO.cs" />

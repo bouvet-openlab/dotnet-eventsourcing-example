@@ -6,6 +6,6 @@ namespace SponsorPortal.Infrastructure
     {
         Guid Id { get; }
         DateTime CreatedTimestamp { get; }
-        AggregateRoot AggregateRoot { get; }
+        string AggregateRootIdentifier { get; }
     }
 }
