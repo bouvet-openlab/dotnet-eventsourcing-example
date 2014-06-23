@@ -38,10 +38,10 @@ Thirdparty
     http://localhost:8200/sponsorportal
 
   * Query API  
-    http://localhost:8300/sponsorportal
+    http://localhost:8300/sponsorportal/api
 
   * Command API  
-    http://localhost:8400/sponsorportal
+    http://localhost:8400/sponsorportal/api
 
 * Aggregate roots
   * Application Form
