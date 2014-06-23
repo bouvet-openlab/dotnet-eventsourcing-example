@@ -27,7 +27,7 @@
                         <span ng-class="getLabelForStatus(applicationForm.status)">{{applicationForm.status}}</span>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary">View</button>
+                        <a ng-href="#/applicationform?appid={{applicationForm.id}}">View</a>
                     </td>
                 </tr>
             </table>

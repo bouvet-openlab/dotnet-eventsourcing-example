@@ -1,6 +1,76 @@
 ﻿<div class="container">
     <div class="row">
         <div class="col-lg-12">
+            <div class="h3">
+                "{{applicationForm.title}}"
+                <div class="pull-right">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-success">Grant</button>
+                    <button type="button" class="btn btn-warning">Reject</button>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form role="form">
+                <div class="form-group">
+                    <label>Status</label><br/>
+                    <span class="h4"><span ng-class="getLabelForStatus(applicationForm.status)">{{applicationForm.status}}</span></span>
+                </div>
+                <div class="form-group">
+                    <label for="clerk">Assigned clerk</label>
+                    <div class="form-inline">
+                        <input type="text" class="form-control" ng-model="applicationForm.clerk.name" id="clerk" placeholder="Assigned clerk" />
+                        <button type="button" class="btn btn-primary">Assign clerk</button>
+                    </div>
+                </div>
+            </form>
+            <div class="well">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" class="form-control" ng-model="applicationForm.organization" id="organization" placeholder="Enter name of organization or company" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" class="form-control" ng-model="applicationForm.email" id="email" placeholder="Enter email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="moneyAmount">Amount</label>
+                        <input type="number" class="form-control" ng-model="applicationForm.amount" id="moneyAmount" placeholder="Enter the amount of money you're applying for" />
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" ng-model="applicationForm.title" id="title" placeholder="Enter a title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Application</label>
+                        <textarea rows="7" class="form-control" ng-model="applicationForm.text" id="text" placeholder="Enter application text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <label for="createdTimestamp">History</label>
+                    <ul>
+                        <li ng-repeat="entry in applicationForm.history">
+                            <strong>{{entry.user}} {{entry.date}}</strong><br/>
+                            {{entry.message}}
+                            <br/><br/>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <label for="createdTimestamp">Created</label>
+                    <input type="text" class="form-control" ng-model="applicationForm.createdTimestamp" id="createdTimestamp" placeholder="Created timestamp" />
+                </div>
+                <div class="form-group">
+                    <label for="updatedTimestamp">Last updated</label>
+                    <input type="text" class="form-control" ng-model="applicationForm.updatedTimestamp" id="updatedTimestamp" placeholder="Updated timestamp" />
+                </div>
+            </form>
             
         </div>
     </div>
