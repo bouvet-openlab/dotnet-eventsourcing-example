@@ -7,8 +7,8 @@
     <ProjectGuid>{106DC38B-2257-4EFD-AC88-062EA34CE3D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SponsorPortal.WriteApi.Tests.Unit</RootNamespace>
-    <AssemblyName>SponsorPortal.WriteApi.Tests.Unit</AssemblyName>
+    <RootNamespace>SponsorPortal.CommandApi.Tests.Unit</RootNamespace>
+    <AssemblyName>SponsorPortal.CommandApi.Tests.Unit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -73,9 +73,9 @@
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Web\WriteApi\SponsorPortal.WriteApi\SponsorPortal.WriteApi.csproj">
-      <Project>{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}</Project>
-      <Name>SponsorPortal.WriteApi</Name>
+    <ProjectReference Include="..\..\..\Web\CommandApi\SponsorPortal.CommandApi\SponsorPortal.CommandApi.csproj">
+      <Project>{a20ac085-2c3c-4456-bcd0-3c8100b39bdf}</Project>
+      <Name>SponsorPortal.CommandApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

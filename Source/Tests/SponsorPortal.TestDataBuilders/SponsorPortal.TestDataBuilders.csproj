@@ -45,11 +45,11 @@
     <Compile Include="TestDataBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
+    <ProjectReference Include="..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
       <Name>SponsorPortal.ApplicationForm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>

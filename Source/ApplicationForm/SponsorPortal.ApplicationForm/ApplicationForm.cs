@@ -28,7 +28,7 @@ namespace SponsorPortal.ApplicationForm
         
         public static CreatedNewApplicationFormEvent CreateNew(string organization, string email, double amount, string title, string text)
         {
-            return new CreatedNewApplicationFormEvent("ApplicationForm", organization, email, amount, title, text);
+            return new CreatedNewApplicationFormEvent(organization, email, amount, title, text);
         }
         
         public override string Identifier

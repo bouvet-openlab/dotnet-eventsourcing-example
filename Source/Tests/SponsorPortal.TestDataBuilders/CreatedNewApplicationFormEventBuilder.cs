@@ -52,7 +52,7 @@ namespace SponsorPortal.TestDataBuilders
         
         public override CreatedNewApplicationFormEvent Build()
         {
-            return new CreatedNewApplicationFormEvent(new ApplicationForm.ApplicationForm(), _organization, _email, _amount, _title, _text);
+            return new CreatedNewApplicationFormEvent(_organization, _email, _amount, _title, _text);
         }
     }
 }

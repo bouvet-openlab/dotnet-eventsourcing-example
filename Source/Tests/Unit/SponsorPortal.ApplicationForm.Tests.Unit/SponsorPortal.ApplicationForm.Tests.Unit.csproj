@@ -71,8 +71,8 @@
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\SponsorPortal.TestDataBuilders\SponsorPortal.TestDataBuilders.csproj">
-      <Project>{1F14994C-5379-4390-AD5B-D3F1FF24E25B}</Project>
+    <ProjectReference Include="..\..\SponsorPortal.TestDataBuilders\SponsorPortal.TestDataBuilders.csproj">
+      <Project>{1f14994c-5379-4390-ad5b-d3f1ff24e25b}</Project>
       <Name>SponsorPortal.TestDataBuilders</Name>
     </ProjectReference>
   </ItemGroup>

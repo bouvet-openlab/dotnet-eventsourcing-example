@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http.Results;
+﻿using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
 using SponsorPortal.ApplicationForm;
 using SponsorPortal.Infrastructure;
-using Moq;
 
-namespace SponsorPortal.WriteApi.Tests.Unit
+namespace SponsorPortal.CommandApi.Tests.Unit
 {
     [TestFixture]
     public class ReceptionControllerTests

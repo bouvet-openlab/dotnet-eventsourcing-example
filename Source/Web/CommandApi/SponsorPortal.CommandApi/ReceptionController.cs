@@ -4,7 +4,7 @@ using System.Web.Http;
 using SponsorPortal.ApplicationForm;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.WriteApi
+namespace SponsorPortal.CommandApi
 {
     public class ReceptionController : ApiController
     {

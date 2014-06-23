@@ -11,8 +11,8 @@ namespace SponsorPortal.ApplicationForm
         private readonly string _title;
         private readonly string _text;
 
-        public CreatedNewApplicationFormEvent(string aggregateRootIdentifier, string organization, string email, double amount, string title, string text)
-            : base(aggregateRootIdentifier)
+        public CreatedNewApplicationFormEvent(string organization, string email, double amount, string title, string text)
+            : base("ApplicationForm")
         {
             if (organization == null) throw new ArgumentNullException("organization");
             if (email == null) throw new ArgumentNullException("email");

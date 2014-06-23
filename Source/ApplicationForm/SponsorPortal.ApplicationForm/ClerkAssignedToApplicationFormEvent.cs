@@ -8,9 +8,8 @@ namespace SponsorPortal.ApplicationForm
         public Guid ApplicationFormId { get; private set; }
         public string ClerkId { get; private set; }
 
-        public ClerkAssignedToApplicationFormEvent(AggregateRoot aggregateRoot, Guid applicationFormId, string clerkId) : base(aggregateRoot)
+        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, string clerkId) : base("ApplicationForm")
         {
-            if (aggregateRoot == null) throw new ArgumentNullException("aggregateRoot");
             if (String.IsNullOrEmpty(clerkId)) throw new ArgumentNullException("clerkId");
             ApplicationFormId = applicationFormId;
             ClerkId = clerkId;

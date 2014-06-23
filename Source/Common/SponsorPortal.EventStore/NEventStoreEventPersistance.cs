@@ -27,7 +27,7 @@ namespace SponsorPortal.EventStore
         {
             await Task.Run(() =>
             {
-                using (var stream = _eventStore.OpenStream(evnt.AggregateRoot.Identifier))
+                using (var stream = _eventStore.OpenStream(evnt.AggregateRootIdentifier))
                 {
                     var metadata = new Dictionary<string, object>
                             {
