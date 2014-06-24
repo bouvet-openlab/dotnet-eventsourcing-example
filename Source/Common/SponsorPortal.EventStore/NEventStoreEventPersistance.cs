@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using NEventStore;
+using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.EventStore
@@ -27,11 +28,11 @@ namespace SponsorPortal.EventStore
         {
             await Task.Run(() =>
             {
-                using (var stream = _eventStore.OpenStream(evnt.AggregateRootIdentifier))
+                using (var stream = _eventStore.OpenStream(evnt.AggregateRootIdentifier.ToString()))
                 {
                     var metadata = new Dictionary<string, object>
                             {
-                                {"Id", evnt.Id},
+                                {"Id", evnt.EntityId},
                                 {"CreatedTimestamp", evnt.CreatedTimestamp}
                             };
 
@@ -41,11 +42,11 @@ namespace SponsorPortal.EventStore
             });
         }
 
-        public async Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoot aggregateRoot) where TEvent : IEvent
+        public async Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent
         {
             return await Task.Run(() =>
             {
-                using (var stream = _eventStore.OpenStream(aggregateRoot.Identifier))
+                using (var stream = _eventStore.OpenStream(aggregateRoot.ToString()))
                 {
                     return stream.CommittedEvents.Where(evnt => evnt.Body is TEvent)
                                                  .Select(evnt => evnt.Body)

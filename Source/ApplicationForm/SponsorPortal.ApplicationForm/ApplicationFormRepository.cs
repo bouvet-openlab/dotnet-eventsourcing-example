@@ -1,35 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.EventStore;
+using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
 {
     public class ApplicationFormRepository : IApplicationFormRespository
     {
-        private readonly IEventStore _eventStore;
-        public ApplicationFormRepository(IEventStore eventStore)
+        private readonly IEventPersistance _eventPersistance;
+
+        public ApplicationFormRepository(IEventPersistance eventPersistance)
         {
-            if (eventStore == null) throw new ArgumentNullException("eventStore");
-            _eventStore = eventStore;
+            if (eventPersistance == null) throw new ArgumentNullException("eventPersistance");
+            _eventPersistance = eventPersistance;
+        }
+        
+        public async Task<ApplicationForm> GetApplicationForm(Guid applicationFormId)
+        {
+            var events = await _eventPersistance.ReadAllEvents<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm);
+            return events.Where(evnt => evnt.EntityId == applicationFormId)
+                         .Select(evnt => new ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
+                         .SingleOrDefault();
         }
 
-        public ApplicationForm CreateNewApplication(string organization, string email, double amount, string title, string text)
+        public async Task Store(IEvent evnt)
         {
-            return new ApplicationForm(organization, email, amount, title, text);
-        }
-
-        public ApplicationForm GetApplicationForm(Guid applicationFormId)
-        {
-            return null;
-        }
-
-        public async Task Store(CreatedNewApplicationFormEvent evnt)
-        {
-            await _eventStore.Tell(evnt);
+            await _eventPersistance.StoreEvent(evnt);
         }
     }
 }

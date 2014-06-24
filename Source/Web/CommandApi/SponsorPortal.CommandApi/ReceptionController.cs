@@ -26,7 +26,7 @@ namespace SponsorPortal.CommandApi
             var command = new CreateNewApplicationFormCommand(applicationForm);
             await _commandDispatcher.Execute(command);
 
-            return Ok("Application form received");
+            return Ok(String.Format("Application form for \"{0}\" received", applicationForm.Title));
         }
     }
 }

@@ -22,9 +22,9 @@ namespace SponsorPortal.ApplicationForm.Query
 
         private void OnNewApplicationCreated(CreatedNewApplicationFormEvent evnt)
         {
-            Debug.WriteLine((string) ("Received event " + evnt));
+            Debug.WriteLine("Received event " + evnt);
 
-            ApplicationForms = ApplicationForms.Add(new ApplicationForm(evnt.Id,
+            ApplicationForms = ApplicationForms.Add(new ApplicationForm(evnt.EntityId,
                                                                         evnt.Organization,
                                                                         evnt.Email,
                                                                         evnt.Amount,

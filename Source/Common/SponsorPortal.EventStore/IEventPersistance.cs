@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Threading.Tasks;
+using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.EventStore
@@ -8,6 +9,6 @@ namespace SponsorPortal.EventStore
     {
         void Initialize();
         Task StoreEvent(IEvent evnt);
-        Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoot aggregateRoot) where TEvent : IEvent;
+        Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent;
     }
 }

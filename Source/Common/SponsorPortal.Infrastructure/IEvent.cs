@@ -1,11 +1,12 @@
 ﻿using System;
+using SponsorPortal.Helpers;
 
 namespace SponsorPortal.Infrastructure
 {
     public interface IEvent
     {
-        Guid Id { get; }
+        Guid EntityId { get; }
         DateTime CreatedTimestamp { get; }
-        string AggregateRootIdentifier { get; }
+        AggregateRoots AggregateRootIdentifier { get; }
     }
 }

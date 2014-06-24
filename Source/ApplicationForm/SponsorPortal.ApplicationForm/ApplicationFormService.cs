@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
@@ -22,7 +23,10 @@ namespace SponsorPortal.ApplicationForm
 
         public async Task Handle(AssignClerkCommand command)
         {
-            var applicationForm = _applicationFormRespository.GetApplicationForm(command.ApplicationFormId);
+            var applicationForm = await _applicationFormRespository.GetApplicationForm(command.ApplicationFormId);
+            if (applicationForm == null)
+                throw new ApplicationFormNotFoundException("Could not find application form with id " + command.ApplicationFormId);
+
             var clerkAssignedToApplicationFormEvent = applicationForm.AssignClerk(command.ClerkId);
             await _applicationFormRespository.Store(clerkAssignedToApplicationFormEvent);
         }

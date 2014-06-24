@@ -53,6 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
+      <Project>{CF259392-692F-43B1-B7A8-32AC43EEFA43}</Project>
+      <Name>SponsorPortal.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>

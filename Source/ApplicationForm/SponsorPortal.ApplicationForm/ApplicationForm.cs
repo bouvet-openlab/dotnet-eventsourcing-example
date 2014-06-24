@@ -1,5 +1,6 @@
 ﻿using System;
 using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
@@ -12,7 +13,7 @@ namespace SponsorPortal.ApplicationForm
         public string Title { get; private set; }
         public string Text { get; private set; }
 
-        public ApplicationForm(string organization, string email, double amount, string title, string text)
+        public ApplicationForm(Guid id, string organization, string email, double amount, string title, string text) : base(id)
         {
             if (String.IsNullOrEmpty(organization)) throw new ArgumentNullException("organization");
             if (String.IsNullOrEmpty(email)) throw new ArgumentNullException("email");
@@ -26,20 +27,26 @@ namespace SponsorPortal.ApplicationForm
             Title = title;
             Text = text;
         }
-        
-        public static CreatedNewApplicationFormEvent CreateNew(string organization, string email, double amount, string title, string text)
+
+        public ApplicationForm(string organization, string email, double amount, string title, string text)
+            : this(Guid.NewGuid(), organization, email, amount, title, text)
         {
-            return new CreatedNewApplicationFormEvent(organization, email, amount, title, text);
-        }
-        
-        public override string Identifier
-        {
-            get { return "ApplicationForm"; }
+            
         }
 
-        public CreatedNewApplicationFormEvent AssignClerk(string clerkId)
+        public override AggregateRoots AggregateRootIdentifier
         {
-            throw new System.NotImplementedException();
+            get { return AggregateRoots.ApplicationForm; }
+        }
+
+        public static CreatedNewApplicationFormEvent CreateNew(string organization, string email, double amount, string title, string text)
+        {
+            return new CreatedNewApplicationFormEvent(AggregateRoots.ApplicationForm, organization, email, amount, title, text);
+        }
+      
+        public ClerkAssignedToApplicationFormEvent AssignClerk(string clerkId)
+        {
+            return new ClerkAssignedToApplicationFormEvent(Id, clerkId);
         }
     }
 }

@@ -52,6 +52,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
+      <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
+      <Name>SponsorPortal.EventStore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
+      <Project>{cf259392-692f-43b1-b7a8-32ac43eefa43}</Project>
+      <Name>SponsorPortal.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
       <Project>{b96d8492-4472-41f3-9cc0-c136edb03d6b}</Project>
       <Name>SponsorPortal.Infrastructure</Name>

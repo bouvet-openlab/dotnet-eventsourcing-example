@@ -1,4 +1,6 @@
-﻿using SponsorPortal.ApplicationForm.Contracts;
+﻿using System;
+using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.Helpers;
 
 namespace SponsorPortal.TestDataBuilders
 {
@@ -9,6 +11,7 @@ namespace SponsorPortal.TestDataBuilders
         private double _amount;
         private string _title;
         private string _text;
+        private AggregateRoots _aggregateRootIdentifier;
 
         public CreatedNewApplicationFormEventBuilder()
         {
@@ -17,8 +20,8 @@ namespace SponsorPortal.TestDataBuilders
             _amount = 10000;
             _title = "Request for money";
             _text = "Need money for stuff";
+            _aggregateRootIdentifier = AggregateRoots.ApplicationForm;
         }
-
 
         public CreatedNewApplicationFormEventBuilder WithOrganization(string organization)
         {
@@ -49,10 +52,16 @@ namespace SponsorPortal.TestDataBuilders
             _text = text;
             return this;
         }
+
+        public CreatedNewApplicationFormEventBuilder WithAggregateRootIdentifier(AggregateRoots aggregateRootIdentifier)
+        {
+            _aggregateRootIdentifier = aggregateRootIdentifier;
+            return this;
+        }
         
         public override CreatedNewApplicationFormEvent Build()
         {
-            return new CreatedNewApplicationFormEvent(_organization, _email, _amount, _title, _text);
+            return new CreatedNewApplicationFormEvent(_aggregateRootIdentifier, _organization, _email, _amount, _title, _text);
         }
     }
 }
