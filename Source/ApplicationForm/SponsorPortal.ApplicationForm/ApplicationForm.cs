@@ -1,4 +1,5 @@
 ﻿using System;
+using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm

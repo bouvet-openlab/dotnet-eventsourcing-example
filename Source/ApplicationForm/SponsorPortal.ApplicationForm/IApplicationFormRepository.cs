@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using SponsorPortal.ApplicationForm.Contracts;
 
 namespace SponsorPortal.ApplicationForm
 {

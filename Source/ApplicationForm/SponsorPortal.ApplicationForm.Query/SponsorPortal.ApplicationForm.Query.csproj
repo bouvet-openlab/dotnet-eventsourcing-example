@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9878EC5D-B5B5-42C0-BE8B-922A0FFB0591}</ProjectGuid>
+    <ProjectGuid>{159FD893-EDF7-467F-823E-F9CD55AFE715}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SponsorPortal.ApplicationForm.Tests.Unit</RootNamespace>
-    <AssemblyName>SponsorPortal.ApplicationForm.Tests.Unit</AssemblyName>
+    <RootNamespace>SponsorPortal.ApplicationForm.Query</RootNamespace>
+    <AssemblyName>SponsorPortal.ApplicationForm.Query</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,15 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\..\..\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable">
-      <HintPath>..\..\..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,39 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFormDTOTests.cs" />
-    <Compile Include="ApplicationFormServiceTests.cs" />
-    <Compile Include="AssignClerkCommandTests.cs" />
-    <Compile Include="ClerkAssignedToApplicationFormEventTests.cs" />
+    <Compile Include="ApplicationForm.cs" />
+    <Compile Include="ApplicationFormProjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Contracts\SponsorPortal.ApplicationForm.Contracts.csproj">
-      <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj">
-      <Project>{159FD893-EDF7-467F-823E-F9CD55AFE715}</Project>
-      <Name>SponsorPortal.ApplicationForm.Query</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
-      <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
-      <Name>SponsorPortal.ApplicationForm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
-      <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
-      <Name>SponsorPortal.EventStore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
+    <ProjectReference Include="..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SponsorPortal.TestDataBuilders\SponsorPortal.TestDataBuilders.csproj">
-      <Project>{1f14994c-5379-4390-ad5b-d3f1ff24e25b}</Project>
-      <Name>SponsorPortal.TestDataBuilders</Name>
+    <ProjectReference Include="..\SponsorPortal.ApplicationForm.Contracts\SponsorPortal.ApplicationForm.Contracts.csproj">
+      <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
+      <Name>SponsorPortal.ApplicationForm.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

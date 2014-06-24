@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.TestDataBuilders;
 
 namespace SponsorPortal.ApplicationForm.Tests.Unit

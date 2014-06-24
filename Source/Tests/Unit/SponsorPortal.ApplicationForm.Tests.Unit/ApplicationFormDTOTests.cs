@@ -75,5 +75,22 @@ namespace SponsorPortal.ApplicationForm.Tests.Unit
             new ApplicationFormDTO(Organization, Email, 0, Title, Text);
             new ApplicationFormDTO(Organization, Email, 0.0, Title, Text);
         }
+
+        [Test]
+        [ExpectedException(typeof (ArgumentException))]
+        public void WhenGUIDIsNotGiven_NewGuidIsCreated()
+        {
+            var application = new ApplicationFormDTO(Organization, Email, 0, Title, Text);
+            Assert.AreNotEqual(Guid.Empty, application.Id);
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public void WhenGUIDIsGiven_IsSetAsID()
+        {
+            var guid = Guid.NewGuid();
+            var application = new ApplicationFormDTO(guid, Organization, Email, 0, Title, Text);
+            Assert.AreEqual(guid, application.Id);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationForm.Contracts
 {
     public class ClerkAssignedToApplicationFormEvent : EventBase
     {
