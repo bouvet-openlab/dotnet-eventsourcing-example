@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EventStore.ClientAPI">
+      <HintPath>..\..\packages\EventStore.Client.2.0.2\lib\net40\EventStore.ClientAPI.dll</HintPath>
+    </Reference>
     <Reference Include="NEventStore">
       <HintPath>..\..\packages\NEventStore.5.0.1.2\lib\net40\NEventStore.dll</HintPath>
     </Reference>
@@ -46,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventStoreEventPersistance.cs" />
     <Compile Include="EventSubscription.cs" />
-    <Compile Include="IEventPersistance.cs" />
+    <Compile Include="EventSubscriptionManager.cs" />
+    <Compile Include="Helpers\BinarySerialization.cs" />
     <Compile Include="NEventStoreEventPersistance.cs" />
     <Compile Include="SponsorPortalEventStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

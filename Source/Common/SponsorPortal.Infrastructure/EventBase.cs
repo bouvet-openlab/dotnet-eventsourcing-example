@@ -3,6 +3,7 @@ using SponsorPortal.Helpers;
 
 namespace SponsorPortal.Infrastructure
 {
+    [Serializable]
     public abstract class EventBase : IEvent
     {
         public AggregateRoots AggregateRootIdentifier { get; private set; }

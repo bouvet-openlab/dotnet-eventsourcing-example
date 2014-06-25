@@ -50,6 +50,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
+      <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
+      <Name>SponsorPortal.EventStore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj">
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>

@@ -4,6 +4,7 @@ using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm.Contracts
 {
+    [Serializable]
     public class CreatedNewApplicationFormEvent : EventBase
     {
         public string Organization { get; private set; }

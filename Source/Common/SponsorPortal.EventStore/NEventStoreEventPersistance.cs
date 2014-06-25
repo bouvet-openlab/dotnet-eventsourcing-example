@@ -55,5 +55,10 @@ namespace SponsorPortal.EventStore
                 }
             });
         }
+
+        public Task Subscribe<TEvent>(Action<TEvent> subscription) where TEvent : IEvent
+        {
+            throw new NotImplementedException();
+        }
     }
 }

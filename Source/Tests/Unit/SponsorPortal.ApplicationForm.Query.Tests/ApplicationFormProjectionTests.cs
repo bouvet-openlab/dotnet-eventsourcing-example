@@ -11,6 +11,7 @@ namespace SponsorPortal.ApplicationForm.Query.Tests
     [TestFixture]
     public class ApplicationFormProjectionTests
     {
+        /*
         [Test]
         public void SubscribesToEventForNewApplicationForm()
         {
@@ -41,5 +42,6 @@ namespace SponsorPortal.ApplicationForm.Query.Tests
             Assert.AreEqual(0, applicationFormsBeforeEvent.Count);
             Assert.AreEqual(1, applicationFormsAfterEvent.Count);
         }
+        */
     }
 }

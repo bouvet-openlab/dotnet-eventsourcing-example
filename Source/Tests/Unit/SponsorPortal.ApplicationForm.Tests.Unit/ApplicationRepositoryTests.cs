@@ -9,6 +9,7 @@ using NUnit.Framework;
 using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.EventStore;
 using SponsorPortal.Helpers;
+using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 
 namespace SponsorPortal.ApplicationForm.Tests.Unit

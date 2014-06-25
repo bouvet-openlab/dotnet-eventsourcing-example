@@ -4,6 +4,7 @@ using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm.Contracts
 {
+    [Serializable]
     public class ClerkAssignedToApplicationFormEvent : EventBase
     {
         public Guid ApplicationFormId { get; private set; }
