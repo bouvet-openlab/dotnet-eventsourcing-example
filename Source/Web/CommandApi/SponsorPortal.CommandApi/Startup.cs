@@ -29,7 +29,7 @@ namespace SponsorPortal.CommandApi
         private void ConfigureUnity()
         {
             var container = new UnityContainer();
-            container.RegisterType<IEventStore, SponsorPortalEventStore>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<IEventStore, SponsorPortalEventStore>(new ContainerControlledLifetimeManager());
             //container.RegisterType<ReceivalProjection>(new ContainerControlledLifetimeManager());
             //container.RegisterType<ICommandHandler<ReceivingNewApplicationFormCommand>, ReceivalCommandHandler>(new ContainerControlledLifetimeManager());
             container.RegisterType<IEventPersistance, NEventStoreEventPersistance>(new ContainerControlledLifetimeManager());

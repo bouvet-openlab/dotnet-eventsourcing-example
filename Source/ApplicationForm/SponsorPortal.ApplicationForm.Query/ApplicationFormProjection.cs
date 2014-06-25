@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using SponsorPortal.ApplicationForm.Common;
-using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm.Query

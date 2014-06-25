@@ -50,11 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventStoreEventPersistance.cs" />
-    <Compile Include="EventSubscription.cs" />
-    <Compile Include="EventSubscriptionManager.cs" />
     <Compile Include="Helpers\BinarySerialization.cs" />
     <Compile Include="NEventStoreEventPersistance.cs" />
-    <Compile Include="SponsorPortalEventStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

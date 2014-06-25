@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using NUnit.Framework;
 using SponsorPortal.ApplicationForm.Query;
 using SponsorPortal.CommandApi;
 using SponsorPortal.EventStore;
-using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.QueryApi;
 using SponsorPortal.TestDataBuilders;

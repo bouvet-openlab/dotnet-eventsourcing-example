@@ -1,9 +1,4 @@
-﻿using System;
-using Moq;
-using NUnit.Framework;
-using SponsorPortal.EventStore;
-using SponsorPortal.Infrastructure;
-using SponsorPortal.TestDataBuilders;
+﻿using NUnit.Framework;
 
 namespace SponsorPortal.ApplicationForm.Query.Tests
 {
