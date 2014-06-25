@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.ApplicationForm.Query;
 using SponsorPortal.CommandApi;
 using SponsorPortal.EventStore;

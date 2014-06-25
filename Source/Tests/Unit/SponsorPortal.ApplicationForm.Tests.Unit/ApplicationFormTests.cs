@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 
 namespace SponsorPortal.ApplicationForm.Tests.Unit
 {

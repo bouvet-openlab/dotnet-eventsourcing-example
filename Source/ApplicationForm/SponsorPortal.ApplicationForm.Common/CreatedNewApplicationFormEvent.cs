@@ -2,7 +2,7 @@
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm.Contracts
+namespace SponsorPortal.ApplicationForm.Common
 {
     [Serializable]
     public class CreatedNewApplicationFormEvent : EventBase

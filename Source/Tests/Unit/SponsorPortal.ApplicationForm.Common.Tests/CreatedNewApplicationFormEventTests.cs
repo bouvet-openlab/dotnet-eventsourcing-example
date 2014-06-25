@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 

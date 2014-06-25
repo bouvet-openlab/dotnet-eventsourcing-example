@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 using SponsorPortal.EventStore;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;

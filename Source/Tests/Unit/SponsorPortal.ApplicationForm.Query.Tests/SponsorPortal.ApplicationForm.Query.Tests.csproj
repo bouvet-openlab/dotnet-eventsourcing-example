@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Contracts\SponsorPortal.ApplicationForm.Contracts.csproj">
+    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
       <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Contracts</Name>
+      <Name>SponsorPortal.ApplicationForm.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj">
       <Project>{159FD893-EDF7-467F-823E-F9CD55AFE715}</Project>

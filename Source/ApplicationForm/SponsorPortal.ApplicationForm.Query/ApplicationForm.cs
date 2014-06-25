@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 
 namespace SponsorPortal.ApplicationForm.Query
 {

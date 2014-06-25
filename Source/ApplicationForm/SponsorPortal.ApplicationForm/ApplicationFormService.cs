@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm

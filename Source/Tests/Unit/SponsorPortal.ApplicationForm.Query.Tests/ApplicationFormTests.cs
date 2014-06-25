@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Immutable;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 
 namespace SponsorPortal.ApplicationForm.Query.Tests
 {

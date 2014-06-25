@@ -53,9 +53,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Contracts\SponsorPortal.ApplicationForm.Contracts.csproj">
+    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
       <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Contracts</Name>
+      <Name>SponsorPortal.ApplicationForm.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
       <Project>{CF259392-692F-43B1-B7A8-32AC43EEFA43}</Project>

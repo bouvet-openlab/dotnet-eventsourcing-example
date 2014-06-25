@@ -1,5 +1,5 @@
 ﻿using System;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 using SponsorPortal.Helpers;
 
 namespace SponsorPortal.TestDataBuilders

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 using SponsorPortal.EventStore;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;

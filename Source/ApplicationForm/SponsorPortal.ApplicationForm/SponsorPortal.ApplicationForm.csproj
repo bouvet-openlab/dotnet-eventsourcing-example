@@ -64,9 +64,9 @@
       <Project>{b96d8492-4472-41f3-9cc0-c136edb03d6b}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SponsorPortal.ApplicationForm.Contracts\SponsorPortal.ApplicationForm.Contracts.csproj">
+    <ProjectReference Include="..\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
       <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Contracts</Name>
+      <Name>SponsorPortal.ApplicationForm.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

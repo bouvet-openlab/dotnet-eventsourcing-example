@@ -1,4 +1,4 @@
-﻿namespace SponsorPortal.ApplicationForm.Contracts
+﻿namespace SponsorPortal.ApplicationForm.Common
 {
     public enum ApplicationStatus
     {

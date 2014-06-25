@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Contracts;
+using SponsorPortal.ApplicationForm.Common;
 using SponsorPortal.TestDataBuilders;
 
 namespace SponsorPortal.ApplicationForm.Tests.Unit
