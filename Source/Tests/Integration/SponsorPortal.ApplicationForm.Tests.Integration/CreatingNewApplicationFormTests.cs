@@ -50,5 +50,82 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             Assert.AreEqual(dto.Amount, applicationForm.Amount);
             Assert.AreEqual(dto.Email, applicationForm.Email);
         }
+
+        [Test]
+        public async void WhenGivingSeveralApplicationFormsToCommandApi_RetrievesExpectedAmountOfApplicationsFromQueryApi()
+        {
+            var container = new UnityContainer();
+
+            var eventstore = new EventStoreEventPersistance();
+            eventstore.Initialize();
+
+            var repository = new ApplicationFormRepository(eventstore);
+            var commandHandler = new ApplicationFormService(repository);
+            container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
+            IoC.RegisterContainer(container);
+
+            var commandDispatcher = new CommandDispatcher();
+            var receptionController = new ReceptionController(commandDispatcher);
+
+            var applicationFormProjection = new ApplicationFormProjection(eventstore);
+            await applicationFormProjection.SubscribeToEvents();
+            var applicationFormController = new ApplicationFormController(applicationFormProjection);
+
+            var dto1 = new ApplicationFormDTOBuilder().Build();
+            var dto2 = new ApplicationFormDTOBuilder().Build();
+            var dto3 = new ApplicationFormDTOBuilder().Build();
+            var dto4 = new ApplicationFormDTOBuilder().Build();
+            var dto5 = new ApplicationFormDTOBuilder().Build();
+            await receptionController.SaveNew(dto1);
+            await receptionController.SaveNew(dto2);
+            await receptionController.SaveNew(dto3);
+            await receptionController.SaveNew(dto4);
+            await receptionController.SaveNew(dto5);
+            
+            await Task.Delay(500); // Allow the projection's event subscription callback to be invoked by the eventstore before trying to get applications
+
+            var applicationForms = await applicationFormController.GetAll();
+            
+            Assert.AreEqual(5, applicationForms.Count);
+        }
+
+        [Test]
+        public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesExistingEventsUponSubscribing()
+        {
+            var container = new UnityContainer();
+
+            var eventstore = new EventStoreEventPersistance();
+            eventstore.Initialize();
+
+            var repository = new ApplicationFormRepository(eventstore);
+            var commandHandler = new ApplicationFormService(repository);
+            container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
+            IoC.RegisterContainer(container);
+
+            var commandDispatcher = new CommandDispatcher();
+            var receptionController = new ReceptionController(commandDispatcher);
+
+            var dto1 = new ApplicationFormDTOBuilder().Build();
+            var dto2 = new ApplicationFormDTOBuilder().Build();
+            var dto3 = new ApplicationFormDTOBuilder().Build();
+            await receptionController.SaveNew(dto1);
+            await receptionController.SaveNew(dto2);
+            await receptionController.SaveNew(dto3);
+
+            var applicationFormProjection = new ApplicationFormProjection(eventstore);
+            await applicationFormProjection.SubscribeToEvents();
+            var applicationFormController = new ApplicationFormController(applicationFormProjection);
+
+            var dto4 = new ApplicationFormDTOBuilder().Build();
+            var dto5 = new ApplicationFormDTOBuilder().Build();
+            await receptionController.SaveNew(dto4);
+            await receptionController.SaveNew(dto5);
+
+            await Task.Delay(200); // Allow the projection's event subscription callback to be invoked by the eventstore before trying to get applications
+
+            var applicationForms = await applicationFormController.GetAll();
+
+            Assert.AreEqual(5, applicationForms.Count);
+        }
     }
 }

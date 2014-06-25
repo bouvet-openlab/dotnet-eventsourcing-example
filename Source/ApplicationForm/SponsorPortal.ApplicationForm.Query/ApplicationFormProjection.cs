@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm.Query
@@ -19,8 +20,7 @@ namespace SponsorPortal.ApplicationForm.Query
 
         public override async Task SubscribeToEvents()
         {
-            await EventStore.Subscribe<CreatedNewApplicationFormEvent>(OnNewApplicationCreated);
-            await EventStore.Subscribe<ClerkAssignedToApplicationFormEvent>(OnClerkAssignedToApplication);
+            await EventStore.SubscribeFromStart<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm, OnNewApplicationCreated);
         }
 
         private void OnNewApplicationCreated(CreatedNewApplicationFormEvent evnt)

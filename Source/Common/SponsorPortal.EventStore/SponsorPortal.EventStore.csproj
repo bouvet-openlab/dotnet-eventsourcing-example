@@ -33,9 +33,6 @@
     <Reference Include="EventStore.ClientAPI">
       <HintPath>..\..\packages\EventStore.Client.2.0.2\lib\net40\EventStore.ClientAPI.dll</HintPath>
     </Reference>
-    <Reference Include="NEventStore">
-      <HintPath>..\..\packages\NEventStore.5.0.1.2\lib\net40\NEventStore.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable">
       <HintPath>..\..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
@@ -51,7 +48,7 @@
   <ItemGroup>
     <Compile Include="EventStoreEventPersistance.cs" />
     <Compile Include="Helpers\BinarySerialization.cs" />
-    <Compile Include="NEventStoreEventPersistance.cs" />
+    <Compile Include="Helpers\EventHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

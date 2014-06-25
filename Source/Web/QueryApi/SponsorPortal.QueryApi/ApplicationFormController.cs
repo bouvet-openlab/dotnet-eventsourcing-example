@@ -19,10 +19,8 @@ namespace SponsorPortal.QueryApi
         [HttpGet]
         [Route("applicationforms")]
         public async Task<ImmutableList<ApplicationForm.Query.ApplicationForm>> GetAll()
-        //public ImmutableList<ApplicationForm.Query.ApplicationForm> GetAll()
         {
             return await Task.FromResult(_applicationFormProjection.ApplicationForms);
-            //return _applicationFormProjection.ApplicationForms;
         }
     }
 }

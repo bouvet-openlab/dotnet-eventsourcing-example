@@ -20,7 +20,7 @@ namespace SponsorPortal.ApplicationForm.Tests.Unit
             var eventPersistance = new Mock<IEventPersistance>();
             var storedEvents = new[]{ new CreatedNewApplicationFormEventBuilder().Build(), new CreatedNewApplicationFormEventBuilder().Build() }.ToImmutableList();
             var applicationId = storedEvents.First().EntityId;
-            eventPersistance.Setup(ctx => ctx.ReadAllEvents<CreatedNewApplicationFormEvent>(aggregateRootId))
+            eventPersistance.Setup(ctx => ctx.ReadAllEvents<CreatedNewApplicationFormEvent>())
                             .Returns(() => Task.FromResult(storedEvents));
 
             var repository = new ApplicationFormRepository(eventPersistance.Object);

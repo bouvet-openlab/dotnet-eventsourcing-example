@@ -32,7 +32,7 @@ namespace SponsorPortal.CommandApi
             //container.RegisterType<IEventStore, SponsorPortalEventStore>(new ContainerControlledLifetimeManager());
             //container.RegisterType<ReceivalProjection>(new ContainerControlledLifetimeManager());
             //container.RegisterType<ICommandHandler<ReceivingNewApplicationFormCommand>, ReceivalCommandHandler>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IEventPersistance, NEventStoreEventPersistance>(new ContainerControlledLifetimeManager());
+            //container.RegisterType<IEventPersistance, NEventStoreEventPersistance>(new ContainerControlledLifetimeManager());
 
             IoC.RegisterContainer(container);
         }

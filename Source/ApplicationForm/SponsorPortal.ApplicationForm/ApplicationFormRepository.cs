@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using SponsorPortal.ApplicationForm.Common;
-using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm
@@ -19,7 +18,7 @@ namespace SponsorPortal.ApplicationForm
         
         public async Task<ApplicationForm> GetApplicationForm(Guid applicationFormId)
         {
-            var events = await _eventPersistance.ReadAllEvents<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm);
+            var events = await _eventPersistance.ReadAllEvents<CreatedNewApplicationFormEvent>();
             return events.Where(evnt => evnt.EntityId == applicationFormId)
                          .Select(evnt => new ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
                          .SingleOrDefault();
@@ -27,7 +26,7 @@ namespace SponsorPortal.ApplicationForm
 
         public async Task Store(IEvent evnt)
         {
-            await _eventPersistance.StoreEvent(evnt);
+            await _eventPersistance.Store(evnt);
         }
     }
 }

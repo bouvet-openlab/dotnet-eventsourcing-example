@@ -8,8 +8,11 @@ namespace SponsorPortal.Infrastructure
     public interface IEventPersistance
     {
         void Initialize();
-        Task StoreEvent(IEvent evnt);
-        Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent;
-        Task Subscribe<TEvent>(Action<TEvent> subscription) where TEvent : IEvent;
+        void Teardown();
+        Task Store(IEvent evnt);
+        Task<ImmutableList<TEvent>> ReadAllFromAggregate<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent;
+        Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>() where TEvent : IEvent;
+        Task SubscribeToNew<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent;
+        Task SubscribeFromStart<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent;
     }
 }

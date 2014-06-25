@@ -25,9 +25,10 @@ namespace SponsorPortal.EventStore
             var connectionSettings = ConnectionSettings.Create().EnableVerboseLogging()
                                                                 .LimitAttemptsForOperationTo(3)
                                                                 .OnConnected((conn, endpoint) => Debug.WriteLine("Event Store connected"))
-                                                                .OnClosed((conn, reason) => Debug.WriteLine("Event Store connection closed"))
+                                                                .OnClosed((conn, reason) => Debug.WriteLine("Event Store connection closed " + reason))
                                                                 .OnDisconnected((conn, endpoint) => Debug.WriteLine("Event Store disconnected"))
                                                                 .OnReconnecting((conn) => Debug.WriteLine("Reconnecting to Event Store"))
+                                                                .OnErrorOccurred((conn, ex) => Debug.WriteLine("Event Store error occurred " + ex))
                                                                 .UseDebugLogger()
                                                                 .UseNormalConnection();
 
@@ -40,51 +41,65 @@ namespace SponsorPortal.EventStore
             _connection.Close();
         }
 
-        public async Task StoreEvent(IEvent evnt)
+        public async Task Store(IEvent evnt)
         {
             var data = evnt.ToBinaryArray();
             var streamId = evnt.AggregateRootIdentifier.ToString();
-            var eventdata = new EventData(Guid.NewGuid(), evnt.GetType().Name, false, data, null);
+            var eventdata = new EventData(Guid.NewGuid(), EventHelpers.GetNameFor(evnt), false, data, null);
 
             await _connection.AppendToStreamAsync(streamId, ExpectedVersion.Any, eventdata);
         }
 
-        public async Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent
+        public async Task<ImmutableList<TEvent>> ReadAllFromAggregate<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent
         {
             var streamId = aggregateRoot.ToString();
             var events = await ReadStream(streamId);
-            
-            return events.Where(evnt => evnt.Event.EventType == typeof(TEvent).Name)
+
+            return events.Where(evnt => evnt.Event.EventType == EventHelpers.GetNameFor<TEvent>())
                          .Select(evnt => evnt.ParseTo<TEvent>())
                          .ToImmutableList();
         }
 
-        public async Task Subscribe<TEvent>(Action<TEvent> subscription) where TEvent : IEvent
+        public async Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>() where TEvent : IEvent
         {
-            var eventType = typeof (TEvent).Name;
+            var events = await ReadAll();
+            return events.Where(evnt => evnt.Event.EventType == EventHelpers.GetNameFor<TEvent>())
+                .Select(evnt => evnt.ParseTo<TEvent>())
+                .ToImmutableList();
+        }
 
-            Action<EventStoreSubscription, ResolvedEvent> onEventAppeared = (sub, evnt) =>
+        public async Task SubscribeFromStart<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
+        {
+            Action<EventStoreCatchUpSubscription, ResolvedEvent> onEventAppeared = (catchUpSubscription, resolvedEvent) =>
             {
-                Debug.WriteLine("Event appeared");
+                if (resolvedEvent.Event.EventType != EventHelpers.GetNameFor<TEvent>()) return;
 
-                if (evnt.Event.EventType == eventType)
-                {
-                    var e = evnt.ParseTo<TEvent>();
-                    subscription(e);
-                }
+                var evnt = resolvedEvent.ParseTo<TEvent>();
+                subscription(evnt);
             };
 
-            await _connection.SubscribeToStreamAsync(AggregateRoots.ApplicationForm.ToString(), true, onEventAppeared, SubscriptionDropped);
+            var streamId = aggregateRoot.ToString();
+            await Task.FromResult(_connection.SubscribeToStreamFrom(streamId, null, true, onEventAppeared));
         }
 
-        private void SubscriptionDropped(EventStoreSubscription eventStoreSubscription, SubscriptionDropReason subscriptionDropReason, Exception arg3)
+        public async Task SubscribeToNew<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
         {
-            Debug.WriteLine("Subscription dropped: ", subscriptionDropReason);
-        }
+            Action<EventStoreSubscription, ResolvedEvent> onEventAppeared = (sub, resolvedEvent) =>
+            {
+                if (resolvedEvent.Event.EventType != EventHelpers.GetNameFor<TEvent>()) return;
 
-        private void EventAppeared(EventStoreSubscription eventStoreSubscription, ResolvedEvent resolvedEvent)
+                var evnt = resolvedEvent.ParseTo<TEvent>();
+                subscription(evnt);
+            };
+
+            var streamId = aggregateRoot.ToString();
+            await _connection.SubscribeToStreamAsync(streamId, true, onEventAppeared);
+        }
+        
+        private async Task<ImmutableList<ResolvedEvent>> ReadAll()
         {
-            
+            var result = await _connection.ReadAllEventsForwardAsync(Position.Start, Int32.MaxValue, true);
+            return result.Events.ToImmutableList();
         }
 
         private async Task<ImmutableList<ResolvedEvent>> ReadStream(string streamId)
@@ -99,8 +114,8 @@ namespace SponsorPortal.EventStore
 
                 streamEvents.AddRange(currentSlice.Events);
             } while (!currentSlice.IsEndOfStream);
-            
+
             return streamEvents.ToImmutableList();
-        } 
+        }
     }
 }
