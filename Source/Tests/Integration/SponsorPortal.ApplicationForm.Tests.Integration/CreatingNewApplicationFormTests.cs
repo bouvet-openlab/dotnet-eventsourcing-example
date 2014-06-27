@@ -8,6 +8,7 @@ using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.QueryApi;
 using SponsorPortal.TestDataBuilders;
+using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.ApplicationForm.Tests.Integration
 {
@@ -37,18 +38,23 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             var dto = new ApplicationFormDTOBuilder().Build();
             await receptionController.SaveNew(dto);
 
-            await Task.Delay(100); // Allow the projection's event subscription callback to be invoked by the eventstore before trying to get applications
+            await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
             var applicationForms = await applicationFormController.GetAll();
-            
-            Assert.AreEqual(1, applicationForms.Count);
 
-            var applicationForm = applicationForms.Single();
-            Assert.AreEqual(dto.Title, applicationForm.Title);
-            Assert.AreEqual(dto.Text, applicationForm.Text);
-            Assert.AreEqual(dto.Organization, applicationForm.Organization);
-            Assert.AreEqual(dto.Amount, applicationForm.Amount);
-            Assert.AreEqual(dto.Email, applicationForm.Email);
+            var applicationForm = applicationForms.FirstOrDefault(app => app.Title == dto.Title);
+            if (applicationForm != null)
+            {
+                Assert.AreEqual(dto.Title, applicationForm.Title);
+                Assert.AreEqual(dto.Text, applicationForm.Text);
+                Assert.AreEqual(dto.Organization, applicationForm.Organization);
+                Assert.AreEqual(dto.Amount, applicationForm.Amount);
+                Assert.AreEqual(dto.Email, applicationForm.Email);    
+            }
+            else
+            {
+                Assert.Fail();
+            }
         }
 
         [Test]
@@ -68,8 +74,14 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             var receptionController = new ReceptionController(commandDispatcher);
 
             var applicationFormProjection = new ApplicationFormProjection(eventstore);
+            await applicationFormProjection.GetAllExistingEventsOfInterest();
             await applicationFormProjection.SubscribeToEvents();
+
+            await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing(1000);
+
             var applicationFormController = new ApplicationFormController(applicationFormProjection);
+            var applicationFormsBefore = await applicationFormController.GetAll();
+            var countBefore = applicationFormsBefore.Count;
 
             var dto1 = new ApplicationFormDTOBuilder().Build();
             var dto2 = new ApplicationFormDTOBuilder().Build();
@@ -81,16 +93,17 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             await receptionController.SaveNew(dto3);
             await receptionController.SaveNew(dto4);
             await receptionController.SaveNew(dto5);
-            
-            await Task.Delay(500); // Allow the projection's event subscription callback to be invoked by the eventstore before trying to get applications
+
+            await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
             var applicationForms = await applicationFormController.GetAll();
-            
-            Assert.AreEqual(5, applicationForms.Count);
+            var countAfter = applicationForms.Count;
+
+            Assert.AreEqual(5, countAfter - countBefore);
         }
 
         [Test]
-        public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesExistingEventsUponSubscribing()
+        public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesOnlyNewEvents()
         {
             var container = new UnityContainer();
 
@@ -121,11 +134,11 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             await receptionController.SaveNew(dto4);
             await receptionController.SaveNew(dto5);
 
-            await Task.Delay(200); // Allow the projection's event subscription callback to be invoked by the eventstore before trying to get applications
+            await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
             var applicationForms = await applicationFormController.GetAll();
 
-            Assert.AreEqual(5, applicationForms.Count);
+            Assert.IsTrue(applicationForms.Count == 2);
         }
     }
 }

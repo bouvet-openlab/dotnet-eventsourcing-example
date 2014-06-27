@@ -8,9 +8,9 @@ namespace SponsorPortal.QueryApi
 {
     public class ApplicationFormController : ApiController
     {
-        private readonly ApplicationFormProjection _applicationFormProjection;
+        private readonly IApplicationFormProjection _applicationFormProjection;
 
-        public ApplicationFormController(ApplicationFormProjection applicationFormProjection)
+        public ApplicationFormController(IApplicationFormProjection applicationFormProjection)
         {
             if (applicationFormProjection == null) throw new ArgumentNullException("applicationFormProjection");
             _applicationFormProjection = applicationFormProjection;

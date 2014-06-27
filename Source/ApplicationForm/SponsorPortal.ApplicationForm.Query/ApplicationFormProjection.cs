@@ -9,7 +9,7 @@ using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationForm.Query
 {
-    public class ApplicationFormProjection : Projection
+    public class ApplicationFormProjection : Projection, IApplicationFormProjection
     {
         public ImmutableList<ApplicationForm> ApplicationForms { get; private set; }
 
@@ -20,7 +20,13 @@ namespace SponsorPortal.ApplicationForm.Query
 
         public override async Task SubscribeToEvents()
         {
-            await EventStore.SubscribeFromStart<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm, OnNewApplicationCreated);
+            await EventStore.SubscribeToNew<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm, OnNewApplicationCreated);
+        }
+
+        public async Task GetAllExistingEventsOfInterest()
+        {
+            var events = await EventStore.ReadAllFromAggregate<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm);
+            events.ForEach(OnNewApplicationCreated);
         }
 
         private void OnNewApplicationCreated(CreatedNewApplicationFormEvent evnt)

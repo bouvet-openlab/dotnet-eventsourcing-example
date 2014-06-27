@@ -106,6 +106,10 @@
       <Project>{1F14994C-5379-4390-AD5B-D3F1FF24E25B}</Project>
       <Name>SponsorPortal.TestDataBuilders</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SponsorPortal.TestHelpers\SponsorPortal.TestHelpers.csproj">
+      <Project>{4D9A8600-77AE-45EA-89D7-E258D641F552}</Project>
+      <Name>SponsorPortal.TestHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

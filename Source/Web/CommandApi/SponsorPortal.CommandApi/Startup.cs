@@ -1,10 +1,13 @@
 ﻿using System.Web.Http;
+using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Practices.Unity;
 using Owin;
+using SponsorPortal.ApplicationForm;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 
+[assembly: OwinStartup(typeof(SponsorPortal.CommandApi.Startup))] 
 namespace SponsorPortal.CommandApi
 {
     public class Startup
@@ -13,7 +16,6 @@ namespace SponsorPortal.CommandApi
         {
             ConfigureWebApi(builder);
             ConfigureUnity();
-            ActivateProjectionsEventSubscriptions();
             InitializeEventPersistance();
         }
 
@@ -29,10 +31,10 @@ namespace SponsorPortal.CommandApi
         private void ConfigureUnity()
         {
             var container = new UnityContainer();
-            //container.RegisterType<IEventStore, SponsorPortalEventStore>(new ContainerControlledLifetimeManager());
-            //container.RegisterType<ReceivalProjection>(new ContainerControlledLifetimeManager());
-            //container.RegisterType<ICommandHandler<ReceivingNewApplicationFormCommand>, ReceivalCommandHandler>(new ContainerControlledLifetimeManager());
-            //container.RegisterType<IEventPersistance, NEventStoreEventPersistance>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IEventPersistance, EventStoreEventPersistance>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IApplicationFormRespository, ApplicationFormRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICommandHandler<CreateNewApplicationFormCommand>, ApplicationFormService>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICommandHandler<AssignClerkCommand>, ApplicationFormService>(new ContainerControlledLifetimeManager());
 
             IoC.RegisterContainer(container);
         }
@@ -41,12 +43,6 @@ namespace SponsorPortal.CommandApi
         {
             var eventPersistance = IoC.Resolve<IEventPersistance>();
             eventPersistance.Initialize();
-        }
-
-        private void ActivateProjectionsEventSubscriptions()
-        {
-            //var projection = IoC.Resolve<ReceivalProjection>();
-            //projection.SubscribeToEvents();
         }
     }
 }

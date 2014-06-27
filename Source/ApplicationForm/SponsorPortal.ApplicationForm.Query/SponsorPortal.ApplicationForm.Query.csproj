@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ApplicationForm.cs" />
     <Compile Include="ApplicationFormProjection.cs" />
+    <Compile Include="IApplicationFormProjection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

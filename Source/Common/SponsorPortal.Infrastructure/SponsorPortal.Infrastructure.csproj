@@ -60,7 +60,6 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventPersistance.cs" />
-    <Compile Include="IEventStore.cs" />
     <Compile Include="IoC.cs" />
     <Compile Include="Projection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

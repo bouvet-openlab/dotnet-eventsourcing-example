@@ -74,12 +74,18 @@ namespace SponsorPortal.EventStore
             {
                 if (resolvedEvent.Event.EventType != EventHelpers.GetNameFor<TEvent>()) return;
 
+                Debug.WriteLine("Catching up...");
                 var evnt = resolvedEvent.ParseTo<TEvent>();
                 subscription(evnt);
             };
 
+            Action<EventStoreCatchUpSubscription> onIsUpToDate = (catchUpSubscription) =>
+            {
+                Debug.WriteLine("Subscription is up to date");
+            };
+
             var streamId = aggregateRoot.ToString();
-            await Task.FromResult(_connection.SubscribeToStreamFrom(streamId, null, true, onEventAppeared));
+            await Task.FromResult(_connection.SubscribeToStreamFrom(streamId, null, true, onEventAppeared, onIsUpToDate));
         }
 
         public async Task SubscribeToNew<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
