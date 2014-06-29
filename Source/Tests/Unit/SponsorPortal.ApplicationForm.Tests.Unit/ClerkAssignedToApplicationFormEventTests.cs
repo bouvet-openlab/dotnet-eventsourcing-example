@@ -1,7 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core.Events;
 
-namespace SponsorPortal.ApplicationForm.Common.Tests
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
 {
     [TestFixture]
     public class ClerkAssignedToApplicationFormEventTests

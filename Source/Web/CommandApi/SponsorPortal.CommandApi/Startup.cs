@@ -4,6 +4,7 @@ using Microsoft.Owin.Cors;
 using Microsoft.Practices.Unity;
 using Owin;
 using SponsorPortal.ApplicationForm;
+using SponsorPortal.ApplicationForm.Commands;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 

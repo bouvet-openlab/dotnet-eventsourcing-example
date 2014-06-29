@@ -1,6 +1,6 @@
 ﻿using Owin;
 
-namespace SponsorPortal.Public
+namespace SponsorPortal.ApplicationEntry
 {
     public class Startup
     {

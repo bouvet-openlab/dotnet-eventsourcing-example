@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SponsorPortal.ApplicationForm;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.CommandApi
+namespace SponsorPortal.ApplicationManagement.Web
 {
     public class ReceptionController : ApiController
     {
@@ -26,7 +27,7 @@ namespace SponsorPortal.CommandApi
             var command = new CreateNewApplicationFormCommand(applicationForm);
             await _commandDispatcher.Execute(command);
 
-            return Ok(String.Format("Application form for \"{0}\" received", applicationForm.Title));
+            return Ok(String.Format((string) "Application form for \"{0}\" received", (object) applicationForm.Title));
         }
     }
 }

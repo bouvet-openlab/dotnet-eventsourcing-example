@@ -1,8 +1,9 @@
 ﻿using System;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
 
 namespace SponsorPortal.TestDataBuilders
 {
-    public class ApplicationFormBuilder : TestDataBuilder<ApplicationForm.ApplicationForm>
+    public class ApplicationFormBuilder : TestDataBuilder<ApplicationForm>
     {
         private Guid _id;
         private string _organization;
@@ -57,9 +58,9 @@ namespace SponsorPortal.TestDataBuilders
             return this;
         }
 
-        public override ApplicationForm.ApplicationForm Build()
+        public override ApplicationForm Build()
         {
-            return new ApplicationForm.ApplicationForm(_id, _organization, _email, _amount, _title, _text);
+            return new ApplicationForm(_id, _organization, _email, _amount, _title, _text);
         }
     }
 }

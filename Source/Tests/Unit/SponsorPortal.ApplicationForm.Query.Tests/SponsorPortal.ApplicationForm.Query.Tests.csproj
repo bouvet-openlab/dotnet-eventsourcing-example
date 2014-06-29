@@ -48,19 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFormProjectionTests.cs" />
-    <Compile Include="ApplicationFormTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
-      <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj">
-      <Project>{159FD893-EDF7-467F-823E-F9CD55AFE715}</Project>
-      <Name>SponsorPortal.ApplicationForm.Query</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
       <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
       <Name>SponsorPortal.EventStore</Name>

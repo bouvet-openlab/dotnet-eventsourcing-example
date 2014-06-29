@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Threading.Tasks;
 
-namespace SponsorPortal.ApplicationForm.Query
+namespace SponsorPortal.ApplicationManagement.Core.QueryModel
 {
     public interface IApplicationFormProjection
     {

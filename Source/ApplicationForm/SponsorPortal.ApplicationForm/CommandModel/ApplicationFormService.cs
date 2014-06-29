@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.CommandModel
 {
     public class ApplicationFormService : ICommandHandler<CreateNewApplicationFormCommand>, ICommandHandler<AssignClerkCommand>
     {
@@ -17,7 +17,7 @@ namespace SponsorPortal.ApplicationForm
 
         public async Task Handle(CreateNewApplicationFormCommand command)
         {
-            var createdNewApplicationFormEvent = ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
+            var createdNewApplicationFormEvent = CommandModel.ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
             await _applicationFormRespository.Store(createdNewApplicationFormEvent);
         }
 

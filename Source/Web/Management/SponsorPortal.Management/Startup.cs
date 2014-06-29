@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Owin;
 
-namespace SponsorPortal.Management
+namespace SponsorPortal.ApplicationManagement.Web
 {
     public class Startup
     {

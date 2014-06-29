@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.CommandModel
 {
     public class ApplicationFormRepository : IApplicationFormRespository
     {
@@ -16,11 +16,11 @@ namespace SponsorPortal.ApplicationForm
             _eventPersistance = eventPersistance;
         }
         
-        public async Task<ApplicationForm> GetApplicationForm(Guid applicationFormId)
+        public async Task<CommandModel.ApplicationForm> GetApplicationForm(Guid applicationFormId)
         {
             var events = await _eventPersistance.ReadAllEvents<CreatedNewApplicationFormEvent>();
             return events.Where(evnt => evnt.EntityId == applicationFormId)
-                         .Select(evnt => new ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
+                         .Select(evnt => new CommandModel.ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
                          .SingleOrDefault();
         }
 

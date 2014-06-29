@@ -1,7 +1,8 @@
 ﻿using System;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.Commands
 {
     public class CreateNewApplicationFormCommand : ICommand
     {

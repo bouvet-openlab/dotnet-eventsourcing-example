@@ -111,15 +111,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFormController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj">
-      <Project>{159FD893-EDF7-467F-823E-F9CD55AFE715}</Project>
-      <Name>SponsorPortal.ApplicationForm.Query</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
       <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
       <Name>SponsorPortal.EventStore</Name>

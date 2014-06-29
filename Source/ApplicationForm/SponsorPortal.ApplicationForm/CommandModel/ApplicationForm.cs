@@ -1,9 +1,9 @@
 ﻿using System;
-using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.CommandModel
 {
     public class ApplicationForm : AggregateRoot
     {

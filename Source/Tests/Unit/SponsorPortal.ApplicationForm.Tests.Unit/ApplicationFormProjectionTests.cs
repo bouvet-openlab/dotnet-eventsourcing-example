@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace SponsorPortal.ApplicationForm.Query.Tests
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
 {
     [TestFixture]
     public class ApplicationFormProjectionTests

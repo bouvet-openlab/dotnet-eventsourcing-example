@@ -1,7 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
 
-namespace SponsorPortal.ApplicationForm.Tests.Unit
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit.CommandModelTests
 {
     [TestFixture]
     public class ApplicationFormDTOTests

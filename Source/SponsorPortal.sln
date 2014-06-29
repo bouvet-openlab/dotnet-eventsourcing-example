@@ -3,13 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationForm", "ApplicationForm", "{EB441604-AB5A-4A0F-A66B-77E31808B563}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A7FDA1D6-2E9F-46AB-807E-CC8A7FC05ECC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QueryApi", "QueryApi", "{B5193262-3044-4103-97FD-97E9C930E724}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CommandApi", "CommandApi", "{8566CA0A-4997-4978-9E26-C6A47BA3E2E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5}"
 EndProject
@@ -17,49 +11,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8F4F920A-54BA-44F4-B9AD-24E43A3246C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.Public", "Web\Public\SponsorPortal.Public\SponsorPortal.Public.csproj", "{3A16F383-D42A-4684-872A-C7BC6B681EA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationEntry", "Web\Public\SponsorPortal.Public\SponsorPortal.ApplicationEntry.csproj", "{3A16F383-D42A-4684-872A-C7BC6B681EA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.EventStore", "Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj", "{C862CFF4-B99E-43D0-8803-E4200824DC2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.Infrastructure", "Common\SponsorPortal.Infrastructure\SponsorPortal.Infrastructure.csproj", "{B96D8492-4472-41F3-9CC0-C136EDB03D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm", "ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj", "{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationManagement.Core", "ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationManagement.Core.csproj", "{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Tests.Unit", "Tests\Unit\SponsorPortal.ApplicationForm.Tests.Unit\SponsorPortal.ApplicationForm.Tests.Unit.csproj", "{9878EC5D-B5B5-42C0-BE8B-922A0FFB0591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationManagement.Core.Tests.Unit", "Tests\Unit\SponsorPortal.ApplicationForm.Tests.Unit\SponsorPortal.ApplicationManagement.Core.Tests.Unit.csproj", "{9878EC5D-B5B5-42C0-BE8B-922A0FFB0591}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.TestHelpers", "Tests\SponsorPortal.TestHelpers\SponsorPortal.TestHelpers.csproj", "{4D9A8600-77AE-45EA-89D7-E258D641F552}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.Management", "Web\Management\SponsorPortal.Management\SponsorPortal.Management.csproj", "{71578A09-ECC2-4704-900F-F8B9F81CF2A7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.CommandApi", "Web\CommandApi\SponsorPortal.CommandApi\SponsorPortal.CommandApi.csproj", "{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationManagement.Web", "Web\Management\SponsorPortal.Management\SponsorPortal.ApplicationManagement.Web.csproj", "{71578A09-ECC2-4704-900F-F8B9F81CF2A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.TestDataBuilders", "Tests\SponsorPortal.TestDataBuilders\SponsorPortal.TestDataBuilders.csproj", "{1F14994C-5379-4390-AD5B-D3F1FF24E25B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.CommandApi.Tests.Unit", "Tests\Unit\SponsorPortal.CommandApi.Tests.Unit\SponsorPortal.CommandApi.Tests.Unit.csproj", "{106DC38B-2257-4EFD-AC88-062EA34CE3D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.QueryApi", "Web\QueryApi\SponsorPortal.QueryApi\SponsorPortal.QueryApi.csproj", "{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Query", "ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj", "{159FD893-EDF7-467F-823E-F9CD55AFE715}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Query.Tests", "Tests\Unit\SponsorPortal.ApplicationForm.Query.Tests\SponsorPortal.ApplicationForm.Query.Tests.csproj", "{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Common.Tests", "Tests\Unit\SponsorPortal.ApplicationForm.Common.Tests\SponsorPortal.ApplicationForm.Common.Tests.csproj", "{E74DE56F-864C-4D6F-9D6A-3F1E140333A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationManagement.Web.Tests.Unit", "Tests\Unit\SponsorPortal.CommandApi.Tests.Unit\SponsorPortal.ApplicationManagement.Web.Tests.Unit.csproj", "{106DC38B-2257-4EFD-AC88-062EA34CE3D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.Helpers", "Common\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj", "{CF259392-692F-43B1-B7A8-32AC43EEFA43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Tests.Integration", "Tests\Integration\SponsorPortal.ApplicationForm.Tests.Integration\SponsorPortal.ApplicationForm.Tests.Integration.csproj", "{2A32D937-DDA7-4EB9-B9B5-E798839CBAD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ApplicationForm.Common", "ApplicationForm\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj", "{A71CC001-A263-48C1-8635-406C7EE0F83F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationManagement", "ApplicationManagement", "{F7222119-81AC-4B86-A0AA-CA82E103DBD7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationEntry", "ApplicationEntry", "{44814909-0B97-40C3-AC46-C3A13AC663FA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClerkManagement", "ClerkManagement", "{E0CECDB5-42AA-4865-98E8-DBC311B22AD5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountManagement", "AccountManagement", "{F7E1E3EE-2A6E-40D6-9C73-344731542DBA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1242E916-EC9C-4DAC-A7F3-9D15F689B3D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{974BA616-0DA7-422F-9CB9-BD270AB3FA72}"
 	ProjectSection(SolutionItems) = preProject
@@ -100,10 +76,6 @@ Global
 		{71578A09-ECC2-4704-900F-F8B9F81CF2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71578A09-ECC2-4704-900F-F8B9F81CF2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71578A09-ECC2-4704-900F-F8B9F81CF2A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F14994C-5379-4390-AD5B-D3F1FF24E25B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F14994C-5379-4390-AD5B-D3F1FF24E25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F14994C-5379-4390-AD5B-D3F1FF24E25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -112,22 +84,6 @@ Global
 		{106DC38B-2257-4EFD-AC88-062EA34CE3D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106DC38B-2257-4EFD-AC88-062EA34CE3D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{106DC38B-2257-4EFD-AC88-062EA34CE3D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{159FD893-EDF7-467F-823E-F9CD55AFE715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{159FD893-EDF7-467F-823E-F9CD55AFE715}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{159FD893-EDF7-467F-823E-F9CD55AFE715}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{159FD893-EDF7-467F-823E-F9CD55AFE715}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E74DE56F-864C-4D6F-9D6A-3F1E140333A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E74DE56F-864C-4D6F-9D6A-3F1E140333A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E74DE56F-864C-4D6F-9D6A-3F1E140333A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E74DE56F-864C-4D6F-9D6A-3F1E140333A8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CF259392-692F-43B1-B7A8-32AC43EEFA43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF259392-692F-43B1-B7A8-32AC43EEFA43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF259392-692F-43B1-B7A8-32AC43EEFA43}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -136,37 +92,23 @@ Global
 		{2A32D937-DDA7-4EB9-B9B5-E798839CBAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A32D937-DDA7-4EB9-B9B5-E798839CBAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A32D937-DDA7-4EB9-B9B5-E798839CBAD4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A71CC001-A263-48C1-8635-406C7EE0F83F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A71CC001-A263-48C1-8635-406C7EE0F83F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A71CC001-A263-48C1-8635-406C7EE0F83F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A71CC001-A263-48C1-8635-406C7EE0F83F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EB441604-AB5A-4A0F-A66B-77E31808B563} = {F7222119-81AC-4B86-A0AA-CA82E103DBD7}
-		{B5193262-3044-4103-97FD-97E9C930E724} = {1242E916-EC9C-4DAC-A7F3-9D15F689B3D1}
-		{8566CA0A-4997-4978-9E26-C6A47BA3E2E2} = {1242E916-EC9C-4DAC-A7F3-9D15F689B3D1}
 		{0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5} = {A7FDA1D6-2E9F-46AB-807E-CC8A7FC05ECC}
 		{097DA4E6-B181-406E-A315-CFAD61AAE6A9} = {A7FDA1D6-2E9F-46AB-807E-CC8A7FC05ECC}
 		{3A16F383-D42A-4684-872A-C7BC6B681EA4} = {44814909-0B97-40C3-AC46-C3A13AC663FA}
 		{C862CFF4-B99E-43D0-8803-E4200824DC2C} = {8F4F920A-54BA-44F4-B9AD-24E43A3246C0}
 		{B96D8492-4472-41F3-9CC0-C136EDB03D6B} = {8F4F920A-54BA-44F4-B9AD-24E43A3246C0}
-		{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7} = {EB441604-AB5A-4A0F-A66B-77E31808B563}
+		{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7} = {F7222119-81AC-4B86-A0AA-CA82E103DBD7}
 		{9878EC5D-B5B5-42C0-BE8B-922A0FFB0591} = {0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5}
 		{4D9A8600-77AE-45EA-89D7-E258D641F552} = {A7FDA1D6-2E9F-46AB-807E-CC8A7FC05ECC}
-		{71578A09-ECC2-4704-900F-F8B9F81CF2A7} = {1242E916-EC9C-4DAC-A7F3-9D15F689B3D1}
-		{A20AC085-2C3C-4456-BCD0-3C8100B39BDF} = {8566CA0A-4997-4978-9E26-C6A47BA3E2E2}
+		{71578A09-ECC2-4704-900F-F8B9F81CF2A7} = {F7222119-81AC-4B86-A0AA-CA82E103DBD7}
 		{1F14994C-5379-4390-AD5B-D3F1FF24E25B} = {A7FDA1D6-2E9F-46AB-807E-CC8A7FC05ECC}
 		{106DC38B-2257-4EFD-AC88-062EA34CE3D3} = {0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5}
-		{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4} = {B5193262-3044-4103-97FD-97E9C930E724}
-		{159FD893-EDF7-467F-823E-F9CD55AFE715} = {EB441604-AB5A-4A0F-A66B-77E31808B563}
-		{DE3E0EF7-9BCC-4B66-AA60-994EEEA086FA} = {0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5}
-		{E74DE56F-864C-4D6F-9D6A-3F1E140333A8} = {0AABF77C-9F2D-4127-BB2F-2DFFEB87D9E5}
 		{CF259392-692F-43B1-B7A8-32AC43EEFA43} = {8F4F920A-54BA-44F4-B9AD-24E43A3246C0}
 		{2A32D937-DDA7-4EB9-B9B5-E798839CBAD4} = {097DA4E6-B181-406E-A315-CFAD61AAE6A9}
-		{A71CC001-A263-48C1-8635-406C7EE0F83F} = {EB441604-AB5A-4A0F-A66B-77E31808B563}
-		{1242E916-EC9C-4DAC-A7F3-9D15F689B3D1} = {F7222119-81AC-4B86-A0AA-CA82E103DBD7}
 	EndGlobalSection
 EndGlobal

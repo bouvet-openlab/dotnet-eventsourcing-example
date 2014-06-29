@@ -1,7 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core.Commands;
 
-namespace SponsorPortal.ApplicationForm.Tests.Unit
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
 {
     [TestFixture]
     public class AssignClerkCommandTests

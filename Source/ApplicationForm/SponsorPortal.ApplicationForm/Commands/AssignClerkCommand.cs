@@ -1,7 +1,7 @@
 ﻿using System;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.Commands
 {
     public class AssignClerkCommand : ICommand
     {

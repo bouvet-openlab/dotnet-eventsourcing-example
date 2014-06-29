@@ -2,9 +2,10 @@
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SponsorPortal.ApplicationForm.Query;
+using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using ApplicationForm = SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationForm;
 
-namespace SponsorPortal.QueryApi
+namespace SponsorPortal.ApplicationManagement.Web
 {
     public class ApplicationFormController : ApiController
     {
@@ -18,7 +19,7 @@ namespace SponsorPortal.QueryApi
 
         [HttpGet]
         [Route("applicationforms")]
-        public async Task<ImmutableList<ApplicationForm.Query.ApplicationForm>> GetAll()
+        public async Task<ImmutableList<ApplicationForm>> GetAll()
         {
             return await Task.FromResult(_applicationFormProjection.ApplicationForms);
         }

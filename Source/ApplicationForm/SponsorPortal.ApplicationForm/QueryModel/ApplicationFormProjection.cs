@@ -3,11 +3,11 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm.Query
+namespace SponsorPortal.ApplicationManagement.Core.QueryModel
 {
     public class ApplicationFormProjection : Projection, IApplicationFormProjection
     {

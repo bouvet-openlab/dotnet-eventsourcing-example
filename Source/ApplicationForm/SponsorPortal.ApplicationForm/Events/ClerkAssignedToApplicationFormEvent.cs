@@ -2,7 +2,7 @@
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm.Common
+namespace SponsorPortal.ApplicationManagement.Core.Events
 {
     [Serializable]
     public class ClerkAssignedToApplicationFormEvent : EventBase

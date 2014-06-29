@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ApplicationForm.Common
+namespace SponsorPortal.ApplicationManagement.Core
 {
     public class ApplicationFormNotFoundException : Exception
     {

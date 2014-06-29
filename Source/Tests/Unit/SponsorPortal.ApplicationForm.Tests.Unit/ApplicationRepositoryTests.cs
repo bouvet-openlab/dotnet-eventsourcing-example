@@ -3,12 +3,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm.Common;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 
-namespace SponsorPortal.ApplicationForm.Tests.Unit
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
 {
     [TestFixture]
     public class ApplicationRepositoryTests

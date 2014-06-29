@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using SponsorPortal.ApplicationForm.Common;
 
-namespace SponsorPortal.ApplicationForm.Query
+namespace SponsorPortal.ApplicationManagement.Core.QueryModel
 {
     public class ApplicationForm
     {

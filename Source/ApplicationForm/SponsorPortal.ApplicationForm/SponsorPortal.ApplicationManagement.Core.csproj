@@ -7,8 +7,8 @@
     <ProjectGuid>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SponsorPortal.ApplicationForm</RootNamespace>
-    <AssemblyName>SponsorPortal.ApplicationForm</AssemblyName>
+    <RootNamespace>SponsorPortal.ApplicationManagement.Core</RootNamespace>
+    <AssemblyName>SponsorPortal.ApplicationManagement.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,14 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationForm.cs" />
-    <Compile Include="ApplicationFormRepository.cs" />
-    <Compile Include="ApplicationFormService.cs" />
-    <Compile Include="AssignClerkCommand.cs" />
-    <Compile Include="CreateNewApplicationFormCommand.cs" />
-    <Compile Include="ApplicationFormDTO.cs" />
-    <Compile Include="IApplicationFormRepository.cs" />
+    <Compile Include="ApplicationFormNotFoundException.cs" />
+    <Compile Include="CommandModel\ApplicationForm.cs" />
+    <Compile Include="CommandModel\ApplicationFormDTO.cs" />
+    <Compile Include="CommandModel\ApplicationFormRepository.cs" />
+    <Compile Include="CommandModel\ApplicationFormService.cs" />
+    <Compile Include="CommandModel\IApplicationFormRepository.cs" />
+    <Compile Include="Commands\AssignClerkCommand.cs" />
+    <Compile Include="Commands\CreateNewApplicationFormCommand.cs" />
+    <Compile Include="Events\ClerkAssignedToApplicationFormEvent.cs" />
+    <Compile Include="Events\CreatedNewApplicationFormEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryModel\ApplicationForm.cs" />
+    <Compile Include="QueryModel\ApplicationFormProjection.cs" />
+    <Compile Include="QueryModel\ApplicationStatus.cs" />
+    <Compile Include="QueryModel\HistoryEntry.cs" />
+    <Compile Include="QueryModel\IApplicationFormProjection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
@@ -64,14 +72,11 @@
       <Project>{b96d8492-4472-41f3-9cc0-c136edb03d6b}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
-      <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

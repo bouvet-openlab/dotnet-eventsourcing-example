@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.CommandModel
 {
     public interface IApplicationFormRespository
     {
-        Task<ApplicationForm> GetApplicationForm(Guid applicationFormId);
+        Task<CommandModel.ApplicationForm> GetApplicationForm(Guid applicationFormId);
         Task Store(IEvent evnt);
     }
 }

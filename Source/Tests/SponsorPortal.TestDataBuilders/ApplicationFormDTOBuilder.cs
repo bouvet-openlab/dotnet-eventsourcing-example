@@ -1,4 +1,4 @@
-﻿using SponsorPortal.ApplicationForm;
+﻿using SponsorPortal.ApplicationManagement.Core.CommandModel;
 
 namespace SponsorPortal.TestDataBuilders
 {

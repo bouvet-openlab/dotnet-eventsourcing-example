@@ -46,13 +46,9 @@
     <Compile Include="TestDataBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ApplicationForm\SponsorPortal.ApplicationForm.Common\SponsorPortal.ApplicationForm.Common.csproj">
-      <Project>{A71CC001-A263-48C1-8635-406C7EE0F83F}</Project>
-      <Name>SponsorPortal.ApplicationForm.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
+    <ProjectReference Include="..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationManagement.Core.csproj">
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
-      <Name>SponsorPortal.ApplicationForm</Name>
+      <Name>SponsorPortal.ApplicationManagement.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
       <Project>{CF259392-692F-43B1-B7A8-32AC43EEFA43}</Project>

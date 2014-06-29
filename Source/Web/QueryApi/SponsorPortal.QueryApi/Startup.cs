@@ -6,7 +6,6 @@ using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Owin;
-using SponsorPortal.ApplicationForm.Query;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using Unity.WebApi;

@@ -74,13 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm.Query\SponsorPortal.ApplicationForm.Query.csproj">
-      <Project>{159FD893-EDF7-467F-823E-F9CD55AFE715}</Project>
-      <Name>SponsorPortal.ApplicationForm.Query</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationForm.csproj">
+    <ProjectReference Include="..\..\..\ApplicationForm\SponsorPortal.ApplicationForm\SponsorPortal.ApplicationManagement.Core.csproj">
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
-      <Name>SponsorPortal.ApplicationForm</Name>
+      <Name>SponsorPortal.ApplicationManagement.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
       <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>
@@ -94,13 +90,9 @@
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Web\CommandApi\SponsorPortal.CommandApi\SponsorPortal.CommandApi.csproj">
-      <Project>{A20AC085-2C3C-4456-BCD0-3C8100B39BDF}</Project>
-      <Name>SponsorPortal.CommandApi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Web\QueryApi\SponsorPortal.QueryApi\SponsorPortal.QueryApi.csproj">
-      <Project>{CE4D08EF-56A7-4CAA-8E2E-B5104B8EC9A4}</Project>
-      <Name>SponsorPortal.QueryApi</Name>
+    <ProjectReference Include="..\..\..\Web\Management\SponsorPortal.Management\SponsorPortal.ApplicationManagement.Web.csproj">
+      <Project>{71578A09-ECC2-4704-900F-F8B9F81CF2A7}</Project>
+      <Name>SponsorPortal.ApplicationManagement.Web</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SponsorPortal.TestDataBuilders\SponsorPortal.TestDataBuilders.csproj">
       <Project>{1F14994C-5379-4390-AD5B-D3F1FF24E25B}</Project>

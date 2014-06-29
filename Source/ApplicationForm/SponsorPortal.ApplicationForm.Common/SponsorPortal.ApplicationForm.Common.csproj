@@ -39,11 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFormNotFoundException.cs" />
-    <Compile Include="ApplicationStatus.cs" />
-    <Compile Include="ClerkAssignedToApplicationFormEvent.cs" />
-    <Compile Include="CreatedNewApplicationFormEvent.cs" />
-    <Compile Include="HistoryEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

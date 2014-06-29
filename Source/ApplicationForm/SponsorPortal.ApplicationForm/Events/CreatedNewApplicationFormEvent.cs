@@ -1,36 +1,35 @@
 ﻿using System;
+using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.Helpers;
+using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm
+namespace SponsorPortal.ApplicationManagement.Core.Events
 {
-    public class ApplicationFormDTO
+    [Serializable]
+    public class CreatedNewApplicationFormEvent : EventBase
     {
-        public Guid Id { get; private set; }
         public string Organization { get; private set; }
         public string Email { get; private set; }
         public double Amount { get; private set; }
         public string Title { get; private set; }
         public string Text { get; private set; }
+        public ApplicationStatus Status { get; private set; }
 
-        public ApplicationFormDTO(Guid id, string organization, string email, double amount, string title, string text) 
+        public CreatedNewApplicationFormEvent(AggregateRoots aggregateRoot, string organization, string email, double amount, string title, string text)
+            : base(aggregateRoot)
         {
             if (String.IsNullOrEmpty(organization)) throw new ArgumentNullException("organization");
             if (String.IsNullOrEmpty(email)) throw new ArgumentNullException("email");
             if (String.IsNullOrEmpty(title)) throw new ArgumentNullException("title");
             if (String.IsNullOrEmpty(text)) throw new ArgumentNullException("text");
-            if (amount == 0.0) throw new ArgumentException("amount cannot be zero");
+            if (amount == 0 || amount == 0.0) throw new ArgumentException("Amount must be greater than zero");
 
-            Id = id;
             Organization = organization;
             Email = email;
             Amount = amount;
             Title = title;
             Text = text;
-        }
-
-        public ApplicationFormDTO(string organization, string email, double amount, string title, string text)
-            : this(Guid.NewGuid(), organization, email, amount, title, text)
-        {
-            
+            Status = ApplicationStatus.NotProcessed;
         }
     }
 }

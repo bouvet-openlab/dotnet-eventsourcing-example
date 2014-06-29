@@ -1,10 +1,11 @@
 ﻿using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationForm;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.CommandApi.Tests.Unit
+namespace SponsorPortal.ApplicationManagement.Web.Tests.Unit
 {
     [TestFixture]
     public class ReceptionControllerTests

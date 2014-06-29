@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.Helpers;
-using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationForm.Common.Tests
+namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
 {
     [TestFixture]
     public class CreatedNewApplicationFormEventTests
