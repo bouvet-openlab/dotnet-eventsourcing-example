@@ -29,14 +29,13 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             IoC.RegisterContainer(container);
             
             var commandDispatcher = new CommandDispatcher();
-            var receptionController = new ReceptionController(commandDispatcher);
-
+            
             var applicationFormProjection = new ApplicationFormProjection(eventstore);
             await applicationFormProjection.SubscribeToEvents();
-            var applicationFormController = new ApplicationFormController(applicationFormProjection);
+            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
 
             var dto = new ApplicationFormDTOBuilder().Build();
-            await receptionController.SaveNew(dto);
+            await applicationFormController.SaveNew(dto);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
@@ -71,7 +70,6 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             IoC.RegisterContainer(container);
 
             var commandDispatcher = new CommandDispatcher();
-            var receptionController = new ReceptionController(commandDispatcher);
 
             var applicationFormProjection = new ApplicationFormProjection(eventstore);
             await applicationFormProjection.GetAllExistingEventsOfInterest();
@@ -79,7 +77,7 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing(1000);
 
-            var applicationFormController = new ApplicationFormController(applicationFormProjection);
+            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
             var applicationFormsBefore = await applicationFormController.GetAll();
             var countBefore = applicationFormsBefore.Count;
 
@@ -88,11 +86,11 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             var dto3 = new ApplicationFormDTOBuilder().Build();
             var dto4 = new ApplicationFormDTOBuilder().Build();
             var dto5 = new ApplicationFormDTOBuilder().Build();
-            await receptionController.SaveNew(dto1);
-            await receptionController.SaveNew(dto2);
-            await receptionController.SaveNew(dto3);
-            await receptionController.SaveNew(dto4);
-            await receptionController.SaveNew(dto5);
+            await applicationFormController.SaveNew(dto1);
+            await applicationFormController.SaveNew(dto2);
+            await applicationFormController.SaveNew(dto3);
+            await applicationFormController.SaveNew(dto4);
+            await applicationFormController.SaveNew(dto5);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
@@ -115,24 +113,23 @@ namespace SponsorPortal.ApplicationForm.Tests.Integration
             container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
             IoC.RegisterContainer(container);
 
+            var applicationFormProjection = new ApplicationFormProjection(eventstore);
             var commandDispatcher = new CommandDispatcher();
-            var receptionController = new ReceptionController(commandDispatcher);
+            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
 
             var dto1 = new ApplicationFormDTOBuilder().Build();
             var dto2 = new ApplicationFormDTOBuilder().Build();
             var dto3 = new ApplicationFormDTOBuilder().Build();
-            await receptionController.SaveNew(dto1);
-            await receptionController.SaveNew(dto2);
-            await receptionController.SaveNew(dto3);
-
-            var applicationFormProjection = new ApplicationFormProjection(eventstore);
+            await applicationFormController.SaveNew(dto1);
+            await applicationFormController.SaveNew(dto2);
+            await applicationFormController.SaveNew(dto3);
+            
             await applicationFormProjection.SubscribeToEvents();
-            var applicationFormController = new ApplicationFormController(applicationFormProjection);
 
             var dto4 = new ApplicationFormDTOBuilder().Build();
             var dto5 = new ApplicationFormDTOBuilder().Build();
-            await receptionController.SaveNew(dto4);
-            await receptionController.SaveNew(dto5);
+            await applicationFormController.SaveNew(dto4);
+            await applicationFormController.SaveNew(dto5);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 

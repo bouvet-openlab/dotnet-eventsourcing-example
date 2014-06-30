@@ -1,27 +1,30 @@
 ﻿using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.ApplicationManagement.Core.Commands;
+using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.Infrastructure;
+using SponsorPortal.TestDataBuilders;
 
 namespace SponsorPortal.ApplicationManagement.Web.Tests.Unit
 {
     [TestFixture]
-    public class ReceptionControllerTests
+    public class ApplicationFormControllerTests
     {
         private Mock<ICommandDispatcher> _commandDispatcher;
+        private Mock<IApplicationFormProjection> _projection;
 
         [SetUp]
         public void Setup()
         {
             _commandDispatcher = new Mock<ICommandDispatcher>();
+            _projection = new Mock<IApplicationFormProjection>();
         }
 
         [Test]
         public async void WhenSavingNewApplicationForm_ApplicationFormIsNull_ReturnsStatusCode400BadRequest()
         {
-            var controller = new ReceptionController(_commandDispatcher.Object);
+            var controller = new ApplicationFormController(_projection.Object, _commandDispatcher.Object);
 
             var response = await controller.SaveNew(null) as BadRequestErrorMessageResult;
 
@@ -31,8 +34,8 @@ namespace SponsorPortal.ApplicationManagement.Web.Tests.Unit
         [Test]
         public async void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_SendsCreateNewApplicationCommand()
         {
-            var applicationForm = new ApplicationFormDTO("organization", "mail@mail.com", 123, "title", "text");
-            var controller = new ReceptionController(_commandDispatcher.Object);
+            var applicationForm = new ApplicationFormDTOBuilder().Build();
+            var controller = new ApplicationFormController(_projection.Object, _commandDispatcher.Object);
 
             await controller.SaveNew(applicationForm);
 
@@ -42,8 +45,8 @@ namespace SponsorPortal.ApplicationManagement.Web.Tests.Unit
         [Test]
         public async void WhenSavingNewApplicationForm_ApplicationFormIsNotNull_ReturnsStatusCode200Ok()
         {
-            var applicationForm = new ApplicationFormDTO("organization", "mail@mail.com", 123, "title", "text");
-            var controller = new ReceptionController(_commandDispatcher.Object);
+            var applicationForm = new ApplicationFormDTOBuilder().Build();
+            var controller = new ApplicationFormController(_projection.Object, _commandDispatcher.Object);
 
             var response = await controller.SaveNew(applicationForm) as OkNegotiatedContentResult<string>;
 
