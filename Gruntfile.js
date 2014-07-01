@@ -53,8 +53,8 @@ module.exports = function(grunt) {
             start_eventstore: "start Thirdparty\\EventStore\\EventStore.SingleNode.exe",
             update_nuget: "Thirdparty\\NuGet\\nuget.exe update -self",
             restore_nuget: "Thirdparty\\NuGet\\nuget.exe restore Source\\SponsorPortal.sln",
-            nunit_unittests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Unit\\SponsorPortal.Tests.Unit.csproj /include:UnitTests",
-            nunit_integrationtests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Integration\\SponsorPortal.Tests.Integration.csproj /include:IntegrationTests"
+            nunit_unittests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Unit\\SponsorPortal.Tests.Unit.csproj /include:UnitTests  /xml:Artifacts\\UnitTestResults.xml",
+            nunit_integrationtests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Integration\\SponsorPortal.Tests.Integration.csproj /include:IntegrationTests /xml:Artifacts\\IntegrationTestResults.xml"
         },
         wait: {
             options: {

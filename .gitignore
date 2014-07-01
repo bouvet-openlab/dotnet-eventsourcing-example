@@ -88,6 +88,8 @@ packages
 packages/*
 node_modules
 node_modules/*
+Artifacts
+Artifacts/*
 
 # Check in everything in Thirdparty folder
 !/Thirdparty/
