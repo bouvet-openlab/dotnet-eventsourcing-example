@@ -3,10 +3,12 @@ using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.Helpers;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class CreatedNewApplicationFormEventTests
     {
         //private const string AggregateRootIdentifier = "ApplicationForm";

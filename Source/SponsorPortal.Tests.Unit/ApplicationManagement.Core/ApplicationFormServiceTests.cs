@@ -1,14 +1,17 @@
 ﻿using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.TestDataBuilders;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormServiceTests
     {
         private Mock<IApplicationFormRespository> _applicationFormRepository;
@@ -54,7 +57,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
             const string clerkId = "Mr. Clerk";
             var applicationForm = new ApplicationFormBuilder().Build();
             var applicationId = applicationForm.Id;
-            _applicationFormRepository.Setup(ctx => ctx.GetApplicationForm(applicationId)).Returns(() => Task.FromResult<ApplicationManagement.Core.CommandModel.ApplicationForm>(null));
+            _applicationFormRepository.Setup(ctx => ctx.GetApplicationForm(applicationId)).Returns(() => Task.FromResult<ApplicationForm>(null));
             var service = new ApplicationFormService(_applicationFormRepository.Object);
             var command = new AssignClerkCommand(applicationId, clerkId);
 

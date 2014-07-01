@@ -10,9 +10,10 @@ using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationForm.Tests.Integration
+namespace SponsorPortal.Tests.Integration
 {
     [TestFixture]
+    [Category(TestCategory.IntegrationTests)]
     public class CreatingNewApplicationFormTests
     {
         [Test]

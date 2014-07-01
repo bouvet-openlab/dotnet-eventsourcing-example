@@ -6,8 +6,31 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-wait');
 
-    grunt.registerTask('build', ['nuget_install', 'msbuild', 'exec', 'wait', 'nunit']);
-    grunt.registerTask('es', ['exec']); //Starts EventStore
+    //
+    // 'Build' task builds the solution and runs unit tests
+    //
+    grunt.registerTask('build', ['exec:update_nuget',
+        'exec:restore_nuget',
+        'msbuild',
+        'exec:nunit_unittests'
+    ]);
+
+    //
+    // 'Build-full' task builds the solution, starts event store and runs unit and integration tests
+    //
+    grunt.registerTask('build-full', ['exec:update_nuget',
+        'exec:restore_nuget',
+        'msbuild',
+        'exec:start_eventstore',
+        'wait',
+        'exec:nunit_unittests',
+        'exec:nunit_integrationtests'
+    ]);
+
+    //
+    //  'Es' task starts the event store
+    //
+    grunt.registerTask('es', ['exec:start_eventstore']);
 
     grunt.initConfig({
         msbuild: {
@@ -26,23 +49,12 @@ module.exports = function(grunt) {
                 }
             }
         },
-        nunit: {
-            options: {
-                files: [
-                    'Source\\Tests\\Integration\\SponsorPortal.ApplicationForm.Tests.Integration\\SponsorPortal.ApplicationForm.Tests.Integration.csproj',
-                    'Source\\Tests\\Unit\\SponsorPortal.ApplicationForm.Common.Tests\\SponsorPortal.ApplicationForm.Common.Tests.csproj',
-                    'Source\\Tests\\Unit\\SponsorPortal.ApplicationForm.Query.Tests\\SponsorPortal.ApplicationForm.Query.Tests.csproj',
-                    'Source\\Tests\\Unit\\SponsorPortal.ApplicationForm.Tests.Unit\\SponsorPortal.ApplicationForm.Tests.Unit.csproj',
-                    'Source\\Tests\\Unit\\SponsorPortal.CommandApi.Tests.Unit\\SponsorPortal.CommandApi.Tests.Unit.csproj',
-                ],
-                path: 'Source\\packages\\NUnit.Runners.2.6.3\\tools'
-            }
-        },
-        nuget_install: {
-            file: 'Source\\SponsorPortal.sln',
-        },
         exec: {
-            start_eventstore: "start Thirdparty\\EventStore\\EventStore.SingleNode.exe"
+            start_eventstore: "start Thirdparty\\EventStore\\EventStore.SingleNode.exe",
+            update_nuget: "Thirdparty\\NuGet\\nuget.exe update -self",
+            restore_nuget: "Thirdparty\\NuGet\\nuget.exe restore Source\\SponsorPortal.sln",
+            nunit_unittests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Unit\\SponsorPortal.Tests.Unit.csproj /include:UnitTests",
+            nunit_integrationtests: "Source\\packages\\NUnit.Runners.2.6.3\\tools\\nunit-console.exe Source\\SponsorPortal.Tests.Integration\\SponsorPortal.Tests.Integration.csproj /include:IntegrationTests"
         },
         wait: {
             options: {

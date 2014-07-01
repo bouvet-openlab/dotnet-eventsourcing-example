@@ -1,10 +1,12 @@
 ﻿using System;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit.CommandModelTests
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormDTOTests
     {
         private const string Organization = "organization";

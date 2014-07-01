@@ -1,195 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\dev\Projects\SponsorPortal\Source\Tests\Integration\SponsorPortal.ApplicationForm.Tests.Integration\bin\Debug\SponsorPortal.ApplicationForm.Tests.Integration.dll" total="54" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-06-27" time="12:10:03">
-  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.8000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\dev\Projects\SponsorPortal" machine-name="EAARDAL-BOUVET" user="eirik" user-domain="EAARDAL-BOUVET" />
+<test-results name="C:\dev\Projects\dotnet-eventsourcing-example\Source\SponsorPortal.Tests.Integration\SponsorPortal.Tests.Integration.csproj" total="3" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-07-01" time="09:56:52">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.8000" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\dev\Projects\dotnet-eventsourcing-example" machine-name="EAARDAL-BOUVET" user="eirik" user-domain="EAARDAL-BOUVET" />
   <culture-info current-culture="nb-NO" current-uiculture="en-US" />
-  <test-suite type="Test Project" name="" executed="True" result="Success" success="True" time="10.421" asserts="0">
+  <test-suite type="Project" name="C:\dev\Projects\dotnet-eventsourcing-example\Source\SponsorPortal.Tests.Integration\SponsorPortal.Tests.Integration.csproj" executed="True" result="Success" success="True" time="5.613" asserts="0">
     <results>
-      <test-suite type="Assembly" name="C:\dev\Projects\SponsorPortal\Source\Tests\Integration\SponsorPortal.ApplicationForm.Tests.Integration\bin\Debug\SponsorPortal.ApplicationForm.Tests.Integration.dll" executed="True" result="Success" success="True" time="5.482" asserts="0">
+      <test-suite type="Assembly" name="C:\dev\Projects\dotnet-eventsourcing-example\Source\SponsorPortal.Tests.Integration\bin\Debug\SponsorPortal.Tests.Integration.dll" executed="True" result="Success" success="True" time="5.592" asserts="0">
         <results>
-          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="5.461" asserts="0">
+          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="5.591" asserts="0">
             <results>
-              <test-suite type="Namespace" name="ApplicationForm" executed="True" result="Success" success="True" time="5.460" asserts="0">
+              <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="5.591" asserts="0">
                 <results>
-                  <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="5.459" asserts="0">
+                  <test-suite type="Namespace" name="Integration" executed="True" result="Success" success="True" time="5.590" asserts="0">
                     <results>
-                      <test-suite type="Namespace" name="Integration" executed="True" result="Success" success="True" time="5.459" asserts="0">
+                      <test-suite type="TestFixture" name="CreatingNewApplicationFormTests" executed="True" result="Success" success="True" time="5.587" asserts="0">
+                        <categories>
+                          <category name="IntegrationTests" />
+                        </categories>
                         <results>
-                          <test-suite type="TestFixture" name="CreatingNewApplicationFormTests" executed="True" result="Success" success="True" time="5.456" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Integration.CreatingNewApplicationFormTests.WhenGivingNewApplicationFormToCommandApi_RetrievesExpectedApplicationFormFromQueryApi" executed="True" result="Success" success="True" time="2.539" asserts="5" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Integration.CreatingNewApplicationFormTests.WhenGivingSeveralApplicationFormsToCommandApi_RetrievesExpectedAmountOfApplicationsFromQueryApi" executed="True" result="Success" success="True" time="1.487" asserts="1" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Integration.CreatingNewApplicationFormTests.WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesOnlyNewEvents" executed="True" result="Success" success="True" time="1.407" asserts="1" />
-                            </results>
-                          </test-suite>
-                        </results>
-                      </test-suite>
-                    </results>
-                  </test-suite>
-                </results>
-              </test-suite>
-            </results>
-          </test-suite>
-        </results>
-      </test-suite>
-      <test-suite type="Assembly" name="C:\dev\Projects\SponsorPortal\Source\Tests\Unit\SponsorPortal.ApplicationForm.Common.Tests\bin\Debug\SponsorPortal.ApplicationForm.Common.Tests.dll" executed="True" result="Success" success="True" time="0.268" asserts="0">
-        <results>
-          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="0.247" asserts="0">
-            <results>
-              <test-suite type="Namespace" name="ApplicationForm" executed="True" result="Success" success="True" time="0.247" asserts="0">
-                <results>
-                  <test-suite type="Namespace" name="Common" executed="True" result="Success" success="True" time="0.246" asserts="0">
-                    <results>
-                      <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.246" asserts="0">
-                        <results>
-                          <test-suite type="TestFixture" name="ClerkAssignedToApplicationFormEventTests" executed="True" result="Success" success="True" time="0.184" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.ClerkAssignedToApplicationFormEventTests.ClerkIdCannotBeEmpty" executed="True" result="Success" success="True" time="0.167" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.ClerkAssignedToApplicationFormEventTests.ClerkIdCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                            </results>
-                          </test-suite>
-                          <test-suite type="TestFixture" name="CreatedNewApplicationFormEventTests" executed="True" result="Success" success="True" time="0.056" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.AmountCannotBeZero" executed="True" result="Success" success="True" time="0.002" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.ApplicationStatusIsAlwaysNotProcessed" executed="True" result="Success" success="True" time="0.015" asserts="1" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.EmailCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.EmailCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.IsAssignedCreatedTimestamp" executed="True" result="Success" success="True" time="0.018" asserts="3" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.IsAssignedNewGuid" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.OrganizationCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.OrganizationCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.TextCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.TextCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.TitleCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Common.Tests.CreatedNewApplicationFormEventTests.TitleCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                            </results>
-                          </test-suite>
-                        </results>
-                      </test-suite>
-                    </results>
-                  </test-suite>
-                </results>
-              </test-suite>
-            </results>
-          </test-suite>
-        </results>
-      </test-suite>
-      <test-suite type="Assembly" name="C:\dev\Projects\SponsorPortal\Source\Tests\Unit\SponsorPortal.ApplicationForm.Query.Tests\bin\Debug\SponsorPortal.ApplicationForm.Query.Tests.dll" executed="True" result="Success" success="True" time="0.303" asserts="0">
-        <results>
-          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="0.282" asserts="0">
-            <results>
-              <test-suite type="Namespace" name="ApplicationForm" executed="True" result="Success" success="True" time="0.281" asserts="0">
-                <results>
-                  <test-suite type="Namespace" name="Query" executed="True" result="Success" success="True" time="0.281" asserts="0">
-                    <results>
-                      <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.280" asserts="0">
-                        <results>
-                          <test-suite type="TestFixture" name="ApplicationFormProjectionTests" executed="True" result="Inconclusive" success="False" time="0.010" asserts="0" />
-                          <test-suite type="TestFixture" name="ApplicationFormTests" executed="True" result="Success" success="True" time="0.263" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.AmountCannotBeZero" executed="True" result="Success" success="True" time="0.081" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.EmailCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.EmailCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.OrganizationCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.OrganizationCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.TextCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.TextCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.TitleCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.TitleCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenClerkNameIsGivenAsEmptyString_IsNullAndNotEmptyString" executed="True" result="Success" success="True" time="0.040" asserts="2" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenClerkNameIsGivenAsNull_IsNullAndNotEmptyString" executed="True" result="Success" success="True" time="0.001" asserts="2" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenClerkNameIsNotGiven_IsNullAndNotEmptyString" executed="True" result="Success" success="True" time="0.000" asserts="2" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenHistoryIsGivenAsNull_IsEmptyImmutableList" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenHistoryIsNotGiven_IsEmptyImmutableList" executed="True" result="Success" success="True" time="0.001" asserts="1" />
-                              <test-case name="SponsorPortal.ApplicationForm.Query.Tests.ApplicationFormTests.WhenUpdateTimestampIsNotGiven_CreatedTimestampIsUsedAsUpdatedTimestamp" executed="True" result="Success" success="True" time="0.005" asserts="1" />
-                            </results>
-                          </test-suite>
-                        </results>
-                      </test-suite>
-                    </results>
-                  </test-suite>
-                </results>
-              </test-suite>
-            </results>
-          </test-suite>
-        </results>
-      </test-suite>
-      <test-suite type="Assembly" name="C:\dev\Projects\SponsorPortal\Source\Tests\Unit\SponsorPortal.ApplicationForm.Tests.Unit\bin\Debug\SponsorPortal.ApplicationForm.Tests.Unit.dll" executed="True" result="Success" success="True" time="1.217" asserts="0">
-        <results>
-          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="1.192" asserts="0">
-            <results>
-              <test-suite type="Namespace" name="ApplicationForm" executed="True" result="Success" success="True" time="1.192" asserts="0">
-                <results>
-                  <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="1.191" asserts="0">
-                    <results>
-                      <test-suite type="Namespace" name="Unit" executed="True" result="Success" success="True" time="1.191" asserts="0">
-                        <results>
-                          <test-suite type="TestFixture" name="ApplicationFormDTOTests" executed="True" result="Success" success="True" time="0.077" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.AmountCannotBeZero" executed="True" result="Success" success="True" time="0.038" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.EmailCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.EmailCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.OrganizationCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.OrganizationCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.TextCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.TextCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.TitleCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.TitleCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.WhenGUIDIsGiven_IsSetAsID" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormDTOTests.WhenGUIDIsNotGiven_NewGuidIsCreated" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                            </results>
-                          </test-suite>
-                          <test-suite type="TestFixture" name="ApplicationFormServiceTests" executed="True" result="Success" success="True" time="0.915" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormServiceTests.HandlesAssignClerkCommand_WhenApplicationFormDoesNotExist_CreatesEventForClerkAssignedToApplication" executed="True" result="Success" success="True" time="0.766" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormServiceTests.HandlesAssignClerkCommand_WhenApplicationFormExists_CreatesEventForClerkAssignedToApplication" executed="True" result="Success" success="True" time="0.131" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormServiceTests.HandlesCreateNewApplicationFormCommand_CreatesEventForNewApplicationForm" executed="True" result="Success" success="True" time="0.014" asserts="0" />
-                            </results>
-                          </test-suite>
-                          <test-suite type="TestFixture" name="ApplicationFormTests" executed="True" result="Success" success="True" time="0.023" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormTests.WhenAssigningClerk_ReturnsExpectedEventAndHasExpectedApplicationIdAndClerkId" executed="True" result="Success" success="True" time="0.016" asserts="3" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationFormTests.WhenCreatingNew_ReturnsExpectedEventAndEventHasSameDataAsIsGiven" executed="True" result="Success" success="True" time="0.005" asserts="6" />
-                            </results>
-                          </test-suite>
-                          <test-suite type="TestFixture" name="ApplicationRepositoryTests" executed="True" result="Success" success="True" time="0.158" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.ApplicationRepositoryTests.GetsApplicationFormFromEventPersistance" executed="True" result="Success" success="True" time="0.157" asserts="2" />
-                            </results>
-                          </test-suite>
-                          <test-suite type="TestFixture" name="AssignClerkCommandTests" executed="True" result="Success" success="True" time="0.003" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.AssignClerkCommandTests.ClerkIdCannotBeEmpty" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                              <test-case name="SponsorPortal.ApplicationForm.Tests.Unit.AssignClerkCommandTests.ClerkIdCannotBeNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
-                            </results>
-                          </test-suite>
-                        </results>
-                      </test-suite>
-                    </results>
-                  </test-suite>
-                </results>
-              </test-suite>
-            </results>
-          </test-suite>
-        </results>
-      </test-suite>
-      <test-suite type="Assembly" name="C:\dev\Projects\SponsorPortal\Source\Tests\Unit\SponsorPortal.CommandApi.Tests.Unit\bin\Debug\SponsorPortal.CommandApi.Tests.Unit.dll" executed="True" result="Success" success="True" time="0.873" asserts="0">
-        <results>
-          <test-suite type="Namespace" name="SponsorPortal" executed="True" result="Success" success="True" time="0.852" asserts="0">
-            <results>
-              <test-suite type="Namespace" name="CommandApi" executed="True" result="Success" success="True" time="0.851" asserts="0">
-                <results>
-                  <test-suite type="Namespace" name="Tests" executed="True" result="Success" success="True" time="0.851" asserts="0">
-                    <results>
-                      <test-suite type="Namespace" name="Unit" executed="True" result="Success" success="True" time="0.850" asserts="0">
-                        <results>
-                          <test-suite type="TestFixture" name="ReceptionControllerTests" executed="True" result="Success" success="True" time="0.847" asserts="0">
-                            <results>
-                              <test-case name="SponsorPortal.CommandApi.Tests.Unit.ReceptionControllerTests.WhenSavingNewApplicationForm_ApplicationFormIsNotNull_ReturnsStatusCode200Ok" executed="True" result="Success" success="True" time="0.619" asserts="1" />
-                              <test-case name="SponsorPortal.CommandApi.Tests.Unit.ReceptionControllerTests.WhenSavingNewApplicationForm_ApplicationFormIsNotNull_SendsCreateNewApplicationCommand" executed="True" result="Success" success="True" time="0.207" asserts="0" />
-                              <test-case name="SponsorPortal.CommandApi.Tests.Unit.ReceptionControllerTests.WhenSavingNewApplicationForm_ApplicationFormIsNull_ReturnsStatusCode400BadRequest" executed="True" result="Success" success="True" time="0.004" asserts="1" />
-                            </results>
-                          </test-suite>
+                          <test-case name="SponsorPortal.Tests.Integration.CreatingNewApplicationFormTests.WhenGivingNewApplicationFormToCommandApi_RetrievesExpectedApplicationFormFromQueryApi" executed="True" result="Success" success="True" time="2.646" asserts="5" />
+                          <test-case name="SponsorPortal.Tests.Integration.CreatingNewApplicationFormTests.WhenGivingSeveralApplicationFormsToCommandApi_RetrievesExpectedAmountOfApplicationsFromQueryApi" executed="True" result="Success" success="True" time="1.500" asserts="1" />
+                          <test-case name="SponsorPortal.Tests.Integration.CreatingNewApplicationFormTests.WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesOnlyNewEvents" executed="True" result="Success" success="True" time="1.416" asserts="1" />
                         </results>
                       </test-suite>
                     </results>

@@ -6,6 +6,10 @@
 # *~
 # there are two bins here because apparently Silverlight calls the folder Bin instead of bin
 # these folders should never be checked in as this contains the compiled code for configurations 
+
+
+
+
 bin
 Bin
 bin/*
@@ -87,3 +91,5 @@ node_modules/*
 
 # Check in everything in Thirdparty folder
 !/Thirdparty/
+!Thirdparty/*
+!/Thirdparty/*/*.exe

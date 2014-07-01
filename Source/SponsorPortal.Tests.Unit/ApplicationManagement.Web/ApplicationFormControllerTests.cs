@@ -3,12 +3,15 @@ using Moq;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Web.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Web
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormControllerTests
     {
         private Mock<ICommandDispatcher> _commandDispatcher;

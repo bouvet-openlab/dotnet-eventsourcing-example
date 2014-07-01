@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormProjectionTests
     {
         /*

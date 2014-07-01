@@ -1,10 +1,12 @@
 ﻿using System;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Commands;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class AssignClerkCommandTests
     {
         [Test]

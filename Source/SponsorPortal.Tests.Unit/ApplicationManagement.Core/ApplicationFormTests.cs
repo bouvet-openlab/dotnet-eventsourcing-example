@@ -2,10 +2,12 @@
 using System.Collections.Immutable;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormTests
     {
         private static readonly Guid Id = Guid.NewGuid();

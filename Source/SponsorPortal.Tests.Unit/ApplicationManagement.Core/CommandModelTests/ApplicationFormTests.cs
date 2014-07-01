@@ -1,9 +1,12 @@
 ﻿using NUnit.Framework;
+using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit.CommandModelTests
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationFormTests
     {
         private const string Organization = "organization";
@@ -15,7 +18,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit.CommandModelTests
         [Test]
         public void WhenCreatingNew_ReturnsExpectedEventAndEventHasSameDataAsIsGiven()
         {
-            var evnt = ApplicationManagement.Core.CommandModel.ApplicationForm.CreateNew(Organization, Email, Amount, Title, Text);
+            var evnt = ApplicationForm.CreateNew(Organization, Email, Amount, Title, Text);
             Assert.IsInstanceOf<CreatedNewApplicationFormEvent>(evnt);
             Assert.AreEqual(Organization, evnt.Organization);
             Assert.AreEqual(Email, evnt.Email);
@@ -28,7 +31,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit.CommandModelTests
         public void WhenAssigningClerk_ReturnsExpectedEventAndHasExpectedApplicationIdAndClerkId()
         {
             const string clerkId = "Mr. Clerk";
-            var application = new ApplicationManagement.Core.CommandModel.ApplicationForm(Organization, Email, Amount, Title, Text);
+            var application = new ApplicationForm(Organization, Email, Amount, Title, Text);
             var evnt = application.AssignClerk(clerkId);
             Assert.IsInstanceOf<ClerkAssignedToApplicationFormEvent>(evnt);
             Assert.AreEqual(clerkId, evnt.ClerkId);

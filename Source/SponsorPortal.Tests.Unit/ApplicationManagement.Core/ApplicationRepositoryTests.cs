@@ -8,10 +8,12 @@ using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
+using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.ApplicationManagement.Core.Tests.Unit
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
 {
     [TestFixture]
+    [Category(TestCategory.UnitTests)]
     public class ApplicationRepositoryTests
     {
         [Test]
