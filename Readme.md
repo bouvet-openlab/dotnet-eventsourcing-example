@@ -21,7 +21,7 @@ Backend
 * Katana  
 * Helios (IIS' OWIN implementation)  
 * ASP.NET WebAPI
-* NEventStore  
+* EventStore (www.geteventstore.com)  
 * Unity
 
 Thirdparty
@@ -31,20 +31,11 @@ Thirdparty
 
 ####Components####
 * Web components  
-  * Public website (the application form)  
+  * Application Entry  
     http://localhost:8100/sponsorportal
      
   * Management website (for managing applications)  
     http://localhost:8200/sponsorportal
-
-  * Query API  
-    http://localhost:8300/sponsorportal/api
-
-  * Command API  
-    http://localhost:8400/sponsorportal/api
-
-* Aggregate roots
-  * Application Form
 
 ####Known issues:####
 1. Helios (Owin-IIS) on IIS Express may return http 500 internal server error saying the configuration is invalid. To fix, run the ClearIISExpressCache script located in the Scripts folder. This is an alpha-release related issue (I hope).
