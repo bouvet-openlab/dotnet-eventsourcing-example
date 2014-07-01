@@ -1,4 +1,5 @@
 ﻿using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.ValueObjects;
 
 namespace SponsorPortal.TestDataBuilders
 {

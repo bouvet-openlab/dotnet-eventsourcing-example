@@ -3,6 +3,7 @@ using Moq;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;

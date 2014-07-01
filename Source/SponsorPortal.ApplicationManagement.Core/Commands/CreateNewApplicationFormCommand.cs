@@ -1,5 +1,6 @@
 ﻿using System;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.ValueObjects;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationManagement.Core.Commands

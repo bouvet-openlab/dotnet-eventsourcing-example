@@ -1,4 +1,6 @@
-﻿namespace SponsorPortal.EventStore.Helpers
+﻿using EventStore.ClientAPI;
+
+namespace SponsorPortal.EventStore.Helpers
 {
     internal static class EventHelpers
     {
@@ -10,6 +12,11 @@
         internal static string GetNameFor<TEvent>(TEvent evnt)
         {
             return evnt.GetType().Name;
+        }
+
+        internal static bool CanParseTo<TEvent>(ResolvedEvent resolvedEvent)
+        {
+            return resolvedEvent.Event.EventType == GetNameFor<TEvent>();
         }
     }
 }

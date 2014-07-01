@@ -6,11 +6,11 @@ namespace SponsorPortal.Infrastructure
     [Serializable]
     public abstract class EventBase : IEvent
     {
-        public AggregateRoots AggregateRootIdentifier { get; private set; }
+        public AggregateRoot AggregateRootIdentifier { get; private set; }
         public Guid EntityId { get; private set; }
         public DateTime CreatedTimestamp { get; private set; }
 
-        protected EventBase(AggregateRoots aggregateRootIdentifier)
+        protected EventBase(AggregateRoot aggregateRootIdentifier)
         {
             AggregateRootIdentifier = aggregateRootIdentifier;
             EntityId = Guid.NewGuid();
@@ -19,7 +19,7 @@ namespace SponsorPortal.Infrastructure
 
         public override string ToString()
         {
-            return String.Format("AggregateRoot={0}, Id={1}, CreatedTimestamp={2}", AggregateRootIdentifier, EntityId, CreatedTimestamp);
+            return String.Format("Aggregate={0}, Id={1}, CreatedTimestamp={2}", AggregateRootIdentifier, EntityId, CreatedTimestamp);
         }
     }
 }

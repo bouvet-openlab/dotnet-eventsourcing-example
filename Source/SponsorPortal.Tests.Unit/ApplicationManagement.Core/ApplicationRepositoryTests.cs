@@ -19,7 +19,7 @@ namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
         [Test]
         public async void GetsApplicationFormFromEventPersistance()
         {
-            const AggregateRoots aggregateRootId = AggregateRoots.ApplicationForm;
+            const AggregateRoot aggregateRootId = AggregateRoot.ApplicationForm;
             var eventPersistance = new Mock<IEventPersistance>();
             var storedEvents = new[]{ new CreatedNewApplicationFormEventBuilder().Build(), new CreatedNewApplicationFormEventBuilder().Build() }.ToImmutableList();
             var applicationId = storedEvents.First().EntityId;

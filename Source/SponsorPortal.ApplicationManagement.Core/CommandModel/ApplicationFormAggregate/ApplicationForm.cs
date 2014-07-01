@@ -3,9 +3,9 @@ using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.CommandModel
+namespace SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate
 {
-    public class ApplicationForm : AggregateRoot
+    public class ApplicationForm : Aggregate
     {
         public string Organization { get; private set; }
         public string Email { get; private set; }
@@ -34,14 +34,14 @@ namespace SponsorPortal.ApplicationManagement.Core.CommandModel
             
         }
 
-        public override AggregateRoots AggregateRootIdentifier
+        public override AggregateRoot AggregateRootIdentifier
         {
-            get { return AggregateRoots.ApplicationForm; }
+            get { return AggregateRoot.ApplicationForm; }
         }
 
         public static CreatedNewApplicationFormEvent CreateNew(string organization, string email, double amount, string title, string text)
         {
-            return new CreatedNewApplicationFormEvent(AggregateRoots.ApplicationForm, organization, email, amount, title, text);
+            return new CreatedNewApplicationFormEvent(AggregateRoot.ApplicationForm, organization, email, amount, title, text);
         }
       
         public ClerkAssignedToApplicationFormEvent AssignClerk(string clerkId)

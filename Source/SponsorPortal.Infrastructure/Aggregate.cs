@@ -3,15 +3,15 @@ using SponsorPortal.Helpers;
 
 namespace SponsorPortal.Infrastructure
 {
-    public abstract class AggregateRoot
+    public abstract class Aggregate
     {
         public Guid Id { get; private set; }
 
-        protected AggregateRoot(Guid id)
+        protected Aggregate(Guid id)
         {
             Id = id;
         }
 
-        public abstract AggregateRoots AggregateRootIdentifier { get; }
+        public abstract AggregateRoot AggregateRootIdentifier { get; }
     }
 }

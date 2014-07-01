@@ -10,7 +10,7 @@ namespace SponsorPortal.TestDataBuilders
         private double _amount;
         private string _title;
         private string _text;
-        private AggregateRoots _aggregateRootIdentifier;
+        private AggregateRoot _aggregateRootIdentifier;
 
         public CreatedNewApplicationFormEventBuilder()
         {
@@ -19,7 +19,7 @@ namespace SponsorPortal.TestDataBuilders
             _amount = 10000;
             _title = "Request for money";
             _text = "Need money for stuff";
-            _aggregateRootIdentifier = AggregateRoots.ApplicationForm;
+            _aggregateRootIdentifier = AggregateRoot.ApplicationForm;
         }
 
         public CreatedNewApplicationFormEventBuilder WithOrganization(string organization)
@@ -52,7 +52,7 @@ namespace SponsorPortal.TestDataBuilders
             return this;
         }
 
-        public CreatedNewApplicationFormEventBuilder WithAggregateRootIdentifier(AggregateRoots aggregateRootIdentifier)
+        public CreatedNewApplicationFormEventBuilder WithAggregateRootIdentifier(AggregateRoot aggregateRootIdentifier)
         {
             _aggregateRootIdentifier = aggregateRootIdentifier;
             return this;

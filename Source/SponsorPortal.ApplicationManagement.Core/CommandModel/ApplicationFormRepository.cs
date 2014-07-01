@@ -16,11 +16,11 @@ namespace SponsorPortal.ApplicationManagement.Core.CommandModel
             _eventPersistance = eventPersistance;
         }
         
-        public async Task<CommandModel.ApplicationForm> GetApplicationForm(Guid applicationFormId)
+        public async Task<ApplicationForm> GetApplicationForm(Guid applicationFormId)
         {
             var events = await _eventPersistance.ReadAllEvents<CreatedNewApplicationFormEvent>();
             return events.Where(evnt => evnt.EntityId == applicationFormId)
-                         .Select(evnt => new CommandModel.ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
+                         .Select(evnt => new ApplicationForm(evnt.EntityId, evnt.Organization, evnt.Email, evnt.Amount, evnt.Title, evnt.Text))
                          .SingleOrDefault();
         }
 

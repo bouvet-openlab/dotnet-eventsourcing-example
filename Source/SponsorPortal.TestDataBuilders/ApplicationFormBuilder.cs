@@ -1,5 +1,6 @@
 ﻿using System;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
 
 namespace SponsorPortal.TestDataBuilders
 {

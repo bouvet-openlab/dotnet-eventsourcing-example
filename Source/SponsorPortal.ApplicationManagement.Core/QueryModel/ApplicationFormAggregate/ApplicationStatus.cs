@@ -1,4 +1,4 @@
-﻿namespace SponsorPortal.ApplicationManagement.Core.QueryModel
+﻿namespace SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate
 {
     public enum ApplicationStatus
     {

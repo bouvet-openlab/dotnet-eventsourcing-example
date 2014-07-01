@@ -1,5 +1,6 @@
 ﻿using System;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
@@ -15,7 +16,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Events
         public string Text { get; private set; }
         public ApplicationStatus Status { get; private set; }
 
-        public CreatedNewApplicationFormEvent(AggregateRoots aggregateRoot, string organization, string email, double amount, string title, string text)
+        public CreatedNewApplicationFormEvent(AggregateRoot aggregateRoot, string organization, string email, double amount, string title, string text)
             : base(aggregateRoot)
         {
             if (String.IsNullOrEmpty(organization)) throw new ArgumentNullException("organization");

@@ -17,7 +17,7 @@ namespace SponsorPortal.ApplicationManagement.Core.CommandModel
 
         public async Task Handle(CreateNewApplicationFormCommand command)
         {
-            var createdNewApplicationFormEvent = CommandModel.ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
+            var createdNewApplicationFormEvent = ApplicationForm.CreateNew(command.ApplicationForm.Organization, command.ApplicationForm.Email, command.ApplicationForm.Amount, command.ApplicationForm.Title, command.ApplicationForm.Text);
             await _applicationFormRespository.Store(createdNewApplicationFormEvent);
         }
 

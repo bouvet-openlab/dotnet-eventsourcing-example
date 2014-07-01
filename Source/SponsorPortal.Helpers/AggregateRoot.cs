@@ -1,6 +1,6 @@
 ﻿namespace SponsorPortal.Helpers
 {
-    public enum AggregateRoots
+    public enum AggregateRoot
     {
         ApplicationForm
     }

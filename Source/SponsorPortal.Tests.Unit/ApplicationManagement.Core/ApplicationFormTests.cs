@@ -2,6 +2,7 @@
 using System.Collections.Immutable;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core

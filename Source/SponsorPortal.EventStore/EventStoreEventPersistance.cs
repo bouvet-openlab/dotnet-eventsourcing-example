@@ -50,12 +50,12 @@ namespace SponsorPortal.EventStore
             await _connection.AppendToStreamAsync(streamId, ExpectedVersion.Any, eventdata);
         }
 
-        public async Task<ImmutableList<TEvent>> ReadAllFromAggregate<TEvent>(AggregateRoots aggregateRoot) where TEvent : IEvent
+        public async Task<ImmutableList<TEvent>> ReadAllFromAggregate<TEvent>(AggregateRoot aggregateRoot) where TEvent : IEvent
         {
             var streamId = aggregateRoot.ToString();
             var events = await ReadStream(streamId);
 
-            return events.Where(evnt => evnt.Event.EventType == EventHelpers.GetNameFor<TEvent>())
+            return events.Where(EventHelpers.IsSameTypeAs<TEvent>)
                          .Select(evnt => evnt.ParseTo<TEvent>())
                          .ToImmutableList();
         }
@@ -63,16 +63,16 @@ namespace SponsorPortal.EventStore
         public async Task<ImmutableList<TEvent>> ReadAllEvents<TEvent>() where TEvent : IEvent
         {
             var events = await ReadAll();
-            return events.Where(evnt => evnt.Event.EventType == EventHelpers.GetNameFor<TEvent>())
+            return events.Where(EventHelpers.IsSameTypeAs<TEvent>)
                 .Select(evnt => evnt.ParseTo<TEvent>())
                 .ToImmutableList();
         }
 
-        public async Task SubscribeFromStart<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
+        public async Task SubscribeFromStart<TEvent>(AggregateRoot aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
         {
             Action<EventStoreCatchUpSubscription, ResolvedEvent> onEventAppeared = (catchUpSubscription, resolvedEvent) =>
             {
-                if (resolvedEvent.Event.EventType != EventHelpers.GetNameFor<TEvent>()) return;
+                if (!EventHelpers.IsSameTypeAs<TEvent>(resolvedEvent)) return;
 
                 Debug.WriteLine("Catching up...");
                 var evnt = resolvedEvent.ParseTo<TEvent>();
@@ -88,11 +88,11 @@ namespace SponsorPortal.EventStore
             await Task.FromResult(_connection.SubscribeToStreamFrom(streamId, null, true, onEventAppeared, onIsUpToDate));
         }
 
-        public async Task SubscribeToNew<TEvent>(AggregateRoots aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
+        public async Task SubscribeToNew<TEvent>(AggregateRoot aggregateRoot, Action<TEvent> subscription) where TEvent : IEvent
         {
             Action<EventStoreSubscription, ResolvedEvent> onEventAppeared = (sub, resolvedEvent) =>
             {
-                if (resolvedEvent.Event.EventType != EventHelpers.GetNameFor<TEvent>()) return;
+                if (!EventHelpers.IsSameTypeAs<TEvent>(resolvedEvent)) return;
 
                 var evnt = resolvedEvent.ParseTo<TEvent>();
                 subscription(evnt);

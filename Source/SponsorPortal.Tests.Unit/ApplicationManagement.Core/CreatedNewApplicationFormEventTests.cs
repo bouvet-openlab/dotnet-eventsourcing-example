@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.Helpers;
 using SponsorPortal.TestHelpers;
 
@@ -12,7 +13,7 @@ namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
     public class CreatedNewApplicationFormEventTests
     {
         //private const string AggregateRootIdentifier = "ApplicationForm";
-        private const AggregateRoots AggregateRootIdentifier = AggregateRoots.ApplicationForm;
+        private const AggregateRoot AggregateRootIdentifier = AggregateRoot.ApplicationForm;
         private const string Organization = "organization";
         private const string Email = "email@email.com";
         private const string Title = "title";

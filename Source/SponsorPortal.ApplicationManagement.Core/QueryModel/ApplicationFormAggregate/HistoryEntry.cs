@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ApplicationManagement.Core.QueryModel
+namespace SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate
 {
     public class HistoryEntry
     {

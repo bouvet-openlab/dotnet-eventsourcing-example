@@ -10,7 +10,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Events
         public Guid ApplicationFormId { get; private set; }
         public string ClerkId { get; private set; }
 
-        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, string clerkId) : base(AggregateRoots.ApplicationForm)
+        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, string clerkId) : base(AggregateRoot.ApplicationForm)
         {
             if (String.IsNullOrEmpty(clerkId)) throw new ArgumentNullException("clerkId");
             ApplicationFormId = applicationFormId;

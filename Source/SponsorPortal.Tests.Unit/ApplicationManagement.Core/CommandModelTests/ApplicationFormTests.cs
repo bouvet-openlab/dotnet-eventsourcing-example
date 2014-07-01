@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
 using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.TestHelpers;
 
