@@ -1,7 +1,8 @@
 ﻿using System.Collections.Immutable;
 using System.Threading.Tasks;
 using SponsorPortal.ClerkManagement.Events;
-using SponsorPortal.ClerkManagement.Interfaces;
+using SponsorPortal.ClerkManagement.QueryModel.ClerkAggregate;
+using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 

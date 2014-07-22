@@ -20,9 +20,10 @@ using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.ClerkManagement.CommandModel;
+using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.ClerkManagement.Commands;
-using SponsorPortal.ClerkManagement.Interfaces;
 using SponsorPortal.ClerkManagement.QueryModel;
+using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 

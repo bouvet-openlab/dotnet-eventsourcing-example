@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using SponsorPortal.ClerkManagement.QueryModel;
+using SponsorPortal.ClerkManagement.QueryModel.ClerkAggregate;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ClerkManagement.QueryModelTests

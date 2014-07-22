@@ -1,9 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
 using SponsorPortal.ClerkManagement.CommandModel;
+using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.ClerkManagement.Commands;
 using SponsorPortal.ClerkManagement.Events;
-using SponsorPortal.ClerkManagement.Interfaces;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ClerkManagement.CommandModelTests

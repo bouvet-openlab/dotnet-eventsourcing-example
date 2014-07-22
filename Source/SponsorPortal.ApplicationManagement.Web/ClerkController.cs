@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using SponsorPortal.ClerkManagement.CommandModel.ValueObjects;
 using SponsorPortal.ClerkManagement.Commands;
-using SponsorPortal.ClerkManagement.Interfaces;
-using SponsorPortal.ClerkManagement.ValueObjects;
+using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationManagement.Web

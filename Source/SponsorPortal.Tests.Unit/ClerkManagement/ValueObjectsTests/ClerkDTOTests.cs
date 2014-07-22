@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using SponsorPortal.ClerkManagement.ValueObjects;
+using SponsorPortal.ClerkManagement.CommandModel.ValueObjects;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ClerkManagement.ValueObjectsTests

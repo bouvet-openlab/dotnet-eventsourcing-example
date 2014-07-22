@@ -3,11 +3,11 @@ using System.Linq;
 using System.Web.Http.Results;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Web;
-using SponsorPortal.ClerkManagement.Interfaces;
+using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
-using Clerk = SponsorPortal.ClerkManagement.QueryModel.Clerk;
+using Clerk = SponsorPortal.ClerkManagement.QueryModel.ClerkAggregate.Clerk;
 
 namespace SponsorPortal.Tests.Integration
 {

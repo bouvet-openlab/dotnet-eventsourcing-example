@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SponsorPortal.ClerkManagement.Interfaces;
+using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ClerkManagement.CommandModel

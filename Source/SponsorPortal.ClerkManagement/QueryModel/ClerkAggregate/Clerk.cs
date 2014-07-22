@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ClerkManagement.QueryModel
+namespace SponsorPortal.ClerkManagement.QueryModel.ClerkAggregate
 {
     public class Clerk 
     {

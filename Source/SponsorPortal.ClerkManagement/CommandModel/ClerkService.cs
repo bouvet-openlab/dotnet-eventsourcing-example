@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.ClerkManagement.Commands;
-using SponsorPortal.ClerkManagement.Interfaces;
 using SponsorPortal.ClerkManagement.QueryModel;
 using SponsorPortal.Infrastructure;
+using Clerk = SponsorPortal.ClerkManagement.CommandModel.ClerkAggregate.Clerk;
 
 namespace SponsorPortal.ClerkManagement.CommandModel
 {

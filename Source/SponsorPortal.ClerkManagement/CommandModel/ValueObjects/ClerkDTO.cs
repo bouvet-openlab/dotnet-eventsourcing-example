@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ClerkManagement.ValueObjects
+namespace SponsorPortal.ClerkManagement.CommandModel.ValueObjects
 {
     public class ClerkDTO
     {
