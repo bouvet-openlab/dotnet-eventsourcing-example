@@ -1,5 +1,4 @@
 ﻿using System;
-using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
