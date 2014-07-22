@@ -2,13 +2,13 @@
 using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core;
-using SponsorPortal.ApplicationManagement.Core.CommandModel;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ValueObjects;
-using SponsorPortal.ApplicationManagement.Core.Commands;
-using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement;
+using SponsorPortal.ApplicationManagement.CommandModel;
+using SponsorPortal.ApplicationManagement.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.CommandModel.Interfaces;
+using SponsorPortal.ApplicationManagement.CommandModel.ValueObjects;
+using SponsorPortal.ApplicationManagement.Commands;
+using SponsorPortal.ApplicationManagement.Events;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
 

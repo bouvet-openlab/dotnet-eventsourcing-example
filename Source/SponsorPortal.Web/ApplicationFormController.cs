@@ -3,10 +3,10 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ValueObjects;
-using SponsorPortal.ApplicationManagement.Core.Commands;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
+using SponsorPortal.ApplicationManagement.CommandModel.ValueObjects;
+using SponsorPortal.ApplicationManagement.Commands;
+using SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.QueryModel.Interfaces;
 using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.Web

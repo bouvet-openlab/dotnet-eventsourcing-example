@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.QueryModel;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestHelpers;

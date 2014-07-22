@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.CommandModel.ApplicationFormAggregate;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces
+namespace SponsorPortal.ApplicationManagement.CommandModel.Interfaces
 {
     public interface IApplicationFormRespository
     {

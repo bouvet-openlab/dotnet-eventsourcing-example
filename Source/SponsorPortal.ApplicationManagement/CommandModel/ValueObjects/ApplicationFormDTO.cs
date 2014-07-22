@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ApplicationManagement.Core.CommandModel.ValueObjects
+namespace SponsorPortal.ApplicationManagement.CommandModel.ValueObjects
 {
     public class ApplicationFormDTO
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-using SponsorPortal.ApplicationManagement.Core.Commands;
+using SponsorPortal.ApplicationManagement.Commands;
 
 namespace SponsorPortal.TestDataBuilders
 {

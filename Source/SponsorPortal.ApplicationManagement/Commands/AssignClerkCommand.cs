@@ -1,16 +1,14 @@
 ﻿using System;
-using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.Events
+namespace SponsorPortal.ApplicationManagement.Commands
 {
-    [Serializable]
-    public class ClerkAssignedToApplicationFormEvent : EventBase
+    public class AssignClerkCommand : ICommand
     {
-        public Guid ApplicationFormId { get; private set; }
         public Guid ClerkId { get; private set; }
+        public Guid ApplicationFormId { get; private set; }
 
-        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, Guid clerkId) : base(AggregateRoot.ApplicationForm)
+        public AssignClerkCommand(Guid applicationFormId, Guid clerkId)
         {
             if (applicationFormId == Guid.Empty) throw new ArgumentException("applicationFormId cannot be empty");
             if (clerkId == Guid.Empty) throw new ArgumentException("clerkId cannot be empty");

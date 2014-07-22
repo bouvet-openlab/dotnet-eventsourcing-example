@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
-using SponsorPortal.ApplicationManagement.Core.CommandModel;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Core.Commands;
-using SponsorPortal.ApplicationManagement.Core.QueryModel;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
+using SponsorPortal.ApplicationManagement.CommandModel;
+using SponsorPortal.ApplicationManagement.CommandModel.Interfaces;
+using SponsorPortal.ApplicationManagement.Commands;
+using SponsorPortal.ApplicationManagement.QueryModel;
+using SponsorPortal.ApplicationManagement.QueryModel.Interfaces;
 using SponsorPortal.ClerkManagement.CommandModel;
 using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.ClerkManagement.Commands;

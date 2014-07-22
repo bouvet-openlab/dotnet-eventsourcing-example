@@ -1,4 +1,4 @@
-﻿using SponsorPortal.ApplicationManagement.Core.Events;
+﻿using SponsorPortal.ApplicationManagement.Events;
 using SponsorPortal.Helpers;
 
 namespace SponsorPortal.TestDataBuilders

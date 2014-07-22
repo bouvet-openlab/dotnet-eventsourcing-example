@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.Events;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.EventsTests

@@ -1,8 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.CommandModel;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.Events;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests

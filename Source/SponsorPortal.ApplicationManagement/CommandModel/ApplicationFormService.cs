@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Core.Commands;
+using SponsorPortal.ApplicationManagement.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.CommandModel.Interfaces;
+using SponsorPortal.ApplicationManagement.Commands;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.CommandModel
+namespace SponsorPortal.ApplicationManagement.CommandModel
 {
     public class ApplicationFormService : ICommandHandler<CreateNewApplicationFormCommand>, ICommandHandler<AssignClerkCommand>
     {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.CommandModel.Interfaces;
+using SponsorPortal.ApplicationManagement.Events;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.CommandModel
+namespace SponsorPortal.ApplicationManagement.CommandModel
 {
     public class ApplicationFormRepository : IApplicationFormRespository
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.ApplicationManagement.Core.Events
+namespace SponsorPortal.ApplicationManagement.Events
 {
     [Serializable]
     public class GrantedApplicationEvent

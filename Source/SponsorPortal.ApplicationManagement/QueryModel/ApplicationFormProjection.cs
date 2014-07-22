@@ -3,13 +3,13 @@ using System.Collections.Immutable;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using SponsorPortal.ApplicationManagement.Core.Events;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
+using SponsorPortal.ApplicationManagement.Events;
+using SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.QueryModel.Interfaces;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.QueryModel
+namespace SponsorPortal.ApplicationManagement.QueryModel
 {
     public class ApplicationFormProjection : Projection, IApplicationFormProjection
     {

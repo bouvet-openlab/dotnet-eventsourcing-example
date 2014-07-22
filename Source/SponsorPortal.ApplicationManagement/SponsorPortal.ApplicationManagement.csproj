@@ -7,8 +7,8 @@
     <ProjectGuid>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SponsorPortal.ApplicationManagement.Core</RootNamespace>
-    <AssemblyName>SponsorPortal.ApplicationManagement.Core</AssemblyName>
+    <RootNamespace>SponsorPortal.ApplicationManagement</RootNamespace>
+    <AssemblyName>SponsorPortal.ApplicationManagement</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -1,6 +1,5 @@
 ﻿using System;
-using SponsorPortal.ApplicationManagement.Core.Commands;
-using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.Events;
 
 namespace SponsorPortal.TestDataBuilders
 {

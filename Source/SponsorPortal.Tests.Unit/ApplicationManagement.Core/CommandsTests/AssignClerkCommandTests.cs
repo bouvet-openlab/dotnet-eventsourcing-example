@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.Commands;
+using SponsorPortal.ApplicationManagement.Commands;
 using SponsorPortal.TestHelpers;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandsTests

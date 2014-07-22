@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
 

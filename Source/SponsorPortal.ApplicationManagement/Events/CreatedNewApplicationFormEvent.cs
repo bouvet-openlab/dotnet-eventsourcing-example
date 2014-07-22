@@ -1,9 +1,9 @@
 ﻿using System;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Core.Events
+namespace SponsorPortal.ApplicationManagement.Events
 {
     [Serializable]
     public class CreatedNewApplicationFormEvent : EventBase

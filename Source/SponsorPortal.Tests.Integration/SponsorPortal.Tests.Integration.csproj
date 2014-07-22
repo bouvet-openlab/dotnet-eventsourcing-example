@@ -80,9 +80,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SponsorPortal.ApplicationManagement.Core\SponsorPortal.ApplicationManagement.Core.csproj">
+    <ProjectReference Include="..\SponsorPortal.ApplicationManagement\SponsorPortal.ApplicationManagement.csproj">
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
-      <Name>SponsorPortal.ApplicationManagement.Core</Name>
+      <Name>SponsorPortal.ApplicationManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj">
       <Project>{27FA92CC-D399-417E-9383-09B2E0FB26D6}</Project>

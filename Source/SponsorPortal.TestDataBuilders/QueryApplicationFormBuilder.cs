@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregate;
 
 namespace SponsorPortal.TestDataBuilders
 {
