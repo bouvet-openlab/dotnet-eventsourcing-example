@@ -31,6 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.22.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bcl.Immutable.1.1.22-beta\lib\portable-net45+win8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,16 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFormBuilder.cs" />
+    <Compile Include="ClerkDTOBuilder.cs" />
+    <Compile Include="CommandApplicationFormBuilder.cs" />
     <Compile Include="ApplicationFormDTOBuilder.cs" />
     <Compile Include="CreatedNewApplicationFormEventBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryApplicationFormBuilder.cs" />
     <Compile Include="TestDataBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SponsorPortal.ApplicationManagement.Core\SponsorPortal.ApplicationManagement.Core.csproj">
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
       <Name>SponsorPortal.ApplicationManagement.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj">
+      <Project>{27FA92CC-D399-417E-9383-09B2E0FB26D6}</Project>
+      <Name>SponsorPortal.ClerkManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
       <Project>{CF259392-692F-43B1-B7A8-32AC43EEFA43}</Project>
@@ -58,6 +68,9 @@
       <Project>{B96D8492-4472-41F3-9CC0-C136EDB03D6B}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

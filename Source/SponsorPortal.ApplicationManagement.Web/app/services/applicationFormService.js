@@ -3,10 +3,13 @@
     var applicationFormService = function ($http) {
         return {
             getApplication: function(applicationFormId) {
-                return $http.get("http://localhost:8300/sponsorportal/applicationform");
+                return $http.get("../../applicationforms/" + applicationFormId);
+            },
+            getApplications: function() {
+                return $http.get("../../applicationforms");
             }
         }
     };
 
-    angular.module("sponsorMngmtModule").controller("applicationFormService", applicationFormService);
+    angular.module("sponsorMngmtModule").factory("applicationFormService", applicationFormService);
 }());

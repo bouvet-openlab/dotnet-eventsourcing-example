@@ -1,11 +1,7 @@
 ﻿using System.Linq;
-using Microsoft.Practices.Unity;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Core.CommandModel;
-using SponsorPortal.ApplicationManagement.Core.Commands;
-using SponsorPortal.ApplicationManagement.Core.QueryModel;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Web;
-using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
@@ -14,33 +10,31 @@ namespace SponsorPortal.Tests.Integration
 {
     [TestFixture]
     [Category(TestCategory.IntegrationTests)]
-    public class CreatingNewApplicationFormTests
+    public class CreatingNewApplicationFormTests : IntegrationTestContext
     {
+        private IApplicationFormProjection _applicationFormProjection;
+        private ApplicationFormController _applicationFormController;
+
+        [SetUp]
+        public void Setup()
+        {
+            ConfigureDefaultIoC();
+            IoC.Resolve<IEventPersistance>().Initialize();
+             _applicationFormProjection = IoC.Resolve<IApplicationFormProjection>();
+            _applicationFormController = IoC.Resolve<ApplicationFormController>();
+        }
+
         [Test]
         public async void WhenGivingNewApplicationFormToCommandApi_RetrievesExpectedApplicationFormFromQueryApi()
         {
-            var container = new UnityContainer();
+            await _applicationFormProjection.SubscribeToEvents();
             
-            var eventstore = new EventStoreEventPersistance();
-            eventstore.Initialize();
-
-            var repository = new ApplicationFormRepository(eventstore);
-            var commandHandler = new ApplicationFormService(repository);
-            container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
-            IoC.RegisterContainer(container);
-            
-            var commandDispatcher = new CommandDispatcher();
-            
-            var applicationFormProjection = new ApplicationFormProjection(eventstore);
-            await applicationFormProjection.SubscribeToEvents();
-            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
-
             var dto = new ApplicationFormDTOBuilder().Build();
-            await applicationFormController.SaveNew(dto);
+            await _applicationFormController.SaveNew(dto);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
-            var applicationForms = applicationFormController.GetAll();
+            var applicationForms = _applicationFormController.GetAll();
 
             var applicationForm = applicationForms.FirstOrDefault(app => app.Title == dto.Title);
             if (applicationForm != null)
@@ -60,26 +54,12 @@ namespace SponsorPortal.Tests.Integration
         [Test]
         public async void WhenGivingSeveralApplicationFormsToCommandApi_RetrievesExpectedAmountOfApplicationsFromQueryApi()
         {
-            var container = new UnityContainer();
-
-            var eventstore = new EventStoreEventPersistance();
-            eventstore.Initialize();
-
-            var repository = new ApplicationFormRepository(eventstore);
-            var commandHandler = new ApplicationFormService(repository);
-            container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
-            IoC.RegisterContainer(container);
-
-            var commandDispatcher = new CommandDispatcher();
-
-            var applicationFormProjection = new ApplicationFormProjection(eventstore);
-            await applicationFormProjection.GetAllExistingEventsOfInterest();
-            await applicationFormProjection.SubscribeToEvents();
+            await _applicationFormProjection.GetAllExistingEventsOfInterest();
+            await _applicationFormProjection.SubscribeToEvents();
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing(1000);
 
-            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
-            var applicationFormsBefore = applicationFormController.GetAll();
+            var applicationFormsBefore = _applicationFormController.GetAll();
             var countBefore = applicationFormsBefore.Count;
 
             var dto1 = new ApplicationFormDTOBuilder().Build();
@@ -87,15 +67,15 @@ namespace SponsorPortal.Tests.Integration
             var dto3 = new ApplicationFormDTOBuilder().Build();
             var dto4 = new ApplicationFormDTOBuilder().Build();
             var dto5 = new ApplicationFormDTOBuilder().Build();
-            await applicationFormController.SaveNew(dto1);
-            await applicationFormController.SaveNew(dto2);
-            await applicationFormController.SaveNew(dto3);
-            await applicationFormController.SaveNew(dto4);
-            await applicationFormController.SaveNew(dto5);
+            await _applicationFormController.SaveNew(dto1);
+            await _applicationFormController.SaveNew(dto2);
+            await _applicationFormController.SaveNew(dto3);
+            await _applicationFormController.SaveNew(dto4);
+            await _applicationFormController.SaveNew(dto5);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
-            var applicationForms = applicationFormController.GetAll();
+            var applicationForms = _applicationFormController.GetAll();
             var countAfter = applicationForms.Count;
 
             Assert.AreEqual(5, countAfter - countBefore);
@@ -104,37 +84,23 @@ namespace SponsorPortal.Tests.Integration
         [Test]
         public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesOnlyNewEvents()
         {
-            var container = new UnityContainer();
-
-            var eventstore = new EventStoreEventPersistance();
-            eventstore.Initialize();
-
-            var repository = new ApplicationFormRepository(eventstore);
-            var commandHandler = new ApplicationFormService(repository);
-            container.RegisterInstance(typeof(ICommandHandler<CreateNewApplicationFormCommand>), commandHandler, new ContainerControlledLifetimeManager());
-            IoC.RegisterContainer(container);
-
-            var applicationFormProjection = new ApplicationFormProjection(eventstore);
-            var commandDispatcher = new CommandDispatcher();
-            var applicationFormController = new ApplicationFormController(applicationFormProjection, commandDispatcher);
-
             var dto1 = new ApplicationFormDTOBuilder().Build();
             var dto2 = new ApplicationFormDTOBuilder().Build();
             var dto3 = new ApplicationFormDTOBuilder().Build();
-            await applicationFormController.SaveNew(dto1);
-            await applicationFormController.SaveNew(dto2);
-            await applicationFormController.SaveNew(dto3);
-            
-            await applicationFormProjection.SubscribeToEvents();
+            await _applicationFormController.SaveNew(dto1);
+            await _applicationFormController.SaveNew(dto2);
+            await _applicationFormController.SaveNew(dto3);
+
+            await _applicationFormProjection.SubscribeToEvents();
 
             var dto4 = new ApplicationFormDTOBuilder().Build();
             var dto5 = new ApplicationFormDTOBuilder().Build();
-            await applicationFormController.SaveNew(dto4);
-            await applicationFormController.SaveNew(dto5);
+            await _applicationFormController.SaveNew(dto4);
+            await _applicationFormController.SaveNew(dto5);
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
 
-            var applicationForms = applicationFormController.GetAll();
+            var applicationForms = _applicationFormController.GetAll();
 
             Assert.IsTrue(applicationForms.Count == 2);
         }

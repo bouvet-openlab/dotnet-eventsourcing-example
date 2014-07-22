@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateRoot.cs" />
+    <Compile Include="Aggregate.cs" />
     <Compile Include="CommandDispatcher.cs" />
     <Compile Include="EventBase.cs" />
     <Compile Include="IAggregateRoot.cs" />

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.QueryModelTests
 {
     [TestFixture]
     [Category(TestCategory.UnitTests)]

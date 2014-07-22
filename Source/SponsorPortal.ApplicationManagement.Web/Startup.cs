@@ -1,11 +1,16 @@
-﻿using System.Linq;
+﻿using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Diagnostics;
+using Microsoft.Owin.Logging;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.WebApi;
+using Newtonsoft.Json.Serialization;
 using Owin;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
@@ -13,6 +18,10 @@ using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Web;
+using SponsorPortal.ClerkManagement.CommandModel;
+using SponsorPortal.ClerkManagement.Commands;
+using SponsorPortal.ClerkManagement.Interfaces;
+using SponsorPortal.ClerkManagement.QueryModel;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 
@@ -23,12 +32,18 @@ namespace SponsorPortal.ApplicationManagement.Web
     {
         public void Configuration(IAppBuilder builder)
         {
-            var container = ConfigureIoC();
-            InitializeEventStore(container);
-            InitializeProjections(container);
-            ConfigureErrorHandling(builder);
-            ConfigureWebApi(builder, container);
-            
+            try
+            {
+                var container = ConfigureIoC();
+                InitializeEventStore(container);
+                InitializeProjections(container);
+                ConfigureErrorHandling(builder);
+                ConfigureWebApi(builder, container);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message + "\n\n" + ex.StackTrace);
+            }
         }
 
         private void ConfigureErrorHandling(IAppBuilder builder)
@@ -46,12 +61,20 @@ namespace SponsorPortal.ApplicationManagement.Web
         {
             var container = new UnityContainer();
 
+            container.RegisterType<ICommandHandler<CreateClerkCommand>, ClerkService>(new ContainerControlledLifetimeManager());
             container.RegisterType<ICommandHandler<CreateNewApplicationFormCommand>, ApplicationFormService>(new ContainerControlledLifetimeManager());
+
             container.RegisterType<IApplicationFormProjection, ApplicationFormProjection>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IClerkProjection, ClerkProjection>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<IClerkRepository, ClerkRepository>(new ContainerControlledLifetimeManager());
             container.RegisterType<IApplicationFormRespository, ApplicationFormRepository>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IEventPersistance, EventStoreEventPersistance>(new ContainerControlledLifetimeManager());
-            container.RegisterType<ICommandDispatcher, CommandDispatcher>();
+
             container.RegisterType<ApplicationFormController>();
+            container.RegisterType<ClerkController>();
+
+            container.RegisterType<IEventPersistance, EventStoreEventPersistance>(new ContainerControlledLifetimeManager());
+            container.RegisterType<ICommandDispatcher, CommandDispatcher>(new ContainerControlledLifetimeManager());
 
             /*
             container.RegisterTypes(
@@ -73,6 +96,9 @@ namespace SponsorPortal.ApplicationManagement.Web
         {
             var projection = container.Resolve<ApplicationFormProjection>();
             await projection.GetAllExistingEventsOfInterest();
+
+            var clerkProjection = container.Resolve<ClerkProjection>();
+            await clerkProjection.GetAllExistingEventsOfInterest();
         }
 
         private void ConfigureWebApi(IAppBuilder builder, IUnityContainer container)
@@ -81,7 +107,9 @@ namespace SponsorPortal.ApplicationManagement.Web
             config.MapHttpAttributeRoutes();
             config.DependencyResolver = new UnityDependencyResolver(container);
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             builder.UseWebApi(config);
         }
     }
+
 }

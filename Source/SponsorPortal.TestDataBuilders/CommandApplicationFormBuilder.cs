@@ -4,7 +4,7 @@ using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggre
 
 namespace SponsorPortal.TestDataBuilders
 {
-    public class ApplicationFormBuilder : TestDataBuilder<ApplicationForm>
+    public class CommandApplicationFormBuilder : TestDataBuilder<ApplicationForm>
     {
         private Guid _id;
         private string _organization;
@@ -13,7 +13,7 @@ namespace SponsorPortal.TestDataBuilders
         private string _title;
         private string _text;
 
-        public ApplicationFormBuilder()
+        public CommandApplicationFormBuilder()
         {
             _id = Guid.NewGuid();
             _organization = "My Company";
@@ -23,37 +23,37 @@ namespace SponsorPortal.TestDataBuilders
             _text = "Need money for stuff";
         }
 
-        public ApplicationFormBuilder WithId(Guid id)
+        public CommandApplicationFormBuilder WithId(Guid id)
         {
             _id = id;
             return this;
         }
 
-        public ApplicationFormBuilder WithOrganization(string organization)
+        public CommandApplicationFormBuilder WithOrganization(string organization)
         {
             _organization = organization;
             return this;
         }
 
-        public ApplicationFormBuilder WithEmail(string email)
+        public CommandApplicationFormBuilder WithEmail(string email)
         {
             _email = email;
             return this;
         }
 
-        public ApplicationFormBuilder WithAmount(double amount)
+        public CommandApplicationFormBuilder WithAmount(double amount)
         {
             _amount = amount;
             return this;
         }
 
-        public ApplicationFormBuilder WithTitle(string title)
+        public CommandApplicationFormBuilder WithTitle(string title)
         {
             _title = title;
             return this;
         }
 
-        public ApplicationFormBuilder WithText(string text)
+        public CommandApplicationFormBuilder WithText(string text)
         {
             _text = text;
             return this;

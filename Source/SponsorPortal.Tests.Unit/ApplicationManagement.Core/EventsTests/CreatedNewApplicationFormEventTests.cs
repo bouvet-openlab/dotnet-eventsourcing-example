@@ -1,12 +1,11 @@
 ﻿using System;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.Events;
-using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.Helpers;
 using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.EventsTests
 {
     [TestFixture]
     [Category(TestCategory.UnitTests)]

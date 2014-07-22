@@ -44,7 +44,7 @@ namespace SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormA
             return new CreatedNewApplicationFormEvent(AggregateRoot.ApplicationForm, organization, email, amount, title, text);
         }
       
-        public ClerkAssignedToApplicationFormEvent AssignClerk(string clerkId)
+        public ClerkAssignedToApplicationFormEvent AssignClerk(Guid clerkId)
         {
             return new ClerkAssignedToApplicationFormEvent(Id, clerkId);
         }

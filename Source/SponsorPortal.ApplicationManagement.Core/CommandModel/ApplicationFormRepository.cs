@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.Infrastructure;
 

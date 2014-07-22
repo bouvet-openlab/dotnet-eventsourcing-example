@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
@@ -31,6 +32,18 @@ namespace SponsorPortal.ApplicationManagement.Web
         {
             return _applicationFormProjection.ApplicationForms;
         }
+
+        [HttpGet]
+        [Route("applicationforms/{applicationId}")]
+        public IHttpActionResult GetById(Guid? applicationId)
+        {
+            if (applicationId == null || applicationId == Guid.Empty)
+                return BadRequest("The application id \""+ applicationId +"\" is invalid");
+
+            var applicationForm = _applicationFormProjection.ApplicationForms.SingleOrDefault(appForm => appForm.Id == applicationId);
+            
+            return Ok(applicationForm);
+        }
         
         [HttpPost]
         [Route("applicationform")]
@@ -43,6 +56,22 @@ namespace SponsorPortal.ApplicationManagement.Web
             await _commandDispatcher.Execute(command);
 
             return Ok(String.Format("Application form \"{0}\" received", applicationForm.Title));
+        }
+
+        [HttpPost]
+        [Route("applicationform/{applicationId}/assignclerk/{clerkId}")]
+        public async Task<IHttpActionResult> AssignClerk(Guid? applicationId, Guid? clerkId)
+        {
+            if (applicationId == null || applicationId == Guid.Empty)
+                return BadRequest("The given application id was invalid");
+
+            if (clerkId == null || clerkId == Guid.Empty)
+                return BadRequest("The given clerk id was invalid");
+
+            var command = new AssignClerkCommand(applicationId.Value, clerkId.Value);
+            await _commandDispatcher.Execute(command);
+
+            return Ok("Clerk with id " + clerkId + " was assigned application " + applicationId);
         }
     }
 }

@@ -5,6 +5,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-nuget-install');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-wait');
+    grunt.loadNpmTasks('grunt-iisexpress');
+    grunt.loadNpmTasks('grunt-msdeploy');
 
     //
     // 'Build' task builds the solution and runs unit tests
@@ -46,6 +48,30 @@ module.exports = function(grunt) {
                         WarningLevel: 2
                     },
                     verbosity: 'normal'
+                }
+            }
+        },
+        msdeploy: {
+            entry: {
+
+            },
+            mngmt: {
+                options: {
+                    verb: "sync",
+                    source: {
+                        dirPath: __dirname + "\\Source\\SponsorPortal.ApplicationManagement.Web\\bin"
+                    },
+                    dest: {
+                        package: "Artifacts\\test.zip"
+                    }
+                },
+            },
+        },
+        iisexpress: {
+            server: {
+                options: {
+                    path: 'Source\\SponsorPortal.ApplicationManagement.Web\\bin',
+                    port: 8200
                 }
             }
         },

@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using SponsorPortal.ApplicationManagement.Core.Events;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
 
@@ -20,12 +22,12 @@ namespace SponsorPortal.ApplicationManagement.Core.QueryModel
 
         public override async Task SubscribeToEvents()
         {
-            await EventStore.SubscribeToNew<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm, OnNewApplicationCreated);
+            await EventStore.SubscribeToNew<CreatedNewApplicationFormEvent>(AggregateRoot.ApplicationForm, OnNewApplicationCreated);
         }
 
         public async Task GetAllExistingEventsOfInterest()
         {
-            var events = await EventStore.ReadAllFromAggregate<CreatedNewApplicationFormEvent>(AggregateRoots.ApplicationForm);
+            var events = await EventStore.ReadAllFromAggregate<CreatedNewApplicationFormEvent>(AggregateRoot.ApplicationForm);
             events.ForEach(OnNewApplicationCreated);
         }
 
@@ -57,7 +59,7 @@ namespace SponsorPortal.ApplicationManagement.Core.QueryModel
                                                              application.Status,
                                                              application.CreatedTimestamp,
                                                              application.UpdatedTimestamp,
-                                                             evnt.ClerkId,
+                                                             "",
                                                              application.History);
 
             ReplaceApplicationForm(evnt.ApplicationFormId, updatedApplicationForm);

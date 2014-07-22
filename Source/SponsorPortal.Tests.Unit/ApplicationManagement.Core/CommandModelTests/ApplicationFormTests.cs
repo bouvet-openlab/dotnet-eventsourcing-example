@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.CommandModel;
 using SponsorPortal.ApplicationManagement.Core.CommandModel.ApplicationFormAggregate;
 using SponsorPortal.ApplicationManagement.Core.Events;
@@ -31,7 +32,7 @@ namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests
         [Test]
         public void WhenAssigningClerk_ReturnsExpectedEventAndHasExpectedApplicationIdAndClerkId()
         {
-            const string clerkId = "Mr. Clerk";
+            var clerkId = Guid.NewGuid();
             var application = new ApplicationForm(Organization, Email, Amount, Title, Text);
             var evnt = application.AssignClerk(clerkId);
             Assert.IsInstanceOf<ClerkAssignedToApplicationFormEvent>(evnt);

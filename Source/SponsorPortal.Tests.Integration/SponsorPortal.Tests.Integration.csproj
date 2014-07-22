@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreatingNewApplicationFormTests.cs" />
+    <Compile Include="CreatingNewClerkTests.cs" />
+    <Compile Include="GettingAnApplicationFormByIdTests.cs" />
+    <Compile Include="IntegrationTestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +87,10 @@
     <ProjectReference Include="..\SponsorPortal.ApplicationManagement.Web\SponsorPortal.ApplicationManagement.Web.csproj">
       <Project>{71578A09-ECC2-4704-900F-F8B9F81CF2A7}</Project>
       <Name>SponsorPortal.ApplicationManagement.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj">
+      <Project>{27FA92CC-D399-417E-9383-09B2E0FB26D6}</Project>
+      <Name>SponsorPortal.ClerkManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">
       <Project>{C862CFF4-B99E-43D0-8803-E4200824DC2C}</Project>

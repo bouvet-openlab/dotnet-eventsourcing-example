@@ -10,7 +10,7 @@ using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests
 {
     [TestFixture]
     [Category(TestCategory.UnitTests)]

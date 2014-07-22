@@ -5,7 +5,7 @@
     var APPLICATION_STATUS_DENIED = "Denied";
     var APPLICATION_STATUS_INPROGRESS = "In progress";
 
-    var overviewController = function ($scope, $location, notifyHelper, overviewService) {
+    var overviewController = function ($scope, $location, notifyHelper, applicationFormService) {
         $scope.applicationForms = [];
 
         /*
@@ -18,7 +18,7 @@
         ];
         */
 
-        overviewService.getApplicationForms()
+        applicationFormService.getApplications()
             .success(function (data) {
                 $scope.applicationForms = data;
             });

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Moq;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core;
@@ -11,7 +12,7 @@ using SponsorPortal.ApplicationManagement.Core.Events;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
 
-namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
+namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core.CommandModelTests
 {
     [TestFixture]
     [Category(TestCategory.UnitTests)]
@@ -40,8 +41,8 @@ namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
         [Test]
         public async void HandlesAssignClerkCommand_WhenApplicationFormExists_CreatesEventForClerkAssignedToApplication()
         {
-            const string clerkId = "Mr. Clerk";
-            var applicationForm = new ApplicationFormBuilder().Build();
+            var clerkId = Guid.NewGuid();
+            var applicationForm = new CommandApplicationFormBuilder().Build();
             var applicationId = applicationForm.Id;
             _applicationFormRepository.Setup(ctx => ctx.GetApplicationForm(applicationId)).Returns(() => Task.FromResult(applicationForm));
             var service = new ApplicationFormService(_applicationFormRepository.Object);
@@ -57,8 +58,8 @@ namespace SponsorPortal.Tests.Unit.ApplicationManagement.Core
         [ExpectedException(typeof(ApplicationFormNotFoundException))]
         public async void HandlesAssignClerkCommand_WhenApplicationFormDoesNotExist_CreatesEventForClerkAssignedToApplication()
         {
-            const string clerkId = "Mr. Clerk";
-            var applicationForm = new ApplicationFormBuilder().Build();
+            var clerkId = Guid.NewGuid();
+            var applicationForm = new CommandApplicationFormBuilder().Build();
             var applicationId = applicationForm.Id;
             _applicationFormRepository.Setup(ctx => ctx.GetApplicationForm(applicationId)).Returns(() => Task.FromResult<ApplicationForm>(null));
             var service = new ApplicationFormService(_applicationFormRepository.Object);

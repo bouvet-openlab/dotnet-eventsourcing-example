@@ -43,21 +43,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationFormNotFoundException.cs" />
-    <Compile Include="CommandModel\ApplicationForm.cs" />
-    <Compile Include="CommandModel\ApplicationFormDTO.cs" />
+    <Compile Include="CommandModel\ApplicationFormAggregate\ApplicationForm.cs" />
     <Compile Include="CommandModel\ApplicationFormRepository.cs" />
     <Compile Include="CommandModel\ApplicationFormService.cs" />
-    <Compile Include="CommandModel\IApplicationFormRepository.cs" />
+    <Compile Include="CommandModel\Interfaces\IApplicationFormRepository.cs" />
+    <Compile Include="CommandModel\ValueObjects\ApplicationFormDTO.cs" />
     <Compile Include="Commands\AssignClerkCommand.cs" />
     <Compile Include="Commands\CreateNewApplicationFormCommand.cs" />
     <Compile Include="Events\ClerkAssignedToApplicationFormEvent.cs" />
     <Compile Include="Events\CreatedNewApplicationFormEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryModel\ApplicationForm.cs" />
+    <Compile Include="QueryModel\ApplicationFormAggregate\ApplicationForm.cs" />
+    <Compile Include="QueryModel\ApplicationFormAggregate\ApplicationStatus.cs" />
+    <Compile Include="QueryModel\ApplicationFormAggregate\HistoryEntry.cs" />
     <Compile Include="QueryModel\ApplicationFormProjection.cs" />
-    <Compile Include="QueryModel\ApplicationStatus.cs" />
-    <Compile Include="QueryModel\HistoryEntry.cs" />
-    <Compile Include="QueryModel\IApplicationFormProjection.cs" />
+    <Compile Include="QueryModel\Interfaces\IApplicationFormProjection.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SponsorPortal.EventStore\SponsorPortal.EventStore.csproj">

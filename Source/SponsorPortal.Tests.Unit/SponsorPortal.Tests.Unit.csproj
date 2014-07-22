@@ -60,16 +60,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationManagement.Core\ApplicationFormProjectionTests.cs" />
-    <Compile Include="ApplicationManagement.Core\ApplicationFormServiceTests.cs" />
-    <Compile Include="ApplicationManagement.Core\ApplicationFormTests.cs" />
-    <Compile Include="ApplicationManagement.Core\ApplicationRepositoryTests.cs" />
-    <Compile Include="ApplicationManagement.Core\AssignClerkCommandTests.cs" />
-    <Compile Include="ApplicationManagement.Core\ClerkAssignedToApplicationFormEventTests.cs" />
     <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationFormDTOTests.cs" />
+    <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationFormServiceTests.cs" />
     <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationFormTests.cs" />
-    <Compile Include="ApplicationManagement.Core\CreatedNewApplicationFormEventTests.cs" />
+    <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationRepositoryTests.cs" />
+    <Compile Include="ApplicationManagement.Core\CommandsTests\AssignClerkCommandTests.cs" />
+    <Compile Include="ApplicationManagement.Core\EventsTests\ClerkAssignedToApplicationFormEventTests.cs" />
+    <Compile Include="ApplicationManagement.Core\EventsTests\CreatedNewApplicationFormEventTests.cs" />
+    <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormProjectionTests.cs" />
+    <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormTests.cs" />
     <Compile Include="ApplicationManagement.Web\ApplicationFormControllerTests.cs" />
+    <Compile Include="ApplicationManagement.Web\ClerkControllerTests.cs" />
+    <Compile Include="ClerkManagement\CommandModelTests\ClerkServiceTests.cs" />
+    <Compile Include="ClerkManagement\CommandsTests\CreateClerkCommandTests.cs" />
+    <Compile Include="ClerkManagement\EventsTests\CreatedClerkEventTests.cs" />
+    <Compile Include="ClerkManagement\QueryModelTests\ClerkTests.cs" />
+    <Compile Include="ClerkManagement\ValueObjectsTests\ClerkDTOTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +90,10 @@
     <ProjectReference Include="..\SponsorPortal.ApplicationManagement.Web\SponsorPortal.ApplicationManagement.Web.csproj">
       <Project>{71578A09-ECC2-4704-900F-F8B9F81CF2A7}</Project>
       <Name>SponsorPortal.ApplicationManagement.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj">
+      <Project>{27FA92CC-D399-417E-9383-09B2E0FB26D6}</Project>
+      <Name>SponsorPortal.ClerkManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.Helpers\SponsorPortal.Helpers.csproj">
       <Project>{CF259392-692F-43B1-B7A8-32AC43EEFA43}</Project>

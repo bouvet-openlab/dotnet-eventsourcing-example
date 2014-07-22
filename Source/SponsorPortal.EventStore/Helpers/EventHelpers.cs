@@ -14,7 +14,7 @@ namespace SponsorPortal.EventStore.Helpers
             return evnt.GetType().Name;
         }
 
-        internal static bool CanParseTo<TEvent>(ResolvedEvent resolvedEvent)
+        internal static bool IsSameTypeAs<TEvent>(ResolvedEvent resolvedEvent)
         {
             return resolvedEvent.Event.EventType == GetNameFor<TEvent>();
         }

@@ -8,11 +8,12 @@ namespace SponsorPortal.ApplicationManagement.Core.Events
     public class ClerkAssignedToApplicationFormEvent : EventBase
     {
         public Guid ApplicationFormId { get; private set; }
-        public string ClerkId { get; private set; }
+        public Guid ClerkId { get; private set; }
 
-        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, string clerkId) : base(AggregateRoot.ApplicationForm)
+        public ClerkAssignedToApplicationFormEvent(Guid applicationFormId, Guid clerkId) : base(AggregateRoot.ApplicationForm)
         {
-            if (String.IsNullOrEmpty(clerkId)) throw new ArgumentNullException("clerkId");
+            if (applicationFormId == Guid.Empty) throw new ArgumentException("applicationFormId cannot be empty");
+            if (clerkId == Guid.Empty) throw new ArgumentException("clerkId cannot be empty");
             ApplicationFormId = applicationFormId;
             ClerkId = clerkId;
         }
