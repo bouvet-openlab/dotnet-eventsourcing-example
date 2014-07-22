@@ -65,8 +65,12 @@
     <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationFormTests.cs" />
     <Compile Include="ApplicationManagement.Core\CommandModelTests\ApplicationRepositoryTests.cs" />
     <Compile Include="ApplicationManagement.Core\CommandsTests\AssignClerkCommandTests.cs" />
+    <Compile Include="ApplicationManagement.Core\CommandsTests\GrantApplicationCommandTests.cs" />
+    <Compile Include="ApplicationManagement.Core\CommandsTests\RejectApplicationCommandTests.cs" />
     <Compile Include="ApplicationManagement.Core\EventsTests\ClerkAssignedToApplicationFormEventTests.cs" />
     <Compile Include="ApplicationManagement.Core\EventsTests\CreatedNewApplicationFormEventTests.cs" />
+    <Compile Include="ApplicationManagement.Core\EventsTests\GrantedApplicationEventTests.cs" />
+    <Compile Include="ApplicationManagement.Core\EventsTests\RejectedApplicationEventTests.cs" />
     <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormProjectionTests.cs" />
     <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormTests.cs" />
     <Compile Include="ApplicationManagement.Web\ApplicationFormControllerTests.cs" />

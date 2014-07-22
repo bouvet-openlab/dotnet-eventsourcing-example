@@ -50,8 +50,12 @@
     <Compile Include="CommandModel\ValueObjects\ApplicationFormDTO.cs" />
     <Compile Include="Commands\AssignClerkCommand.cs" />
     <Compile Include="Commands\CreateNewApplicationFormCommand.cs" />
+    <Compile Include="Commands\GrantApplicationCommand.cs" />
+    <Compile Include="Commands\RejectApplicationCommand.cs" />
     <Compile Include="Events\ClerkAssignedToApplicationFormEvent.cs" />
     <Compile Include="Events\CreatedNewApplicationFormEvent.cs" />
+    <Compile Include="Events\GrantedApplicationEvent.cs" />
+    <Compile Include="Events\RejectedApplicationEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryModel\ApplicationFormAggregate\ApplicationForm.cs" />
     <Compile Include="QueryModel\ApplicationFormAggregate\ApplicationStatus.cs" />
