@@ -7,9 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A7FDA1D6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{8F4F920A-54BA-44F4-B9AD-24E43A3246C0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationManagement", "ApplicationManagement", "{F7222119-81AC-4B86-A0AA-CA82E103DBD7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Management", "Application Management", "{F7222119-81AC-4B86-A0AA-CA82E103DBD7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationEntry", "ApplicationEntry", "{44814909-0B97-40C3-AC46-C3A13AC663FA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application Entry", "Application Entry", "{44814909-0B97-40C3-AC46-C3A13AC663FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{974BA616-0DA7-422F-9CB9-BD270AB3FA72}"
 	ProjectSection(SolutionItems) = preProject
@@ -38,7 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.Tests.Integra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{443AD7B6-2490-4BD3-BEC6-D39088031D15}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClerkManagement", "ClerkManagement", "{367CBD70-05E0-40ED-8293-C110E944B0D9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clerk Management", "Clerk Management", "{367CBD70-05E0-40ED-8293-C110E944B0D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SponsorPortal.ClerkManagement", "SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj", "{27FA92CC-D399-417E-9383-09B2E0FB26D6}"
 EndProject
