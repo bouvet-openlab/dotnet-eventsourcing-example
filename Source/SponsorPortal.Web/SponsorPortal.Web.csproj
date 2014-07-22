@@ -174,6 +174,10 @@
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
       <Name>SponsorPortal.ApplicationManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.Logging\SponsorPortal.Logging.csproj">
+      <Project>{600ef2c5-1cf6-4df5-82c5-04b20f711933}</Project>
+      <Name>SponsorPortal.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\modals\" />

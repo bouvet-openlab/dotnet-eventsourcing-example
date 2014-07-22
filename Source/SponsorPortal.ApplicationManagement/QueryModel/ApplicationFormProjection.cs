@@ -8,6 +8,7 @@ using SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.ApplicationManagement.QueryModel.Interfaces;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
+using SponsorPortal.Logging;
 
 namespace SponsorPortal.ApplicationManagement.QueryModel
 {
@@ -33,7 +34,7 @@ namespace SponsorPortal.ApplicationManagement.QueryModel
 
         private void OnNewApplicationCreated(CreatedNewApplicationFormEvent evnt)
         {
-            Debug.WriteLine("Received " + evnt.GetType().Name);
+            Log.Msg(this, log => log.Info("Received " + evnt.GetType().Name));
 
             ApplicationForms = ApplicationForms.Add(new ApplicationForm(evnt.EntityId,
                                                                         evnt.Organization,
@@ -47,7 +48,7 @@ namespace SponsorPortal.ApplicationManagement.QueryModel
 
         private void OnClerkAssignedToApplication(ClerkAssignedToApplicationFormEvent evnt)
         {
-            Debug.WriteLine("Received " + evnt.GetType().Name);
+            Log.Msg(this, log => log.Info("Received " + evnt.GetType().Name));
 
             var application = ApplicationForms.Single(app => app.Id == evnt.ApplicationFormId);
             var updatedApplicationForm = new ApplicationForm(application.Id,

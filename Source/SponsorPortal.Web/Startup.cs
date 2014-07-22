@@ -20,6 +20,7 @@ using SponsorPortal.ClerkManagement.QueryModel;
 using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
+using SponsorPortal.Logging;
 using SponsorPortal.Web;
 
 [assembly: OwinStartup(typeof(Startup))]
@@ -31,6 +32,7 @@ namespace SponsorPortal.Web
         {
             try
             {
+                ConfigureLogging();
                 var container = ConfigureIoC();
                 InitializeEventStore(container);
                 InitializeProjections(container);
@@ -39,8 +41,14 @@ namespace SponsorPortal.Web
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message + "\n\n" + ex.StackTrace);
+                Log.Msg(this, log => log.Error("An error occurred during startup configuration", ex));
             }
+        }
+
+        private void ConfigureLogging()
+        {
+            Log.InitializeLogFactory(new DebugLogFactory(), new Log4NetLogFactory());
+            Log.Msg(this, log => log.Info("Log framework initialized"));
         }
 
         private void ConfigureErrorHandling(IAppBuilder builder)

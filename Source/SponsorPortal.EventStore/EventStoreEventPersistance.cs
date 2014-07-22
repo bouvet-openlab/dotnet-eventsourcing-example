@@ -9,6 +9,7 @@ using EventStore.ClientAPI;
 using SponsorPortal.EventStore.Helpers;
 using SponsorPortal.Helpers;
 using SponsorPortal.Infrastructure;
+using SponsorPortal.Logging;
 
 namespace SponsorPortal.EventStore
 {
@@ -24,11 +25,11 @@ namespace SponsorPortal.EventStore
         {
             var connectionSettings = ConnectionSettings.Create().EnableVerboseLogging()
                                                                 .LimitAttemptsForOperationTo(3)
-                                                                .OnConnected((conn, endpoint) => Debug.WriteLine("Event Store connected"))
-                                                                .OnClosed((conn, reason) => Debug.WriteLine("Event Store connection closed " + reason))
-                                                                .OnDisconnected((conn, endpoint) => Debug.WriteLine("Event Store disconnected"))
-                                                                .OnReconnecting((conn) => Debug.WriteLine("Reconnecting to Event Store"))
-                                                                .OnErrorOccurred((conn, ex) => Debug.WriteLine("Event Store error occurred " + ex))
+                                                                .OnConnected((conn, endpoint) => Log.Msg(this, log => log.Info("Event Store connected")))
+                                                                .OnClosed((conn, reason) => Log.Msg(this, log => log.Info("Event Store connection closed " + reason)))
+                                                                .OnDisconnected((conn, endpoint) => Log.Msg(this, log => log.Info("Event Store disconnected")))
+                                                                .OnReconnecting((conn) => Log.Msg(this, log => log.Info("Reconnecting to Event Store")))
+                                                                .OnErrorOccurred((conn, ex) => Log.Msg(this, log => log.Info("Event Store error occurred " + ex)))
                                                                 .UseDebugLogger()
                                                                 .UseNormalConnection();
 
@@ -74,14 +75,13 @@ namespace SponsorPortal.EventStore
             {
                 if (!EventHelpers.IsSameTypeAs<TEvent>(resolvedEvent)) return;
 
-                Debug.WriteLine("Catching up...");
                 var evnt = resolvedEvent.ParseTo<TEvent>();
                 subscription(evnt);
             };
 
             Action<EventStoreCatchUpSubscription> onIsUpToDate = (catchUpSubscription) =>
             {
-                Debug.WriteLine("Subscription is up to date");
+                // do stuff...
             };
 
             var streamId = aggregateRoot.ToString();
