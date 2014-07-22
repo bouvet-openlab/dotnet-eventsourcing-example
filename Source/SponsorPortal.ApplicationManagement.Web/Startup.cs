@@ -8,6 +8,7 @@ using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Diagnostics;
 using Microsoft.Owin.Logging;
+using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.WebApi;
 using Newtonsoft.Json.Serialization;
@@ -92,13 +93,10 @@ namespace SponsorPortal.ApplicationManagement.Web
             eventstore.Initialize();
         }
 
-        private async void InitializeProjections(IUnityContainer container)
+        private void InitializeProjections(IUnityContainer container)
         {
-            var projection = container.Resolve<ApplicationFormProjection>();
-            await projection.GetAllExistingEventsOfInterest();
-
-            var clerkProjection = container.Resolve<ClerkProjection>();
-            await clerkProjection.GetAllExistingEventsOfInterest();
+            var projections = container.ResolveAll<ApplicationFormProjection>();
+            projections.ForEach(async proj => await proj.Initialize());
         }
 
         private void ConfigureWebApi(IAppBuilder builder, IUnityContainer container)

@@ -30,7 +30,7 @@ namespace SponsorPortal.Tests.Integration
         [Test]
         public async void WhenSubmittingNewClerk_ExpectedClerkIsRetrievableFromProjection()
         {
-            await _clerkProjection.SubscribeToEvents();
+            await _clerkProjection.Initialize();
 
             var clerksBeforeInsert = _clerkController.GetAll() as OkNegotiatedContentResult<ImmutableList<Clerk>>;
 

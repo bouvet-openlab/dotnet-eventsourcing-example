@@ -1,13 +1,11 @@
 ﻿using System.Collections.Immutable;
-using System.Threading.Tasks;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
+using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces
 {
-    public interface IApplicationFormProjection
+    public interface IApplicationFormProjection : IProjection
     {
         ImmutableList<ApplicationForm> ApplicationForms { get; }
-        Task SubscribeToEvents();
-        Task GetAllExistingEventsOfInterest();
     }
 }

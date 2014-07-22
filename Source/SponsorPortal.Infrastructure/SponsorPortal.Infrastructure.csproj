@@ -61,6 +61,7 @@
     <Compile Include="IEvent.cs" />
     <Compile Include="IEventPersistance.cs" />
     <Compile Include="IoC.cs" />
+    <Compile Include="IProjection.cs" />
     <Compile Include="Projection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

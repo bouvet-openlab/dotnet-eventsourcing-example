@@ -20,12 +20,12 @@ namespace SponsorPortal.ApplicationManagement.Core.QueryModel
             ApplicationForms = ImmutableList<ApplicationForm>.Empty;
         }
 
-        public override async Task SubscribeToEvents()
+        protected override async Task SubscribeToEvents()
         {
             await EventStore.SubscribeToNew<CreatedNewApplicationFormEvent>(AggregateRoot.ApplicationForm, OnNewApplicationCreated);
         }
 
-        public async Task GetAllExistingEventsOfInterest()
+        protected override async Task GetPersistedEvents()
         {
             var events = await EventStore.ReadAllFromAggregate<CreatedNewApplicationFormEvent>(AggregateRoot.ApplicationForm);
             events.ForEach(OnNewApplicationCreated);

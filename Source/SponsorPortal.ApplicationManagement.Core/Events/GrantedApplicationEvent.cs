@@ -2,7 +2,7 @@
 
 namespace SponsorPortal.ApplicationManagement.Core.Events
 {
-      [Serializable]
+    [Serializable]
     public class GrantedApplicationEvent
     {
         public GrantedApplicationEvent(Guid applicationId, double amount, Guid clerkId)
@@ -10,7 +10,7 @@ namespace SponsorPortal.ApplicationManagement.Core.Events
             if (applicationId == Guid.Empty) throw new ArgumentException("ApplicationId cannot be empty guid");
             if (clerkId == Guid.Empty) throw new ArgumentException("ClerkId cannot be empty guid");
             if (amount <= 0.0) throw new ArgumentException("Amount must be greater than zero");
-            
+
             ApplicationId = applicationId;
             Amount = amount;
             ClerkId = clerkId;

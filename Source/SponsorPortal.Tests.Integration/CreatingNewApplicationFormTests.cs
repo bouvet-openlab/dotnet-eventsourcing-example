@@ -27,7 +27,7 @@ namespace SponsorPortal.Tests.Integration
         [Test]
         public async void WhenGivingNewApplicationFormToCommandApi_RetrievesExpectedApplicationFormFromQueryApi()
         {
-            await _applicationFormProjection.SubscribeToEvents();
+            await _applicationFormProjection.Initialize();
             
             var dto = new ApplicationFormDTOBuilder().Build();
             await _applicationFormController.SaveNew(dto);
@@ -54,8 +54,7 @@ namespace SponsorPortal.Tests.Integration
         [Test]
         public async void WhenGivingSeveralApplicationFormsToCommandApi_RetrievesExpectedAmountOfApplicationsFromQueryApi()
         {
-            await _applicationFormProjection.GetAllExistingEventsOfInterest();
-            await _applicationFormProjection.SubscribeToEvents();
+            await _applicationFormProjection.Initialize();
 
             await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing(1000);
 
@@ -82,7 +81,7 @@ namespace SponsorPortal.Tests.Integration
         }
 
         [Test]
-        public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionReceivesOnlyNewEvents()
+        public async void WhenProjectionSubscribesToEventsWithEventsAlreadyInEventStore_ProjectionRetrievesAllExistingEventsAndThenSubscribesToNewEvents()
         {
             var dto1 = new ApplicationFormDTOBuilder().Build();
             var dto2 = new ApplicationFormDTOBuilder().Build();
@@ -91,7 +90,11 @@ namespace SponsorPortal.Tests.Integration
             await _applicationFormController.SaveNew(dto2);
             await _applicationFormController.SaveNew(dto3);
 
-            await _applicationFormProjection.SubscribeToEvents();
+            await _applicationFormProjection.Initialize();
+
+            await Async.PauseToAllowRunningAsyncTasksToCompleteBeforeContinuing();
+
+            var countAfterInitialization = _applicationFormProjection.ApplicationForms.Count;
 
             var dto4 = new ApplicationFormDTOBuilder().Build();
             var dto5 = new ApplicationFormDTOBuilder().Build();
@@ -102,7 +105,8 @@ namespace SponsorPortal.Tests.Integration
 
             var applicationForms = _applicationFormController.GetAll();
 
-            Assert.IsTrue(applicationForms.Count == 2);
+            Assert.AreEqual(2, applicationForms.Count - countAfterInitialization);
+            Assert.AreEqual(applicationForms.Count, countAfterInitialization + 2);
         }
     }
 }

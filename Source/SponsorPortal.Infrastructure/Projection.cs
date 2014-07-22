@@ -6,6 +6,7 @@ namespace SponsorPortal.Infrastructure
     public abstract class Projection
     {
         protected IEventPersistance EventStore { get; private set; }
+        public bool IsInitialized { get; protected set; }
 
         protected Projection(IEventPersistance eventStore)
         {
@@ -13,6 +14,18 @@ namespace SponsorPortal.Infrastructure
             EventStore = eventStore;
         }
 
-        public abstract Task SubscribeToEvents();
+        protected abstract Task SubscribeToEvents();
+
+        protected abstract Task GetPersistedEvents();
+
+        public async virtual Task Initialize()
+        {
+            if (!IsInitialized)
+            {
+                await GetPersistedEvents();
+                await SubscribeToEvents();
+                IsInitialized = true;
+            }
+        }
     }
 }
