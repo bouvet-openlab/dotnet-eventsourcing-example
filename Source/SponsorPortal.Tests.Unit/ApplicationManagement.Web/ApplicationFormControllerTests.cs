@@ -9,10 +9,10 @@ using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.ApplicationFormAggregate;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
+using SponsorPortal.Web;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Web
 {

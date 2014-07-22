@@ -84,10 +84,6 @@
       <Project>{741BE4BD-D6D6-4BDD-AEBA-8F4B87D0DDC7}</Project>
       <Name>SponsorPortal.ApplicationManagement.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SponsorPortal.ApplicationManagement.Web\SponsorPortal.ApplicationManagement.Web.csproj">
-      <Project>{71578A09-ECC2-4704-900F-F8B9F81CF2A7}</Project>
-      <Name>SponsorPortal.ApplicationManagement.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SponsorPortal.ClerkManagement\SponsorPortal.ClerkManagement.csproj">
       <Project>{27FA92CC-D399-417E-9383-09B2E0FB26D6}</Project>
       <Name>SponsorPortal.ClerkManagement</Name>
@@ -107,6 +103,10 @@
     <ProjectReference Include="..\SponsorPortal.TestHelpers\SponsorPortal.TestHelpers.csproj">
       <Project>{4D9A8600-77AE-45EA-89D7-E258D641F552}</Project>
       <Name>SponsorPortal.TestHelpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.Web\SponsorPortal.Web.csproj">
+      <Project>{71578a09-ecc2-4704-900f-f8b9f81cf2a7}</Project>
+      <Name>SponsorPortal.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Formatting;
-using System.Reflection;
-using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Diagnostics;
-using Microsoft.Owin.Logging;
 using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.WebApi;
@@ -18,7 +13,6 @@ using SponsorPortal.ApplicationManagement.Core.CommandModel.Interfaces;
 using SponsorPortal.ApplicationManagement.Core.Commands;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.ClerkManagement.CommandModel;
 using SponsorPortal.ClerkManagement.CommandModel.Interfaces;
 using SponsorPortal.ClerkManagement.Commands;
@@ -26,9 +20,10 @@ using SponsorPortal.ClerkManagement.QueryModel;
 using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
+using SponsorPortal.Web;
 
 [assembly: OwinStartup(typeof(Startup))]
-namespace SponsorPortal.ApplicationManagement.Web
+namespace SponsorPortal.Web
 {
     public class Startup
     {

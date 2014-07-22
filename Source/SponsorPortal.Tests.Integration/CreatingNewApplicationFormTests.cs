@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.QueryModel.Interfaces;
-using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
+using SponsorPortal.Web;
 
 namespace SponsorPortal.Tests.Integration
 {

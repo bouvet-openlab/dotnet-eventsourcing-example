@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Immutable;
 using System.Web.Http.Results;
 using Moq;
 using NUnit.Framework;
-using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.ClerkManagement.Commands;
-using SponsorPortal.ClerkManagement.QueryModel;
 using SponsorPortal.ClerkManagement.QueryModel.ClerkAggregate;
 using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestDataBuilders;
 using SponsorPortal.TestHelpers;
+using SponsorPortal.Web;
 
 namespace SponsorPortal.Tests.Unit.ApplicationManagement.Web
 {

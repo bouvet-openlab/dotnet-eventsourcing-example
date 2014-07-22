@@ -6,7 +6,7 @@ using SponsorPortal.ClerkManagement.Commands;
 using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.Infrastructure;
 
-namespace SponsorPortal.ApplicationManagement.Web
+namespace SponsorPortal.Web
 {
     public class ClerkController : ApiController
     {

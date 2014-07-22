@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 using SponsorPortal.ApplicationManagement.Core.QueryModel;
-using SponsorPortal.ApplicationManagement.Web;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.TestHelpers;
+using SponsorPortal.Web;
 
 namespace SponsorPortal.Tests.Integration
 {
