@@ -21,6 +21,7 @@ using SponsorPortal.ClerkManagement.QueryModel.Interfaces;
 using SponsorPortal.EventStore;
 using SponsorPortal.Infrastructure;
 using SponsorPortal.Logging;
+using SponsorPortal.Logging.LogFactories;
 using SponsorPortal.Web;
 
 [assembly: OwinStartup(typeof(Startup))]

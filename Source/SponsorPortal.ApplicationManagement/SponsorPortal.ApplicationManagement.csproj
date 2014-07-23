@@ -76,6 +76,10 @@
       <Project>{b96d8492-4472-41f3-9cc0-c136edb03d6b}</Project>
       <Name>SponsorPortal.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SponsorPortal.Logging\SponsorPortal.Logging.csproj">
+      <Project>{600ef2c5-1cf6-4df5-82c5-04b20f711933}</Project>
+      <Name>SponsorPortal.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

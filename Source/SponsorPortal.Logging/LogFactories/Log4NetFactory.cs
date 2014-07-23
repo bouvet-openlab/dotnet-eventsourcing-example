@@ -1,8 +1,10 @@
 ﻿using System;
 using log4net;
 using log4net.Config;
+using SponsorPortal.Logging.Interfaces;
+using ILog = SponsorPortal.Logging.Interfaces.ILog;
 
-namespace SponsorPortal.Logging
+namespace SponsorPortal.Logging.LogFactories
 {
     /// <summary>
     /// Log4Net implementation

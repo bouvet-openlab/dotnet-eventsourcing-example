@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using SponsorPortal.Logging.Interfaces;
+using SponsorPortal.Logging.LogFactories;
 
 namespace SponsorPortal.Logging
 {

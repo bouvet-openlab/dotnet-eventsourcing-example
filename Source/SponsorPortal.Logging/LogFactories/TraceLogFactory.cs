@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using SponsorPortal.Logging.Interfaces;
 
-namespace SponsorPortal.Logging
+namespace SponsorPortal.Logging.LogFactories
 {
     public  class TraceLogFactory : ILogFactory
     {

@@ -1,23 +1,41 @@
 ﻿using System;
+using System.Diagnostics;
+using SponsorPortal.Logging.Interfaces;
 
-namespace SponsorPortal.Logging
+namespace SponsorPortal.Logging.LogFactories
 {
-    public class ConsoleLogFactory : ILogFactory
+    /// <summary>
+    /// Logger implementation logging to the debug output window
+    /// </summary>
+    public class DebugLogFactory : ILogFactory
     {
+        #region ILogFactory Members
+
+        /// <summary>
+        /// Returns a ILog implementation for the implemented log factory
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public ILog CreateFor(Type type)
         {
-            return new ConsoleLogger();
+            return new DebugLogger();
         }
 
-        private class ConsoleLogger : ILog
+        #endregion
+
+        #region Nested type: DebugLogger
+
+        private class DebugLogger : ILog
         {
+            #region ILog Members
+
             /// <summary>
             /// Writes an informational message to the log
             /// </summary>
             /// <param name="message">The message.</param>
             public void Info(string message)
             {
-                Console.WriteLine(message);
+                Debug.WriteLine(message);
             }
 
             /// <summary>
@@ -26,7 +44,7 @@ namespace SponsorPortal.Logging
             /// <param name="message">The message.</param>
             public void Warning(string message)
             {
-                Console.WriteLine(message);
+                Debug.WriteLine(message);
             }
 
             /// <summary>
@@ -35,7 +53,7 @@ namespace SponsorPortal.Logging
             /// <param name="message">The message.</param>
             public void Error(string message)
             {
-                Console.WriteLine(message);
+                Debug.WriteLine(message);
             }
 
             /// <summary>
@@ -45,7 +63,7 @@ namespace SponsorPortal.Logging
             /// <param name="args">The args.</param>
             public void Info(string message, params string[] args)
             {
-                Console.WriteLine(string.Format(message, args));
+                Debug.WriteLine(string.Format(message, args));
             }
 
             /// <summary>
@@ -55,7 +73,7 @@ namespace SponsorPortal.Logging
             /// <param name="args">The args.</param>
             public void Warning(string message, params string[] args)
             {
-                Console.WriteLine(string.Format(message, args));
+                Debug.WriteLine(string.Format(message, args));
             }
 
             /// <summary>
@@ -65,7 +83,7 @@ namespace SponsorPortal.Logging
             /// <param name="args">The args.</param>
             public void Error(string message, params string[] args)
             {
-                Console.WriteLine(string.Format(message, args));
+                Debug.WriteLine(string.Format(message, args));
             }
 
             /// <summary>
@@ -76,7 +94,7 @@ namespace SponsorPortal.Logging
             /// <param name="args">The args.</param>
             public void Error(string message, Exception ex, params string[] args)
             {
-                Console.WriteLine(string.Format(message, args) + "\n" + ex);
+                Debug.WriteLine(string.Format(message, args) + "\n" + ex);
             }
 
             /// <summary>
@@ -86,7 +104,7 @@ namespace SponsorPortal.Logging
             /// <param name="ex">The exeption.</param>
             public void Error(string message, Exception ex)
             {
-                Console.WriteLine(message + "\n" + ex);
+                Debug.WriteLine(message + "\n" + ex);
             }
 
             /// <summary>
@@ -95,8 +113,12 @@ namespace SponsorPortal.Logging
             /// <param name="ex">The exeption.</param>
             public void Error(Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Debug.WriteLine(ex.ToString());
             }
+
+            #endregion
         }
+
+        #endregion
     }
 }

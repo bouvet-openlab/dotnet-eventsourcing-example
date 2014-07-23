@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SponsorPortal.Logging
+namespace SponsorPortal.Logging.Interfaces
 {
     /// <summary>
     /// Interface to be implemented by concrete loggers
