@@ -17,5 +17,10 @@ namespace SponsorPortal.ApplicationManagement.Events
             ApplicationFormId = applicationFormId;
             ClerkId = clerkId;
         }
+
+        public override string LogDescription
+        {
+            get { return "Clerk " + ClerkId + " was assigned application " + ApplicationFormId; }
+        }
     }
 }

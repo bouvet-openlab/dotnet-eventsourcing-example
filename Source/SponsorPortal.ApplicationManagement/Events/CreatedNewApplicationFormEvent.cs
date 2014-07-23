@@ -31,5 +31,10 @@ namespace SponsorPortal.ApplicationManagement.Events
             Text = text;
             Status = ApplicationStatus.NotProcessed;
         }
+
+        public override string LogDescription
+        {
+            get { return "Application created"; }
+        }
     }
 }

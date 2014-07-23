@@ -49,6 +49,7 @@
     <Compile Include="CreatedNewApplicationFormEventBuilder.cs" />
     <Compile Include="GrantApplicationCommandBuilder.cs" />
     <Compile Include="GrantedApplicationEventBuilder.cs" />
+    <Compile Include="HistoryEntryBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryApplicationFormBuilder.cs" />
     <Compile Include="RejectApplicationCommandBuilder.cs" />

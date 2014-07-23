@@ -73,6 +73,7 @@
     <Compile Include="ApplicationManagement.Core\EventsTests\RejectedApplicationEventTests.cs" />
     <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormProjectionTests.cs" />
     <Compile Include="ApplicationManagement.Core\QueryModelTests\ApplicationFormTests.cs" />
+    <Compile Include="ApplicationManagement.Core\QueryModelTests\HistoryEntryTests.cs" />
     <Compile Include="ApplicationManagement.Web\ApplicationFormControllerTests.cs" />
     <Compile Include="ApplicationManagement.Web\ClerkControllerTests.cs" />
     <Compile Include="ClerkManagement\CommandModelTests\ClerkServiceTests.cs" />

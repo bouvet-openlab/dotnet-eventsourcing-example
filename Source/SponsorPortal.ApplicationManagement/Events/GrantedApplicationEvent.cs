@@ -1,11 +1,13 @@
 ﻿using System;
+using SponsorPortal.Helpers;
+using SponsorPortal.Infrastructure;
 
 namespace SponsorPortal.ApplicationManagement.Events
 {
     [Serializable]
-    public class GrantedApplicationEvent
+    public class GrantedApplicationEvent : EventBase
     {
-        public GrantedApplicationEvent(Guid applicationId, double amount, Guid clerkId)
+        public GrantedApplicationEvent(Guid applicationId, double amount, Guid clerkId) : base(AggregateRoot.ApplicationForm)
         {
             if (applicationId == Guid.Empty) throw new ArgumentException("ApplicationId cannot be empty guid");
             if (clerkId == Guid.Empty) throw new ArgumentException("ClerkId cannot be empty guid");
@@ -19,5 +21,10 @@ namespace SponsorPortal.ApplicationManagement.Events
         public Guid ApplicationId { get; private set; }
         public double Amount { get; private set; }
         public Guid ClerkId { get; private set; }
+
+        public override string LogDescription
+        {
+            get { return "Granted " + Amount + " by " + ClerkId; }
+        }
     }
 }

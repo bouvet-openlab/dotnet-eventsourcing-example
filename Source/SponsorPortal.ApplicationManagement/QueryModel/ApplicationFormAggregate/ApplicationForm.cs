@@ -46,5 +46,10 @@ namespace SponsorPortal.ApplicationManagement.QueryModel.ApplicationFormAggregat
 
             History = history != null && history.Any() ? history.ToImmutableList() : ImmutableList<HistoryEntry>.Empty;
         }
+
+        public void AddHistoryEntry(HistoryEntry entry)
+        {
+            History = History.Add(entry);
+        }
     }
 }

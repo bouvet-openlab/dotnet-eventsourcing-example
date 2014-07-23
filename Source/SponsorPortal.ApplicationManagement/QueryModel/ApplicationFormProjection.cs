@@ -36,14 +36,18 @@ namespace SponsorPortal.ApplicationManagement.QueryModel
         {
             Log.Msg(this, log => log.Info("Received " + evnt.GetType().Name));
 
-            ApplicationForms = ApplicationForms.Add(new ApplicationForm(evnt.EntityId,
-                                                                        evnt.Organization,
-                                                                        evnt.Email,
-                                                                        evnt.Amount,
-                                                                        evnt.Title,
-                                                                        evnt.Text,
-                                                                        evnt.Status,
-                                                                        evnt.CreatedTimestamp));
+            var newApplication = new ApplicationForm(evnt.EntityId,
+                evnt.Organization,
+                evnt.Email,
+                evnt.Amount,
+                evnt.Title,
+                evnt.Text,
+                evnt.Status,
+                evnt.CreatedTimestamp);
+            
+            newApplication.AddHistoryEntry(new HistoryEntry(evnt.LogDescription));
+
+            ApplicationForms = ApplicationForms.Add(newApplication);
         }
 
         private void OnClerkAssignedToApplication(ClerkAssignedToApplicationFormEvent evnt)
@@ -62,6 +66,8 @@ namespace SponsorPortal.ApplicationManagement.QueryModel
                                                              application.UpdatedTimestamp,
                                                              "",
                                                              application.History);
+            
+            updatedApplicationForm.AddHistoryEntry(new HistoryEntry(evnt.LogDescription));
 
             ReplaceApplicationForm(evnt.ApplicationFormId, updatedApplicationForm);
         }

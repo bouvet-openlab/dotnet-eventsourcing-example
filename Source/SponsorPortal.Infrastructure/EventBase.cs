@@ -21,5 +21,7 @@ namespace SponsorPortal.Infrastructure
         {
             return String.Format("Aggregate={0}, Id={1}, CreatedTimestamp={2}", AggregateRootIdentifier, EntityId, CreatedTimestamp);
         }
+
+        public abstract string LogDescription { get; }
     }
 }
